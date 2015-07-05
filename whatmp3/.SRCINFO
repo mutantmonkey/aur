@@ -1,0 +1,23 @@
+pkgbase = whatmp3
+	pkgdesc = A small Python script that accepts a list of directories containing FLAC files as arguments and converts them to MP3 with the specified options. It can optionally create a torrent file.
+	pkgver = 3.6
+	pkgrel = 1
+	url = http://logik.li/projects/whatmp3/
+	arch = any
+	license = MIT
+	depends = python
+	depends = mktorrent
+	depends = flac
+	optdepends = vorbis-tools: OGG Vorbis support
+	optdepends = lame: MP3 support
+	optdepends = neroaacenc: AAC support
+	optdepends = neroaactag: AAC support
+	optdepends = mp3gain: ReplayGain support
+	optdepends = vorbisgain: ReplayGain support
+	optdepends = aacgain: ReplayGain support
+	optdepends = sox: dither support
+	source = https://github.com/RecursiveForest/whatmp3/archive/v3.6.tar.gz
+	sha256sums = a1f5ef28e2511aa47f4658f71a8a3afe3dda96e7dd6a1cf9d124daead0fed5fa
+
+pkgname = whatmp3
+
