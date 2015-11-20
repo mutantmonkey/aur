@@ -1,0 +1,15 @@
+pkgbase = mutantmonkey-keyring
+	pkgdesc = mutantmonkey PGP keyring
+	pkgver = 20150205
+	pkgrel = 1
+	url = https://mutantmonkey.in/
+	install = mutantmonkey-keyring.install
+	arch = any
+	license = GPL
+	source = mutantmonkey.gpg
+	source = mutantmonkey-trusted
+	sha256sums = 15d0b395a643125e4814b24b84b47179651d3a9a0186f7db311c020e4dd3d4c7
+	sha256sums = ba0744b270733f3d980b3808f07f3f721ca1dca65843750b6f0bdbfb8b32670a
+
+pkgname = mutantmonkey-keyring
+
