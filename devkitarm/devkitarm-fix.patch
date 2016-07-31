@@ -1,0 +1,14 @@
+*** buildscripts/dkarm-eabi/scripts/build-tools.sh	2016-07-26 05:18:32.386666662 +0000
+--- buildscripts/dkarm-eabi/scripts/build-tools.sh	2016-07-26 05:17:52.443333330 +0000
+***************
+*** 1,6 ****
+--- 1,9 ----
+  #!/bin/bash
+  cd $BUILDDIR
+  
++ sed -i 's/const literals/const struct literals/g' $BUILDDIR/gp32tools-1.0.1/src/b2fxec/compress_fxe{0,2,3}.cpp
++ patch -Np0 -i ../../grit-fix.patch
++ 
+  for archive in $hostarchives
+  do
+  	dir=$(echo $archive | sed -e 's/\(.*\)\.tar\.bz2/\1/' )

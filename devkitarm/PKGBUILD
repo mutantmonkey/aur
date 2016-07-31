@@ -2,7 +2,7 @@
 
 pkgname=devkitarm
 pkgver=r45
-pkgrel=1
+pkgrel=2
 pkgdesc="An ARM toolchain for GP32, Nintendo DS and GBA homebrew development"
 arch=('i686' 'x86_64')
 url="http://www.devkitpro.org"
@@ -29,7 +29,10 @@ source=("http://downloads.sourceforge.net/sourceforge/devkitpro/buildscripts-201
         "http://downloads.sourceforge.net/sourceforge/devkitpro/3dstools-1.1.1.tar.bz2"
         "http://downloads.sourceforge.net/sourceforge/devkitpro/picasso-2.1.0.tar.bz2"
         "devkitarm-skip-libs.patch"
-        "devkitarm.sh")
+        "devkitarm.sh"
+        'gcc6-fix.patch'
+        'devkitarm-fix.patch'
+        'grit-fix.patch')
 sha256sums=('dffe312bdcd86b30bbe91969fb82c8634b6e7171548c04ee8ebf52540de28818'
             'b5b14added7d78a8d1ca70b5cb75fef57ce2197264f4f5835326b0df22ac9f22'
             'b84f5592e9218b73dbae612b5253035a7b34a9a1f7688d2e1bfaaf7267d5c4db'
@@ -49,7 +52,10 @@ sha256sums=('dffe312bdcd86b30bbe91969fb82c8634b6e7171548c04ee8ebf52540de28818'
             '6dbf15bb5cbeee826b6ffc608288f1267ed3696d725956943545c0572401d548'
             '79bf84b42da964918f6c8bb1294434ed1e10feab9a2b1f5a0183030637977650'
             '97b498aa26aba743e141115cd8f1169aa8411532f589c3c845233a299f5ecf74'
-            'fc5489fab5ee4ce5cd53c2e1549fd2958872a6777324920b89e03b88584072db')
+            'fc5489fab5ee4ce5cd53c2e1549fd2958872a6777324920b89e03b88584072db'
+            '0d951b294d8b0ab12457d6fdb16530fbb6b12e7ba353042807d259c002f9779b'
+            '3259bb845108fd238812d419d90e8317a7c4919f201fc37fc0dcfd5f5843168c'
+            '02eb9c79ebaa47e18a41eb0137bae46604e46bdfe08e59532f874e8158e87f6b')
 noextract=('binutils-2.25.1.tar.bz2' 'gcc-5.3.0.tar.bz2' 'newlib-2.2.0.tar.gz'
            'gdb-7.10.tar.bz2' 'gbatools-1.0.0.tar.bz2' 'gp32tools-1.0.1.tar.bz2'
            'dstools-1.0.2.tar.bz2' 'grit-0.8.13.tar.bz2' 'ndstool-1.50.3.tar.bz2'
@@ -81,6 +87,11 @@ END
 
   # disable building of libraries, we have separate packages
   patch -Np0 < devkitarm-skip-libs.patch
+
+  sed -i '/extract_and_patch gcc $GCC_VER bz2/a \
+patch -N -p0 -i ../../gcc6-fix.patch' buildscripts/build-devkit.sh
+
+  patch -Np0 -i devkitarm-fix.patch
 }
 
 build() {
