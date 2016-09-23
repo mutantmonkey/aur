@@ -8,7 +8,8 @@ pkgdesc="Allows you to develop interactive information displays using the Lua pr
 arch=('i686' 'x86_64')
 url="https://info-beamer.com/opensource"
 license=('BSD')
-depends=('ffmpeg' 'lua51' 'libevent' 'glfw' 'devil' 'glew' 'ftgl')
+depends=('ffmpeg' 'lua51' 'libevent' 'glfw' 'devil' 'glew' 'ftgl' 'libxcursor'
+         'libxinerama' 'libxrandr')
 makedepends=('git')
 source=('git+https://github.com/dividuum/info-beamer.git'
         'ffmpeg_2.9.patch')
