@@ -11,8 +11,9 @@ license=('GPL' 'PerlArtistic')
 #'perlxml>=2.30'
 depends=('perl>=5.10.0' 'perl-xml-regexp' 'libxml-perl>=0.07' 'perl-libwww')
 options=('!emptydirs')
-source=(http://www.cpan.org/authors/id/T/TJ/TJMATHER/XML-DOM-${pkgver}.tar.gz) 
+source=(https://cpan.metacpan.org/authors/id/T/TJ/TJMATHER/XML-DOM-${pkgver}.tar.gz)
 md5sums=('1ec2032a06e5762984f7a332c199c205')
+sha256sums=('f6af32c74c84b3b173eca9baac521a0f9b030c9a0395fcafd4235a84d8ad0ae4')
 
 build() {
   cd ${srcdir}/XML-DOM-${pkgver}
