@@ -13,7 +13,7 @@ makedepends=('python-setuptools')
 backup=('etc/radicale/config')
 install='radicale.install'
 source=(
-	"http://pypi.python.org/packages/source/R/Radicale/Radicale-${pkgver}.tar.gz"
+	"https://pypi.python.org/packages/source/R/Radicale/Radicale-${pkgver}.tar.gz"
 	"radicale-${pkgver}.patch"
 	'radicale.service'
 	'radicale.install'
