@@ -15,6 +15,7 @@ provides=('mutt')
 options=('!strip')
 source=("https://github.com/karelzak/$pkgname/archive/v$pkgver.tar.gz")
 md5sums=('42a47d32888366b220b99f5183b5a487')
+sha512sums=('a2ddb6b6805282596b8ee4235110f644fa5475a76343efedb3ee697267b08e43004673cd0c0c40e7126da3f629a7091d79f90a2c947b8f9d88ecd9480b1364dd')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
@@ -29,6 +30,7 @@ build() {
     --enable-smtp \
     --enable-pgp \
     --enable-hcache \
+    --enable-sidebar \
     --with-curses=/usr \
     --with-regex \
     --with-gss=/usr \
