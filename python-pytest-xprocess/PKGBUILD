@@ -4,7 +4,7 @@
 pkgname=python-pytest-xprocess
 _pkgname=pytest-xprocess
 pkgver=0.8
-pkgrel=1
+pkgrel=2
 pkgdesc='pytest plugin to manage external processes across test runs.'
 arch=('i686' 'x86_64')
 url='http://bitbucket.org/hpk42/pytest-xprocess/'
