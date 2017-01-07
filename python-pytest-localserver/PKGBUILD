@@ -3,7 +3,7 @@
 pkgname=python-pytest-localserver
 _pkgname=pytest-localserver
 pkgver=0.3.5
-pkgrel=1
+pkgrel=2
 pkgdesc='pytest plugin to test server connections locally.'
 arch=('i686' 'x86_64')
 url="https://pypi.python.org/pypi/$_pkgname"
