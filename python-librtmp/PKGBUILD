@@ -4,7 +4,7 @@
 pkgbase=python-librtmp
 pkgname=(python-librtmp python2-librtmp)
 pkgver=0.3.0
-pkgrel=1
+pkgrel=3
 pkgdesc="Python interface to librtmp"
 arch=('i686' 'x86_64')
 url="https://github.com/chrippa/python-librtmp"
