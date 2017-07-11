@@ -11,7 +11,7 @@ depends=('qt5-base')
 makedepends=('git')
 provides=('qt-solutions')
 conflicts=('qt-solutions')
-source=(git://github.com/qtproject/qt-solutions.git)
+source=('git+https://github.com/qtproject/qt-solutions.git')
 md5sums=('SKIP')
 
 pkgver() {
