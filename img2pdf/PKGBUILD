@@ -1,0 +1,21 @@
+# Maintainer: mutantmonkey <aur@mutantmonkey.in>
+pkgname=img2pdf
+pkgver=0.2.4
+pkgrel=1
+pkgdesc="Losslessly convert raster images to PDF"
+url="https://gitlab.mister-muffin.de/josch/img2pdf"
+arch=('any')
+license=('LGPL')
+depends=('python' 'python-pillow')
+makedepends=('python-setuptools')
+provides=("python-img2pdf=${pkgver}")
+replaces=('python-img2pdf')
+source=("https://pypi.python.org/packages/7e/a2/4f06081f674920be757d894b4bab874e6a3b5227e730cb7618430b366e69/img2pdf-${pkgver}.tar.gz")
+sha256sums=('140b70fa3a3bfb54e92947818cee01483a4f1492b5d1d02b0f649257f5ffc9ae')
+
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  python setup.py install --root="$pkgdir/" --optimize=1
+}
+
+# vim:set ts=2 sw=2 et:
