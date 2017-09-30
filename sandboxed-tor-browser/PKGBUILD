@@ -1,9 +1,10 @@
 # Maintainer: Constantin Lorenz <Cons27773964@aol.com>
 
 pkgname=sandboxed-tor-browser
-pkgver=0.0.9
+pkgver=0.0.14
 pkgrel=1
-torbrowserver=7.5a2 # for easier source access
+torbrowserver=7.5a5	# for easier source access
+epoch=
 pkgdesc="A sandboxed version of the Tor Browser, currently in alpha!"
 arch=('x86_64')
 url="https://trac.torproject.org/projects/tor/wiki/doc/TorBrowser/Sandbox/Linux"
@@ -12,7 +13,7 @@ depends=('bubblewrap' 'gtk3' 'gnome-themes-standard')
 source=("https://www.torproject.org/dist/torbrowser/${torbrowserver}/sandbox-${pkgver}-linux64.zip"{,.asc}
         "${pkgname}.desktop"
         "${pkgname}.png")
-sha256sums=('152cb5fcb07ef24f7b57078e493b1354cba0558f2591b9474610d5077c9acff3'
+sha256sums=('75614427802bd27fb085cb09af766c108a3f632f167560eb983afd47d677babc'
             'SKIP'
             '66888e2f94e56d72b7c41dc8d3cd99a2c72b5460d1f8366c503b86aecb593fbd'
             '17fc2f5784d080233aca16e788d62ab6fe3e57cf781b123cfe32767de97d6d3b')
