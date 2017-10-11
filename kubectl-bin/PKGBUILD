@@ -3,17 +3,19 @@
 
 pkgname=kubectl-bin
 pkgdesc="Kubernetes.io client binary"
-pkgver=1.5.1
+pkgver=1.8.0
 pkgrel=1
 arch=('i686' 'x86_64')
 url="https://kubernetes.io"
 license=('apache')
-conflicts=('kubernetes=1.4.6-1')
+conflicts=('kubernetes>=1.4.6')
 _kubectl_file=kubectl-$pkgver
 source_i686=($_kubectl_file::https://storage.googleapis.com/kubernetes-release/release/v$pkgver/bin/linux/386/kubectl)
 source_x86_64=($_kubectl_file::https://storage.googleapis.com/kubernetes-release/release/v$pkgver/bin/linux/amd64/kubectl)
-md5sums_i686=('a298a05dc7bb97e93b94bd27c566fa6b')
-md5sums_x86_64=('e71ab7823f6b1f019409bfdf26ba6ded')
+md5sums_i686=('00e7b21d5b4db59686434b719a22dbcb')
+sha256sums_i686=('971cc4d98a80ff69b6768f587363b279cff8d89807f0c9784560b5e753101bc8')
+md5sums_x86_64=('59eeba3402a1cbaa2f0bd5fb38814273')
+sha256sums_x86_64=('dfb5af71b3e5317cc647356f5689dd37df8ae7b5fb859455113c3e1ab4db1358')
 
 package() {
   install -Dm 755 "$srcdir/$_kubectl_file" "$pkgdir/usr/bin/kubectl"
