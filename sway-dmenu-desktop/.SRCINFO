@@ -1,0 +1,13 @@
+pkgbase = sway-dmenu-desktop
+	pkgdesc = i3-dmenu-desktop patched for sway
+	pkgver = 1
+	pkgrel = 2
+	arch = i686
+	arch = x86_64
+	license = none
+	depends = i3-wm
+	source = sway-dmenu-desktop.patch
+	sha512sums = b00cd622151dd35c303eeb666cbe0bd5b9a5a74b1f29efe69994c01cef328bcc45f8083a1b41c589fff3f891282d2d3b53634e6efbf49c8fe007414150b7a5f5
+
+pkgname = sway-dmenu-desktop
+
