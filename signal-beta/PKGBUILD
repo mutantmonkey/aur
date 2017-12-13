@@ -1,0 +1,56 @@
+# Contributor: David Birks <david@tellus.space>
+# Contributor: Jonas Heinrich <onny@project-insanity.org>
+# Contributor: Alda <alda@leetchee.fr>
+
+pkgname=signal-beta
+_pkgname=signal
+pkgver=1.1.0beta.5
+pkgrel=1
+license=('GPL3')
+pkgdesc='Signal Private Messenger for the Desktop'
+depends=('electron' 'gconf')
+makedepends=('npm' 'ruby-sass' 'python2' 'phantomjs' 'yarn' 'grunt-cli')
+provides=('signal')
+conflicts=('signal')
+arch=("i686" "x86_64")
+url='https://whispersystems.org'
+source=("${_pkgname}-${pkgver}.tar.gz::https://github.com/WhisperSystems/Signal-Desktop/archive/v${pkgver/beta/-beta}.tar.gz"
+        "signal.desktop"
+        'electron_builder.patch'
+        'electron_publisher.patch')
+sha512sums=('71f3a0419e965a3764f6d3fbed75400c4f9f1d72a4fdda4abbe09788c37449ed68269d90f074deea070d33219a18bdf4c2e5abea8539731e9746af9492593851'
+            'a264bfc7a4a7aac747daa588a2acbf1eddfd201bc795f0fbc18460a9b25f4460f364124e227a527fec22631cd84bc9e190f9f4978069e9c119eb556b9ff2d327'
+            '3a5aaa8c0c7cb4c7de34474064d30de7f00bff6978fd1dff85c012811db64f8559a78d0cda764b233376358b8bbc4d142d24eae4adc412209ea0447e988a1bbb'
+            'd920b745d8092da36d47e302ba9cb598365186a61eb01239c9227a47f66a0094e7f941159f89bc8ffc32cac09158e75172f2ccd4be96fc734ef57dcfa90c8b7d')
+
+prepare() {
+  cd "Signal-Desktop-${pkgver/beta/-beta}"
+  sed -i 's/icon-gen \&\& grunt/icon-gen \&\& grunt -f/' package.json
+  # workaround for https://github.com/WhisperSystems/Signal-Desktop/issues/1829
+  patch -N -i ../electron_builder.patch
+  patch -N -i ../electron_publisher.patch
+}
+
+build() {
+  cd "Signal-Desktop-${pkgver/beta/-beta}"
+  yarn install
+  yarn pack-prod
+}
+
+package() {
+  cd "Signal-Desktop-${pkgver/beta/-beta}/dist/linux-unpacked"
+
+  install -Ddm755 "${pkgdir}/usr/lib/${_pkgname}"
+  install -Ddm755 "${pkgdir}/usr/bin"
+
+  cp -r * "${pkgdir}/usr/lib/${_pkgname}/"
+
+  install -dm755 "${pkgdir}"/usr/share/icons/hicolor/256x256/apps
+  cp ../../build/icons/png/256x256.png \
+      "${pkgdir}"/usr/share/icons/hicolor/256x256/apps/${_pkgname}.png
+
+  install -Dm644 "${srcdir}"/${_pkgname}.desktop \
+      "${pkgdir}"/usr/share/applications/${_pkgname}.desktop
+
+  ln -s /usr/lib/${_pkgname}/signal-desktop "${pkgdir}/usr/bin/signal-desktop"
+}
