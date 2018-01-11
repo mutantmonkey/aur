@@ -18,7 +18,7 @@ unset GIT_DIR
 for path in $(git diff --name-only --cached); do
     if [[ "${path}" =~ .*/PKGBUILD$ ]]; then
         echo -e "\033[0;32m *** Generating and adding .SRCINFO for ${path%/PKGBUILD} ***\033[0m"
-        (cd ${path%PKGBUILD} && mksrcinfo)
+        (cd ${path%PKGBUILD} && makepkg --printsrcinfo > .SRCINFO)
         git add ${path%PKGBUILD}/.SRCINFO
     fi
 done
