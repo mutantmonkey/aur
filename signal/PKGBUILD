@@ -5,8 +5,8 @@
 # Contributor: mrxx <mrxx at cyberhome dot at>
 # Contributor: Jonhoo <jon at thesquareplanet.com>
 pkgname=signal
-pkgver=1.2.0
-pkgrel=3
+pkgver=1.3.0
+pkgrel=1
 license=('GPL3')
 pkgdesc='Signal Private Messenger for the Desktop'
 depends=('electron')
@@ -14,12 +14,12 @@ makedepends=('python2' 'npm' 'yarn' 'git')
 provides=('signal')
 conflicts=('signal-desktop' 'signal-desktop-beta' 'signal-desktop-bin')
 arch=("i686" "x86_64")
-url='https://github.com/WhisperSystems/Signal-Desktop'
-source=("${pkgname}-${pkgver}.tar.gz::https://github.com/WhisperSystems/Signal-Desktop/archive/v${pkgver}.tar.gz"
+url='https://github.com/signalapp/Signal-Desktop'
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/signalapp/Signal-Desktop/archive/v${pkgver}.tar.gz"
         "${pkgname}.sh"
         "${pkgname}.desktop"
         "${pkgname}-tray.desktop")
-sha512sums=('d0c66e12d1056f9a4b87e2e66ebd75887e6032cb677aee996a642bf69f02461d23ca8960ba8e4dfc5b491672897aad6009ea2f88d6415009ee91717e4481d298'
+sha512sums=('944d17d3390935caed77627021198bd137177653801b6533128d9f65b85f3923a234b953f2d0a739c63e1461558e7c38fb2d3224fde6b771649e2331c6cfcfdc'
             '5cd854481c21720a18c3cf743a8dcccdcc4792151106889096c5b51d55740477084be313ec3fbbf1f5876e8aba29c2acdc23acb13a62d43e16ad5a6eb79c9dc6'
             'a264bfc7a4a7aac747daa588a2acbf1eddfd201bc795f0fbc18460a9b25f4460f364124e227a527fec22631cd84bc9e190f9f4978069e9c119eb556b9ff2d327'
             'ced228d19303abe951c55f7874004cb9e4cd062dbda48c7ea80b0a6fb9adf5716a37164c01c9921a91f00653b0737fed80e3c5e684b0f3bcec375c265d6d8e5c')
