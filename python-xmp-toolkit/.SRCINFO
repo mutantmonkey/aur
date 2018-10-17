@@ -5,6 +5,7 @@ pkgbase = python-xmp-toolkit
 	url = http://python-xmp-toolkit.readthedocs.org/
 	arch = any
 	license = custom
+	makedepends = python-setuptools
 	depends = python>=3.5
 	depends = exempi>=2.2.0
 	depends = python-pytz
