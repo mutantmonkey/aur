@@ -6,6 +6,7 @@ pkgbase = python-pikepdf
 	arch = x86_64
 	license = MPL
 	makedepends = pybind11
+	makedepends = python-setuptools
 	depends = python
 	depends = qpdf
 	source = https://files.pythonhosted.org/packages/09/ef/db0bc644097f52382f8040633ca8bc49b04a54dfbf76147c495398e2949b/pikepdf-0.3.5.tar.gz
