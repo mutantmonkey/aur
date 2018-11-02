@@ -12,7 +12,7 @@ depends=(python)
 makedepends=(python-setuptools)
 options=(!emptydirs)
 source=("https://github.com/mitsuhiko/$_pkgname/archive/$pkgver.tar.gz")
-md5sums=("43ddbcc456398995fca9873f0f77eca4")
+sha256sums=('4fc1ce989f35b4233731bb4bdf80db59e1e3396de3ef15677dbfe2097569db64')
 
 package() {
   cd "$srcdir/$_pkgname-$pkgver"
