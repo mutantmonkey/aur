@@ -1,0 +1,8 @@
+/src/
+/pkg/
+/*.pkg.tar.xz
+/*.tbz2
+plex-media-player-*.tar.gz
+web-client-*.tar.xz
+web-client-*.tar.xz.sha1
+buildid-*.cmake
