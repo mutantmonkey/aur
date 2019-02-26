@@ -1,10 +1,3 @@
-
-# allow override
-if [ -z $DEVKITPRO ]; then
-  export DEVKITPRO=/opt/devkitpro
-fi
-export DEVKITARM=$DEVKITPRO/devkitARM
-
-# add to paths
-export PATH=$PATH:$DEVKITARM/bin
-export MANPATH=$MANPATH:$DEVKITARM/man
+# set needed variables
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=${DEVKITPRO}/devkitARM
