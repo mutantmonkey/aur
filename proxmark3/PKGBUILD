@@ -8,8 +8,8 @@ url="https://github.com/Proxmark/proxmark3/"
 arch=('i686' 'x86_64')
 license=('GPL3')
 makedepends=(git make arm-none-eabi-gcc arm-none-eabi-newlib)
-#depends=(devkitarm)
-depends=(devkitarm proxmark3-flasher)
+depends=(devkitarm termcap pcsclite)
+#depends=(devkitarm proxmark3-flasher)
 source=('git+https://github.com/Proxmark/proxmark3.git')
 sha256sums=('SKIP')
 
