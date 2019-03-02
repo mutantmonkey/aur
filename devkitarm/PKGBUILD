@@ -1,8 +1,8 @@
 # Maintainer: carstene1ns <arch carsten-teibes de> - http://git.io/ctPKG
 
 pkgname=devkitarm
-pkgver=r48
-_buildscriptsver=20180514
+pkgver=r51
+_buildscriptsver=20190220
 _binutilsver=2.30
 _gccver=8.1.0
 _newlibver=3.0.0
@@ -22,7 +22,7 @@ source=("https://github.com/devkitPro/buildscripts/releases/download/v$_buildscr
         "https://github.com/devkitPro/buildscripts/releases/download/sources/gdb-$_gdbver.tar.xz"
         "devkitarm.sh"
         "devkitarm.fish")
-sha256sums=('c7c11bacfdbcc634d2d70ac17785a0701d5eaaa6753762ca57a918c3841119ac'
+sha256sums=('de60968236cc700e9ea2ad9c3249f45e66054ad6f1828a5ca870a57bcd4138ba'
             'efeade848067e9a03f1918b1da0d37aaffa0b0127a06b5e9236229851d9d0c09'
             '1d1866f992626e61349a1ccd0b8d5253816222cdc13390dcfaa74b093aa2b153'
             'c8566335ee74e5fcaeb8595b4ebd0400c4b043d6acb3263ecb1314f8f5501332'
