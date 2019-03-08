@@ -1,0 +1,5 @@
+swaylock*.tar*
+src/
+pkg/
+swaylock/
+swaylock-git*
