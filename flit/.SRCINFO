@@ -1,0 +1,19 @@
+pkgbase = flit
+	pkgdesc = Simple packaging tool for simple Python packages.
+	pkgver = 1.3
+	pkgrel = 1
+	url = http://flit.readthedocs.io
+	arch = any
+	license = BSD
+	makedepends = python-pip
+	depends = python
+	depends = python-pytoml
+	depends = python-requests
+	depends = python-requests_download
+	depends = python-docutils
+	noextract = flit-1.3-py3-none-any.whl
+	source = https://files.pythonhosted.org/packages/py3/f/flit/flit-1.3-py3-none-any.whl
+	sha256sums = 1d93f7a833ed8a6e120ddc40db5c4763bc39bccc75c05081ec8285ece718aefb
+
+pkgname = flit
+
