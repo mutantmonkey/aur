@@ -1,11 +1,11 @@
 # Maintainer: Christopher Loen <christopherloen at gmail dot com>
 # Contributor: David McInnis <davidm@eagles.ewu.edu>
 
-pkgbase=('python-exifread')
+pkgbase='python-exifread'
 pkgname=('python2-exifread' 'python-exifread')
 _pkgname='ExifRead'
 pkgver='2.1.2'
-pkgrel=2
+pkgrel=3
 pkgdesc="Read Exif metadata from tiff and jpeg files."
 url="https://github.com/ianare/exif-py"
 depends=('python')
