@@ -3,7 +3,7 @@
 pkgname=python-inifile
 _pkgname=python-inifile
 pkgver=0.4
-pkgrel=1
+pkgrel=2
 pkgdesc="Ini file library for Python."
 arch=(any)
 url="https://github.com/mitsuhiko/python-inifile"
