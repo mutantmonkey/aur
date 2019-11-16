@@ -1,7 +1,7 @@
 pkgbase = python-ruffus
 	pkgdesc = A lightweight Python library for computational pipelines.
 	pkgver = 2.7.0
-	pkgrel = 1
+	pkgrel = 2
 	url = http://www.ruffus.org.uk/
 	arch = any
 	license = MIT
