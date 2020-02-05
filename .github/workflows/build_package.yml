@@ -1,0 +1,18 @@
+name: Build the most recently changed package
+on: [push]
+
+jobs:
+  build:
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        path: buildsrc
+    #- uses: mutantmonkey/geschenkerbauer/builder@latest
+    - uses: docker://mutantmonkey/geschenkerbauer-mutantmonkey:latest
+      env:
+        buildsrcdir: $GITHUB_WORKSPACE/buildsrc
+        repodir: $GITHUB_WORKSPACE/repo
+        gpgkeyring: 1
+        PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
+      args: golinx
