@@ -9,12 +9,13 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: buildsrc
+        fetch-depth: 0
     - name: Create empty repo directory
       run: sudo install -d -o 1000 -g users repo
     - name: Figure out which packages have changed since the last push
       id: get-packages
       run: |
-        echo "::set-output name=packages::"$(git diff --name-only ${{ github.event.before }} ${{ github.event.head }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | tr '\n' ' ')
+        echo "::set-output name=packages::"$(git --git-dir=repo diff --name-only ${{ github.event.before }} ${{ github.event.head }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | tr '\n' ' ')
     - name: Use geschenkerbauer to build package
       uses: mutantmonkey/geschenkerbauer/action@master
       env:
