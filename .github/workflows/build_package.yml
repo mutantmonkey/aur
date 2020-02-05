@@ -15,7 +15,7 @@ jobs:
     #- uses: docker://mutantmonkey/geschenkerbauer-mutantmonkey:latest
     - uses: docker://mutantmonkey/geschenkerbauer:latest
       env:
-        GNUPG_PUBKEYRING: /buildsrc/keyring.asc
+        GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
         args: golinx
