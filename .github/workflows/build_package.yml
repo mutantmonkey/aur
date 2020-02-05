@@ -10,7 +10,7 @@ jobs:
         path: buildsrc
     - name: Create empty repo directory
       run: sudo install -d -o 1000 -g users ${{ github.workspace }}/repo
-    - uses: mutantmonkey/geschenkerbauer/action@latest
+    - uses: mutantmonkey/geschenkerbauer@latest
       env:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
