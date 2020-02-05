@@ -1,4 +1,4 @@
-name: Build the most recently changed package
+name: Build updated packages
 on: [push]
 
 jobs:
@@ -11,13 +11,17 @@ jobs:
         path: buildsrc
     - name: Create empty repo directory
       run: sudo install -d -o 1000 -g users repo
+    - name: Figure out which packages have changed since the last push
+      id: get-packages
+      run: |
+        echo "::set-output name=packages::"$(git diff --name-only ${{ github.event.before }} ${{ github.event.head }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | tr '\n' ' ')
     - name: Use geschenkerbauer to build package
       uses: mutantmonkey/geschenkerbauer/action@master
       env:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
-        packages: golinx filtor
+        packages: ${{ steps.get-packages.outputs.packages }}
     - name: Upload artifacts
       uses: actions/upload-artifact@v1
       with:
