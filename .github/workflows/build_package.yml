@@ -10,7 +10,7 @@ jobs:
       with:
         path: buildsrc
     - name: Create empty repo directory
-      run: mkdir -p ${{ github.workspace }}/repo
+      run: sudo install -d -o 1000 -g users ${{ github.workspace }}/repo
     #- uses: mutantmonkey/geschenkerbauer/builder@latest
     #- uses: docker://mutantmonkey/geschenkerbauer-mutantmonkey:latest
     - uses: docker://mutantmonkey/geschenkerbauer:latest
