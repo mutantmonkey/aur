@@ -16,4 +16,5 @@ jobs:
         repodir: $GITHUB_WORKSPACE/repo
         gpgkeyring: 1
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
-      args: golinx
+      with:
+        args: golinx
