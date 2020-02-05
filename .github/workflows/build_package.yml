@@ -5,19 +5,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
       with:
         path: buildsrc
     - name: Create empty repo directory
       run: sudo install -d -o 1000 -g users ${{ github.workspace }}/repo
-    #- uses: mutantmonkey/geschenkerbauer/builder@latest
-    #- uses: docker://mutantmonkey/geschenkerbauer-mutantmonkey:latest
-    - uses: docker://mutantmonkey/geschenkerbauer:latest
+    - uses: mutantmonkey/geschenkerbauer/action@latest
       env:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
-        args: golinx
-        buildsrc: ${{ github.workspace }}/buildsrc
-        repodir: ${{ github.workspace }}/repo
+        package: golinx
