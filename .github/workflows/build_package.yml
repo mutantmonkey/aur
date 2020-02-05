@@ -9,8 +9,8 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: buildsrc
-    - name: Create repo directory with correct owner
-      run: install -d -o 1000 -g users $GITHUB_WORKSPACE/repo
+    - name: Create empty repo directory
+      run: mkdir -p $GITHUB_WORKSPACE/repo
     #- uses: mutantmonkey/geschenkerbauer/builder@latest
     - uses: docker://mutantmonkey/geschenkerbauer-mutantmonkey:latest
       env:
