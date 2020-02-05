@@ -15,8 +15,8 @@ jobs:
     - name: Figure out which packages have changed since the last push
       id: get-packages
       run: |
-        echo "::set-output name=packages::"$(git --git-dir=repo/.git diff --name-only ${{ github.event.before }} ${{ github.event.head }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | tr '\n' ' ')
-    - name: Use geschenkerbauer to build package
+        echo "::set-output name=packages::"$(git --git-dir=buildsrc/.git diff --name-only ${{ github.event.before }} ${{ github.event.head }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | tr '\n' ' ')
+    - name: Use geschenkerbauer to build packages
       uses: mutantmonkey/geschenkerbauer/action@master
       env:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
