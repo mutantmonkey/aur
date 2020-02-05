@@ -17,7 +17,7 @@ jobs:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
-        package: golinx age
+        packages: golinx filtor
     - name: Upload artifacts
       uses: actions/upload-artifact@v1
       with:
