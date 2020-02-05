@@ -10,7 +10,7 @@ jobs:
       with:
         path: buildsrc
     - name: Create repo directory with correct owner
-      run: install -d -o 1000 -g users
+      run: install -d -o 1000 -g users $GITHUB_WORKSPACE/repo
     #- uses: mutantmonkey/geschenkerbauer/builder@latest
     - uses: docker://mutantmonkey/geschenkerbauer-mutantmonkey:latest
       env:
