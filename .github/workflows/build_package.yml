@@ -10,7 +10,7 @@ jobs:
       with:
         path: buildsrc
     - name: Create empty repo directory
-      run: sudo install -d -o 1000 -g users ${{ github.workspace }}/repo
+      run: sudo install -d -o 1000 -g users repo
     - name: Use geschenkerbauer to build package
       uses: mutantmonkey/geschenkerbauer/action@master
       env:
@@ -18,3 +18,8 @@ jobs:
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
         package: golinx
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: output
+        path: repo
