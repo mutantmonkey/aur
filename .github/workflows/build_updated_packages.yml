@@ -1,5 +1,5 @@
 name: Build updated packages
-on: [push]
+on: push
 
 jobs:
   build:
