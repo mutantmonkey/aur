@@ -4,11 +4,12 @@
 *.zip
 
 # signed sources
-*.asc
-*.sig
+**/*.asc
+**/*.sig
 
 # subfolders, e.g. source or built package trees, vcs
 */**/
+!/.github/**
 
 # backup files
 *~
