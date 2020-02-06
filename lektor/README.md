@@ -14,4 +14,4 @@ pacman -U <package file name>.pkg.tar.xz
 # Generate SRCINFO
 makepkg --printsrcinfo > .SRCINFO
 # Commit & Publish
-``` 
+```
