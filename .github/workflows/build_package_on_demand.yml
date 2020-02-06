@@ -1,4 +1,4 @@
-name: Build package on demand
+name: Build package
 on:
   repository_dispatch:
     types: [build-package]
