@@ -4,8 +4,10 @@ After=network.target
 Wants=network.target
 
 [Service]
+User=cloudflared
+Group=cloudflared
 Type=simple
-ExecStart=/usr/bin/cloudflared --config /etc/cloudflared/%i.yml
+ExecStart=/usr/bin/cloudflared --config /etc/cloudflared/%i.yml --no-autoupdate
 Restart=on-failure
 
 [Install]
