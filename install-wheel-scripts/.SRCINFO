@@ -1,0 +1,12 @@
+pkgbase = install-wheel-scripts
+	pkgdesc = Install scripts that are able to invoke a wheel’s console_scripts
+	pkgver = 1.1
+	pkgrel = 1
+	arch = any
+	license = GPL
+	depends = python
+	source = install-wheel-scripts.py
+	sha256sums = 3cf4c43dfc43de82b453c132980d41a71ef0d619eb6a09c7ea659f6937836616
+
+pkgname = install-wheel-scripts
+
