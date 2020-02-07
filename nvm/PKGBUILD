@@ -1,24 +1,20 @@
 # Maintainer: Tom Wadley <tom@tomwadley.net>
 
 pkgname=nvm
-pkgver=0.33.8
+pkgver=0.35.2
 pkgrel=1
 pkgdesc="Node Version Manager - Simple bash script to manage multiple active node.js versions"
-url="https://github.com/creationix/nvm"
+url="https://github.com/nvm-sh/nvm"
 arch=('any')
 license=('MIT')
 optdepends=('bash: bash completion')
 install="${pkgname}.install"
-source=("https://github.com/creationix/nvm/archive/v${pkgver}.zip"
+source=("${pkgname}-${pkgver}.zip::https://github.com/nvm-sh/nvm/archive/v${pkgver}.zip"
         "init-nvm.sh"
         "install-nvm-exec")
-md5sums=('a925ba1d833ae5614175901ed3481cd9'
-         'b75a15a2cbe04e6203ebaf6103e90926'
-         '8f3c5b82f09636e9cf82d45d68c39cc6')
-
-build() {
-  cd "${pkgname}-${pkgver}"
-}
+sha256sums=('1924f024da29eca3a3eaf0bc97aad278afc4614cd1db0491ee8fb2db32307553'
+            '692317bfd036557f59543fef9b67ff38de68208d30361fe385291f58d3ac0425'
+            '795d3f6ad3076aa4b0bb9cc48a2e6e79331d121278a887667fb707181a54a10b')
 
 package() {
   cd "${srcdir}"
@@ -26,7 +22,7 @@ package() {
   # convenience script
   install -Dm644 init-nvm.sh "$pkgdir/usr/share/$pkgname/init-nvm.sh"
 
-  # companion script which installs nvm-exec in NVM_DIR where upstream expects it
+  # companion script which installs symlinks in NVM_DIR (see comment in script)
   install -Dm644 install-nvm-exec "$pkgdir/usr/share/$pkgname/install-nvm-exec"
 
   cd "${pkgname}-${pkgver}"
