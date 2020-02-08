@@ -11,7 +11,7 @@ options=('!strip' 'staticlibs')
 provides=('ocaml-yojson')
 conflicts=('ocaml-yojson')
 depends=('ocaml-biniou' 'ocaml-easy-format')
-makedepends=('dune' 'cppo')
+makedepends=('git' 'dune' 'cppo')
 source=("${pkgname}::git+https://github.com/ocaml-community/yojson.git")
 md5sums=('SKIP')
 
