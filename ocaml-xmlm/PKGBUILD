@@ -9,12 +9,12 @@ pkgver=1.3.0
 pkgrel=1
 pkgdesc="An OCaml streaming codec to decode and encode the XML data format"
 arch=('i686' 'x86_64' 'armv7h')
-url="http://erratique.ch/software/xmlm/"
+url="https://erratique.ch/software/xmlm/"
 license=('ISC')
 depends=('ocaml')
 makedepends=('ocamlbuild' 'ocaml-findlib' 'ocaml-topkg' 'opam')
 options=('!strip' 'staticlibs')
-source=("http://erratique.ch/software/${_pkgname}/releases/${_pkgname}-${pkgver}.tbz")
+source=("https://erratique.ch/software/${_pkgname}/releases/${_pkgname}-${pkgver}.tbz")
 md5sums=('d63ce15d913975211196b5079e86a797')
 
 build() {
