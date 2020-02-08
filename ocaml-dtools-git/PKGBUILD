@@ -3,11 +3,11 @@ pkgname=ocaml-dtools-git
 pkgver=r100.c9df99e
 pkgrel=1
 pkgdesc="OCaml modules for writing daemons"
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url="https://github.com/savonet/ocaml-dtools"
 license=('GPL2')
 depends=('ocaml' 'ocaml-syslog')
-makedepends=('git' 'ocaml-findlib')
+makedepends=('git' 'dune' 'ocaml-findlib')
 options=('!strip')
 source=("$pkgname::git+https://github.com/savonet/ocaml-dtools")
 
@@ -18,9 +18,7 @@ pkgver() {
 
 build() {
     cd "${srcdir}/${pkgname}"
-    ./bootstrap
-    ./configure
-    make
+    dune build
 }
 
 package() {
@@ -28,6 +26,8 @@ package() {
 
     export OCAMLFIND_DESTDIR="${pkgdir}$(ocamlfind printconf destdir)"
     mkdir -p "${OCAMLFIND_DESTDIR}"
-    make install
+    dune install \
+        --destdir="$pkgdir" \
+       --libdir="/usr/lib/ocaml"
 }
 md5sums=('SKIP')
