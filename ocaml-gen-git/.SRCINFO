@@ -6,6 +6,7 @@ pkgbase = ocaml-gen-git
 	arch = i686
 	arch = x86_64
 	license = BSD
+	makedepends = git
 	makedepends = ocaml-findlib
 	makedepends = dune
 	depends = ocaml
