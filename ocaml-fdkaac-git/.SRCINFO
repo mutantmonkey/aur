@@ -6,6 +6,7 @@ pkgbase = ocaml-fdkaac-git
 	arch = i686
 	arch = x86_64
 	license = GPL
+	makedepends = git
 	makedepends = ocaml-findlib
 	depends = ocaml
 	depends = libfdk-aac
