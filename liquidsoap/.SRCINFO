@@ -23,7 +23,6 @@ pkgbase = liquidsoap
 	depends = ocaml-bjack
 	depends = ocaml-camomile
 	depends = ocaml-cry
-	depends = ocaml-dssi
 	depends = ocaml-dtools-git
 	depends = ocaml-duppy
 	depends = ocaml-faad
