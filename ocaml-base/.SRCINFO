@@ -1,0 +1,16 @@
+pkgbase = ocaml-base
+	pkgdesc = Full standard library replacement for OCaml
+	pkgver = 0.13.0
+	pkgrel = 1
+	url = https://github.com/janestreet/base
+	arch = x86_64
+	license = MIT
+	makedepends = dune
+	depends = ocaml
+	depends = ocaml-sexplib0
+	options = !strip
+	source = https://github.com/janestreet/base/archive/v0.13.0.tar.gz
+	sha512sums = f753057ed5bda069c5ab535ad98e7277c8326923000dc9f164602973861fb00340d1976d48777f193bc8c0d5bd56a6c47d5b760d4833244047bff1304083e4e8
+
+pkgname = ocaml-base
+
