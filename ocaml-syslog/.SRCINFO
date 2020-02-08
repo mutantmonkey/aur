@@ -1,0 +1,15 @@
+pkgbase = ocaml-syslog
+	pkgdesc = syslog(3) routines for OCaml
+	pkgver = 1.4
+	pkgrel = 1
+	url = http://homepage.mac.com/letaris
+	arch = x86_64
+	license = LGPL
+	makedepends = ocaml-findlib
+	depends = ocaml
+	options = !strip
+	source = https://archive.org/download/syslog-1.4/syslog-1.4.tar.gz
+	md5sums = 3042185e6f511aea9956cd8f172b1a84
+
+pkgname = ocaml-syslog
+
