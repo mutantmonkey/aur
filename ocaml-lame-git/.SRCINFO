@@ -6,6 +6,7 @@ pkgbase = ocaml-lame-git
 	arch = i686
 	arch = x86_64
 	license = GPL2
+	makedepends = git
 	makedepends = ocaml-findlib
 	depends = ocaml
 	depends = lame
