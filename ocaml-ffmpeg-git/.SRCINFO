@@ -6,6 +6,7 @@ pkgbase = ocaml-ffmpeg-git
 	arch = i686
 	arch = x86_64
 	license = LGPL2.1
+	makedepends = git
 	makedepends = ocaml-findlib
 	depends = ocaml
 	depends = ffmpeg
