@@ -19,7 +19,7 @@ pkgbase = bemenu-git
 	optdepends = ncurses: For the curses backend.
 	provides = bemenu
 	conflicts = bemenu
-	source = git://github.com/Cloudef/bemenu
+	source = git+https://github.com/Cloudef/bemenu
 	md5sums = SKIP
 
 pkgname = bemenu-git
