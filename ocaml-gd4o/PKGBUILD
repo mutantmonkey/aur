@@ -11,7 +11,7 @@ depends=('gd' 'libjpeg-turbo')
 makedepends=('ocaml-findlib')
 options=('!strip' 'staticlibs')
 provides=('ocaml-gd')
-source=(http://sourceforge.net/projects/$_oname/files/$_oname/1.0%20Alpha%205/$_oname-$pkgver.tar.gz
+source=(https://sourceforge.net/projects/$_oname/files/$_oname/1.0%20Alpha%205/$_oname-$pkgver.tar.gz
 add_fpic_to_cflags.patch
 support_custom_cflags.patch)
 md5sums=('b5aeb9c246b5e072803eb9b3112350a0'
