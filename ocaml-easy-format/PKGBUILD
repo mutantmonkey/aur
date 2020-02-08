@@ -19,7 +19,7 @@ sha256sums=('3440c2b882d537ae5e9011eb06abb53f5667e651ea4bb3b460ea8230fa8c1926'
 
 build() {
     cd "${srcdir}/${_pkgname}-${pkgver}"
-    patch src/easy_format.ml ../../compile.patch
+    patch src/easy_format.ml ../compile.patch
     dune build -p easy-format
 }
 
