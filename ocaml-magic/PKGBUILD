@@ -10,7 +10,7 @@ license=('LGPL2.1')
 depends=('ocaml' 'file')
 makedepends=('ocaml-findlib')
 options=('!strip')
-source=("http://downloads.sourceforge.net/project/ocaml-magic/${pkgname}/$(echo ${pkgver} | grep -Po "^[0-9]+\.[0-9]+")/${pkgname}-${pkgver}.tar.gz")
+source=("https://downloads.sourceforge.net/project/ocaml-magic/${pkgname}/$(echo ${pkgver} | grep -Po "^[0-9]+\.[0-9]+")/${pkgname}-${pkgver}.tar.gz")
 md5sums=('5b8a4d149fe8ce095ab8115f2e49beba')
 
 build() {
