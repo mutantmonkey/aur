@@ -1,7 +1,7 @@
 # Maintainer: mutantmonkey <aur@mutantmonkey.in>
 pkgname=snowflake-pt-client-git
 _gitname=snowflake
-pkgver=186.7e9066a
+pkgver=639.1220853
 pkgrel=1
 pkgdesc="Snowflake is a pluggable transport that proxies traffic through temporary proxies using WebRTC"
 arch=('i686' 'x86_64')
