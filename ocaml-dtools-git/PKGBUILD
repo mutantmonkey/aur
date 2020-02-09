@@ -7,7 +7,7 @@ arch=('x86_64')
 url="https://github.com/savonet/ocaml-dtools"
 license=('GPL2')
 depends=('ocaml' 'ocaml-syslog')
-makedepends=('git' 'dune' 'ocaml-findlib')
+makedepends=('git' 'dune>=2.0' 'ocaml-findlib')
 options=('!strip')
 source=("$pkgname::git+https://github.com/savonet/ocaml-dtools")
 
