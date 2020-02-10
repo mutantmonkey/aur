@@ -20,6 +20,10 @@ jobs:
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
         packages: ${{ github.event.client_payload.pkgname }}
+    - name: Replace forbidden colon character in package filenames
+      run: |
+        for f in *:*; do mv "$f" "${f/:/__3A__}"; done || exit 0
+      working-directory: ./repo
     - name: Upload artifacts
       uses: actions/upload-artifact@v1
       with:
