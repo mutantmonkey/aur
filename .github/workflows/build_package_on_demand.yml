@@ -23,7 +23,7 @@ jobs:
     - name: Replace forbidden colon character in package filenames
       run: |
         for f in $(find . -iname '*:*'); do
-          mv "$f" "${f/:/__3A__}"
+          sudo mv "$f" "${f/:/__3A__}"
         done || exit 0
       working-directory: ./repo
     - name: Upload artifacts
