@@ -1,18 +1,17 @@
 # Maintainer: Adrian Perez de Castro <aperez@igalia.com>
-pkgname='wlroots-git'
-pkgver=0.4.1.r20.g30d34261
-pkgrel=1
-license=('custom:MIT')
+pkgname=wlroots-git
+pkgver=0.9.1.r7.g6d3f3b93
+pkgrel=2
+license=(custom:MIT)
 pkgdesc='Modular Wayland compositor library'
-url='https://github.com/swaywm/wlroots'
-arch=('x86_64')
-provides=('wlroots')
-conflicts=('wlroots')
-options=('debug' '!strip')
-depends=('libcap' 'systemd' 'wayland' 'opengl-driver' 'libxcb'
-         'xcb-util-errors' 'xcb-util-image' 'xcb-util-wm' 'pixman'
-         'libinput' 'libxkbcommon' 'libpng' 'ffmpeg')
-makedepends=('meson' 'ninja' 'git' 'wayland-protocols')
+url=https://github.com/swaywm/wlroots
+arch=(x86_64)
+provides=("wlroots=${pkgver%%.r*}")
+conflicts=(wlroots)
+options=(debug)
+depends=(libcap systemd wayland opengl-driver libxcb xcb-util-errors
+         xcb-util-wm pixman libinput libxkbcommon)
+makedepends=(meson ninja git wayland-protocols xorgproto)
 source=("${pkgname}::git+${url}")
 sha512sums=('SKIP')
 
@@ -39,7 +38,6 @@ build () {
 		-Dxcb-icccm=enabled \
 		-Dxwayland=enabled \
 		-Dx11-backend=enabled \
-		-Drootston=true \
 		-Dexamples=true
 	ninja -C build
 }
@@ -48,10 +46,4 @@ package () {
 	cd "${pkgname}"
 	DESTDIR="${pkgdir}" ninja -C build install
 	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-
-	# Manually install rootston, "ninja installs" skips it.
-	install -Dm755 build/rootston/rootston \
-		"${pkgdir}/usr/bin/rootston"
-	install -Dm755 rootston/rootston.ini.example \
-		"${pkgdir}/usr/share/doc/${pkgname}/rootston.ini.example"
 }
