@@ -22,7 +22,7 @@ jobs:
         packages: ${{ github.event.client_payload.pkgname }}
     - name: Replace forbidden colon character in package filenames
       run: |
-        for f in *:*; do
+        for f in $(find . -iname '*:*'); do
           echo "Renaming $f"
           mv "$f" "${f/:/__3A__}"
         done || exit 0
