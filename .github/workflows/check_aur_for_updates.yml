@@ -10,10 +10,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        path: buildsrc
         fetch-depth: 0
     - name: Check AUR for updates and open pull requests as needed
-      uses: mutantmonkey/geschenkerbauer/update-action@f9c86dab46db2970cf33d3017bf4d662d45e339a
+      uses: mutantmonkey/geschenkerbauer/update-action@bfaf5bf0657f7d06f8deccc511d2fced5879ba86
       with:
         author_name: mutantmonkey
         author_email: 67266+mutantmonkey@users.noreply.github.com
