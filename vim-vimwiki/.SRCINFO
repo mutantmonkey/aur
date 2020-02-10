@@ -1,7 +1,7 @@
 pkgbase = vim-vimwiki
 	pkgdesc = A personal wiki for Vim
 	pkgver = 2.4.1
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/vimwiki/vimwiki
 	arch = any
 	groups = vim-plugins
