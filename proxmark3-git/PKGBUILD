@@ -1,0 +1,32 @@
+# Maintainer: mutantmonkey <aur@mutantmonkey.mx>
+# Contributor: Holden Salomon <holden@cryptolab.net>
+
+pkgname=proxmark3-git
+pkgver=r2391.d6e1d482
+pkgrel=1
+pkgdesc="Offical proxmark3 drivers"
+url="https://github.com/Proxmark/proxmark3/"
+arch=('i686' 'x86_64')
+license=('GPL3')
+depends=('termcap' 'pcsclite')
+makedepends=('git')
+provides=('proxmark3')
+conflicts=('proxmark3')
+source=('git+https://github.com/Proxmark/proxmark3.git')
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "$srcdir/proxmark3/client"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd "$srcdir/proxmark3/client"
+    make
+}
+
+package() {
+    cd "$srcdir/proxmark3/client"
+    mkdir -p $pkgdir/usr/bin
+    install proxmark3 -t $pkgdir/usr/bin
+}
