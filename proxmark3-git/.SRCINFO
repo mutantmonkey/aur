@@ -1,0 +1,18 @@
+pkgbase = proxmark3-git
+	pkgdesc = Offical proxmark3 drivers
+	pkgver = r2391.d6e1d482
+	pkgrel = 1
+	url = https://github.com/Proxmark/proxmark3/
+	arch = i686
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	depends = termcap
+	depends = pcsclite
+	provides = proxmark3
+	conflicts = proxmark3
+	source = git+https://github.com/Proxmark/proxmark3.git
+	sha256sums = SKIP
+
+pkgname = proxmark3-git
+
