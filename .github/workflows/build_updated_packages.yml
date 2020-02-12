@@ -10,10 +10,11 @@ jobs:
       with:
         path: buildsrc
         fetch-depth: 0
-    - name: Set ownership of buildsrc
-      run: sudo chown -R 1000 buildsrc
-    - name: Create empty repo directory
-      run: sudo install -d -o 1000 -g users repo
+    - name: Prepare build environment
+      run: |
+        sudo chown -R 1000 buildsrc
+        sudo chown -R $(id -u) buildsrc/.git
+        sudo install -d -o 1000 -g users repo
     - name: Figure out which packages have changed since the last push
       id: get-packages
       run: |
