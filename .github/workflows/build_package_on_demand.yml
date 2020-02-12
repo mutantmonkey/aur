@@ -11,10 +11,11 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: buildsrc
-    - name: Set ownership of buildsrc
-      run: sudo chown -R 1000 buildsrc
-    - name: Create empty repo directory
-      run: sudo install -d -o 1000 -g users repo
+    - name: Prepare build environment
+      run: |
+        sudo chown -R 1000 buildsrc
+        sudo chown -R $(id -u) buildsrc/.git
+        sudo install -d -o 1000 -g users repo
     - name: Use geschenkerbauer to build packages
       uses: mutantmonkey/geschenkerbauer/action@master
       env:
