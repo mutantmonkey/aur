@@ -1,0 +1,35 @@
+# Maintainer: mutantmonkey <aur@mutantmonkey.mx>
+# Contributor: James Swineson <aur@public.swineson.me>
+
+pkgname=proxmark3-flasher-git
+pkgver=r2391.d6e1d482
+pkgrel=1
+pkgdesc="Offical proxmark3 flasher"
+url="https://github.com/Proxmark/proxmark3/"
+arch=('i686' 'x86_64')
+license=('GPL3')
+depends=('termcap' 'pcsclite')
+makedepends=('git' 'arm-none-eabi-gcc' 'arm-none-eabi-newlib' 'devkitarm')
+provides=('proxmark3-flasher')
+conflicts=('proxmark3-flasher')
+source=('git+https://github.com/Proxmark/proxmark3.git')
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/proxmark3"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "$srcdir/proxmark3"
+  make
+}
+
+package() {
+  cd "$srcdir/proxmark3"
+  install -Dm755 client/flasher "$pkgdir/usr/bin/proxmark3-flasher"
+  install -d "$pkgdir/usr/share/proxmark3-flasher/bootrom"
+  install -m644 bootrom/obj/*.elf "$pkgdir/usr/share/proxmark3-flasher/bootrom"
+  install -d "$pkgdir/usr/share/proxmark3-flasher/armsrc"
+  install -m644 armsrc/obj/*.elf "$pkgdir/usr/share/proxmark3-flasher/armsrc"
+}
