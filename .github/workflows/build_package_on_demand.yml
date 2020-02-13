@@ -17,7 +17,7 @@ jobs:
         sudo chown -R $(id -u) buildsrc/.git
         sudo install -d -o 1000 -g users repo
     - name: Use geschenkerbauer to build packages
-      uses: mutantmonkey/geschenkerbauer/action@71b1859eaffe35e7b642604b372e91a6d694229b
+      uses: mutantmonkey/geschenkerbauer/action@55ff52db313e92349287d8241f2a3775e3257f0c
       env:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
