@@ -17,12 +17,13 @@ jobs:
         sudo chown -R $(id -u) buildsrc/.git
         sudo install -d -o 1000 -g users repo
     - name: Use geschenkerbauer to build packages
-      uses: mutantmonkey/geschenkerbauer/action@master
+      uses: mutantmonkey/geschenkerbauer/action@bd98b036406da8482b3983491f1ade95e484251f
       env:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
         packages: ${{ github.event.client_payload.pkgname }}
+        nodeps: ${{ github.event.client_payload.nodeps }}
     - name: Replace forbidden colon character in package filenames
       run: |
         for f in $(find . -iname '*:*'); do
