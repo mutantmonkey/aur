@@ -1,8 +1,8 @@
 name: Check the AUR for updates
 on:
-- repository_dispatch:
+  repository_dispatch:
     types: [check-aur-for-updates]
-- schedule:
+  schedule:
   - cron:  '0 4 * * *'
 
 jobs:
