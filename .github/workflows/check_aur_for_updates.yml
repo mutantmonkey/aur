@@ -3,7 +3,7 @@ on:
   repository_dispatch:
     types: [check-aur-for-updates]
   schedule:
-  - cron:  '0 4 * * *'
+  - cron:  '0 1 * * *'
 
 jobs:
   build:
