@@ -14,7 +14,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Check AUR for updates and open pull requests as needed
-      uses: mutantmonkey/geschenkerbauer/update-action@0ed7a612b963eb8b81c76381cd534a39e39526cc
+      uses: mutantmonkey/geschenkerbauer/actions/aur-update@75312a58c4938fd4f7a7c78ca1255a0a1b85cb03
       with:
         author_name: mutantmonkey
         author_email: 67266+mutantmonkey@users.noreply.github.com
