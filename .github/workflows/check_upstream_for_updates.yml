@@ -20,4 +20,4 @@ jobs:
         author_email: 67266+mutantmonkey@users.noreply.github.com
         github_token: ${{ secrets.GITHUB_TOKEN }}
         pypi_packages: |
-          'solo-python: solo-python'
+          solo-python: solo-python
