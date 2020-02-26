@@ -14,7 +14,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Check upstream for updates and open pull requests as needed
-      uses: mutantmonkey/geschenkerbauer/actions/upstream-update@98f457261cf0b644d956ac994dcc588787ce387b
+      uses: mutantmonkey/geschenkerbauer/actions/upstream-update@c533c3a5a9ad469b9c05966d647d22863da072a8
       with:
         author_name: mutantmonkey
         author_email: 67266+mutantmonkey@users.noreply.github.com
