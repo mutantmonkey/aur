@@ -21,3 +21,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         pypi_packages: |
           solo-python: solo-python
+          python-plexapi: PlexAPI
