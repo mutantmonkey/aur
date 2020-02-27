@@ -13,8 +13,10 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Set workspace ownership to UID 1000
+      run: sudo chown -R 1000 .
     - name: Check upstream for updates and open pull requests as needed
-      uses: mutantmonkey/geschenkerbauer/actions/upstream-update@c533c3a5a9ad469b9c05966d647d22863da072a8
+      uses: mutantmonkey/geschenkerbauer/actions/upstream-update@a70fa42772052e4b8a72df2e3f0781c231767992
       with:
         author_name: mutantmonkey
         author_email: 67266+mutantmonkey@users.noreply.github.com
@@ -22,3 +24,5 @@ jobs:
         pypi_packages: |
           solo-python: solo-python
           python-plexapi: PlexAPI
+    - name: Restore workspace ownership to correct UID
+      run: sudo chown -R $(id -u) .
