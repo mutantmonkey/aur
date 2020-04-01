@@ -21,11 +21,8 @@ build() {
 
 package() {
     cd "${pkgname/ocaml-/}-$pkgver"
+    DESTDIR="$pkgdir" dune install --prefix '/usr' --libdir 'lib/ocaml'
 
-    export DESTDIR="$pkgdir$(ocamlfind printconf destdir)"
-    mkdir -p "$DESTDIR"
-
-    dune install --prefix="$DESTDIR" --libdir="$DESTDIR"
     install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
 
