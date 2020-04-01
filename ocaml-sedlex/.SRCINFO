@@ -9,6 +9,7 @@ pkgbase = ocaml-sedlex
 	depends = ocaml
 	depends = ocaml-gen
 	depends = ocaml-ppx_tools
+	depends = ocaml-ppx_tools_versioned
 	options = !strip
 	options = !makeflags
 	source = https://github.com/alainfrisch/sedlex/archive/v2.1.tar.gz
