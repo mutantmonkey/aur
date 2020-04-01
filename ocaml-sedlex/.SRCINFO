@@ -8,7 +8,6 @@ pkgbase = ocaml-sedlex
 	license = MIT
 	depends = ocaml
 	depends = ocaml-gen
-	depends = ocaml-ppx_tools
 	depends = ocaml-ppx_tools_versioned
 	options = !strip
 	options = !makeflags
