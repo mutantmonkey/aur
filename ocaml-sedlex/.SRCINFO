@@ -11,7 +11,7 @@ pkgbase = ocaml-sedlex
 	depends = ocaml-ppx_tools_versioned
 	options = !strip
 	options = !makeflags
-	source = https://github.com/alainfrisch/sedlex/archive/v2.1.tar.gz
+	source = https://github.com/ocaml-community/sedlex/archive/v2.1.tar.gz
 	sha256sums = 7b4a66a74419a88a841370d7162243f834e0842c3ce984f2b0090f5f11ab1699
 
 pkgname = ocaml-sedlex

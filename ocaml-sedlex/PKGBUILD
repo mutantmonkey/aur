@@ -1,5 +1,6 @@
 # Maintainer: Matej Grabovsky <matej.grabovsky at gmail>
-pkgname=ocaml-sedlex
+_projectname='sedlex'
+pkgname="ocaml-$_projectname"
 pkgver=2.1
 pkgrel=3
 pkgdesc='Unicode-friendly OCaml lexer generator'
@@ -7,30 +8,26 @@ license=('MIT')
 arch=('i686' 'x86_64')
 url='https://github.com/ocaml-community/sedlex'
 depends=('ocaml' 'ocaml-gen' 'ocaml-ppx_tools_versioned')
-source=("https://github.com/alainfrisch/sedlex/archive/v${pkgver}.tar.gz")
+source=("https://github.com/ocaml-community/sedlex/archive/v${pkgver}.tar.gz")
 options=(!strip !makeflags)
 sha256sums=('7b4a66a74419a88a841370d7162243f834e0842c3ce984f2b0090f5f11ab1699')
 
+_sourcedirectory="$_projectname-$(printf '%s' "$pkgver" | tr '+' '-')"
+
 prepare() {
-    cd "$srcdir/${pkgname/ocaml-/}-$pkgver"
+    cd "$srcdir/$_sourcedirectory/"
     sed -si 's,Pervasives.,Stdlib.,g' src/generator/gen_unicode.ml.inc
 }
 
 build() {
-    cd "$srcdir/${pkgname/ocaml-/}-$pkgver"
-
-    make all
-    make opt
+    cd "$srcdir/$_sourcedirectory/"
+    dune build -p "$_projectname" --verbose
 }
 
 package() {
-    cd "$srcdir/${pkgname/ocaml-/}-$pkgver"
+    cd "$srcdir/$_sourcedirectory/"
+    DESTDIR="$pkgdir" dune install --prefix '/usr' --libdir 'lib/ocaml'
 
-    export DESTDIR="$pkgdir$(ocamlfind printconf destdir)"
-    export OCAMLFIND_DESTDIR="$DESTDIR"
-    mkdir -p "$DESTDIR"
-
-    make install
     install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
 
