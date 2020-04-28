@@ -52,6 +52,7 @@ pkgbase = liquidsoap
 	depends = ocaml-shine
 	depends = ocaml-soundtouch
 	depends = ocaml-speex
+	depends = ocaml-ssl
 	depends = ocaml-taglib
 	depends = ocaml-theora
 	depends = ocaml-vorbis
