@@ -1,12 +1,14 @@
 pkgbase = ocaml-fdkaac-git
 	pkgdesc = OCaml binding for the fdk-aac library
-	pkgver = r74.872fa6b
+	pkgver = r80.cc4245a
 	pkgrel = 1
 	url = https://github.com/savonet/ocaml-fdkaac
 	arch = i686
 	arch = x86_64
 	license = GPL
 	makedepends = git
+	makedepends = dune>=2.0
+	makedepends = dune-configurator
 	makedepends = ocaml-findlib
 	depends = ocaml
 	depends = libfdk-aac
