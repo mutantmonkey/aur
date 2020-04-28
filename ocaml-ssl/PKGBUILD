@@ -28,7 +28,7 @@ package() {
     opam init --bare -n
 
     # Work around the install command
-    OCAMLFIND_DESTDIR="${pkgdir}$(ocamlfind printconf destdir)" jbuilder install --prefix=${pkgdir}/usr/share
+    OCAMLFIND_DESTDIR="${pkgdir}$(ocamlfind printconf destdir)" dune install --prefix=${pkgdir}/usr/share
     # Install LICENSE
     mkdir -p $pkgdir/usr/share/licenses/$pkgname/
     awk 'BEGIN{P=0} /License/ {P = 1;} {if (P) print}' README.md > $pkgdir/usr/share/licenses/$pkgname/license
