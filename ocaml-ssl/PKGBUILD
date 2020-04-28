@@ -11,7 +11,7 @@ arch=('i686' 'x86_64')
 url="http://savonet.sourceforge.net/"
 license=('custom')
 depends=('ocaml' 'openssl')
-makedepends=('bubblewrap' 'dune' 'ocaml-findlib' 'opam')
+makedepends=('bubblewrap' 'dune' 'dune-configurator' 'ocaml-findlib' 'opam')
 source=("https://github.com/savonet/ocaml-ssl/archive/$pkgver.tar.gz")
 options=(!libtool !strip zipman !makeflags staticlibs)
 
