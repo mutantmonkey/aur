@@ -8,7 +8,6 @@ pkgbase = ocaml-ssl
 	license = custom
 	makedepends = bubblewrap
 	makedepends = dune
-	makedepends = dune-configurator
 	makedepends = ocaml-findlib
 	makedepends = opam
 	depends = ocaml
