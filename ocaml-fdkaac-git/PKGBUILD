@@ -7,7 +7,7 @@ arch=('i686' 'x86_64')
 url="https://github.com/savonet/ocaml-fdkaac"
 license=('GPL')
 depends=('ocaml' 'libfdk-aac')
-makedepends=('git' 'dune>=2.0' 'dune-configurator' 'ocaml-findlib')
+makedepends=('git' 'dune>=2.0' 'ocaml-findlib')
 options=('!strip' '!makeflags')
 source=("${pkgname}::git+https://github.com/savonet/ocaml-fdkaac.git")
 

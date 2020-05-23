@@ -8,7 +8,6 @@ pkgbase = ocaml-fdkaac-git
 	license = GPL
 	makedepends = git
 	makedepends = dune>=2.0
-	makedepends = dune-configurator
 	makedepends = ocaml-findlib
 	depends = ocaml
 	depends = libfdk-aac
