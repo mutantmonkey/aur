@@ -10,6 +10,7 @@ pkgbase = yubico-piv-tool
 	makedepends = check
 	makedepends = gengetopt
 	makedepends = help2man
+	makedepends = cmake
 	depends = pcsclite
 	depends = openssl
 	options = !libtool
