@@ -29,7 +29,8 @@ source=(buildscripts-$_buildscriptsver.tar.gz::"https://github.com/devkitPro/bui
         "https://github.com/devkitPro/buildscripts/releases/download/sources/newlib-$_newlibver.tar.gz"
         "https://github.com/devkitPro/buildscripts/releases/download/sources/gdb-$_gdbver.tar.xz"
         "devkitarm.sh"
-        "devkitarm.fish")
+        "devkitarm.fish"
+        "gdb-and-rules.patch")
 sha256sums=('a945e0300a9785a04fcaf0349c7c0fa63efbf93346a318cacb79d23f0840d543'
             '10ad51c68eda70cba4ca6ed4d0bfd938ad33199f254cb0412dff6edabc56fa70'
             'db8b2f6a08909a3cdd476b8b2e2ece3270d3d6b2bf625ef3da1edd25f345643c'
@@ -38,7 +39,8 @@ sha256sums=('a945e0300a9785a04fcaf0349c7c0fa63efbf93346a318cacb79d23f0840d543'
             '58dd9e3eaedf519360d92d84205c3deef0b3fc286685d1c562e245914ef72c66'
             'baaabb28026ba47e3fd56f0138e020c9b3d51e11800a3b220d736fae8e677112'
             '2162a4cf8ae8567b5ddff631474f28b6a0a5d0bce43915396b7dea602e2131e0'
-            '13357e81de7ec8d7ad7f9fb37a78c23c4f99c6f7ca67d3a0070eedc388deb938')
+            '13357e81de7ec8d7ad7f9fb37a78c23c4f99c6f7ca67d3a0070eedc388deb938'
+            'e1e4bacfa1c85ced596b279a0820552b935b34b8f38dc5f571ca140a70c3477f')
 noextract=("devkitarm-rules-$_rulesver.tar.xz" "devkitarm-crtls-$_crtlsver.tar.xz"
            "binutils-$_binutilsver.tar.xz" "gcc-$_gccver.tar.xz"
            "newlib-$_newlibver.tar.gz" "gdb-$_gdbver.tar.xz")
