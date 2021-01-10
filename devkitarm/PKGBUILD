@@ -70,7 +70,7 @@ END
     # fix search path to use correct tools
     sed 's|$PATH:$TOOLPATH/$package/bin|$TOOLPATH/$package/bin:$PATH|' -i build-devkit.sh
 
-    patch --strip=1 < ../../gdb-and-rules.patch
+    patch --strip=1 < ../gdb-and-rules.patch
   )
 }
 
