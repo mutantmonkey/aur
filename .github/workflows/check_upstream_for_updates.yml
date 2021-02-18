@@ -16,7 +16,7 @@ jobs:
     - name: Set workspace ownership to UID 1000
       run: sudo chown -R 1000 .
     - name: Check upstream for updates and open pull requests as needed
-      uses: mutantmonkey/geschenkerbauer/actions/upstream-update@1cf755c66f4b9f054f0e654b015f66c6f04a5d61
+      uses: mutantmonkey/geschenkerbauer/actions/upstream-update@7428bf4af13f2c71734b47b71eaf3ef610d99ed9
       with:
         author_name: mutantmonkey
         author_email: 67266+mutantmonkey@users.noreply.github.com
