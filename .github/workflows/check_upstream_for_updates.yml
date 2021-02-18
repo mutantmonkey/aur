@@ -9,13 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-    - name: Build latest runc to work around actions/virtual-environments#2698
-      run: |
-        sudo apt-get install libseccomp-dev
-        git clone https://github.com/opencontainers/runc
-        cd runc
-        make
-        sudo make install
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
@@ -23,7 +16,7 @@ jobs:
     - name: Set workspace ownership to UID 1000
       run: sudo chown -R 1000 .
     - name: Check upstream for updates and open pull requests as needed
-      uses: mutantmonkey/geschenkerbauer/actions/upstream-update@f3ee9e6db863b3e8d27df19f9ddb6ea0cfa6afab
+      uses: mutantmonkey/geschenkerbauer/actions/upstream-update@dac3d95062db77285cb8eb9a6dccde9c240c6b68
       with:
         author_name: mutantmonkey
         author_email: 67266+mutantmonkey@users.noreply.github.com
