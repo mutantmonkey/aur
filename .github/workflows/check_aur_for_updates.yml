@@ -9,19 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-    - name: Build latest runc to work around actions/virtual-environments#2698
-      run: |
-        sudo apt-get install libseccomp-dev
-        git clone https://github.com/opencontainers/runc
-        cd runc
-        make
-        sudo make install
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
     - name: Check AUR for updates and open pull requests as needed
-      uses: mutantmonkey/geschenkerbauer/actions/aur-update@75312a58c4938fd4f7a7c78ca1255a0a1b85cb03
+      uses: mutantmonkey/geschenkerbauer/actions/aur-update@fe581c8a1acf33cf8b773d8a5bb5fe59e256d22e
       with:
         author_name: mutantmonkey
         author_email: 67266+mutantmonkey@users.noreply.github.com
