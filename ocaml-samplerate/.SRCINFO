@@ -11,7 +11,7 @@ pkgbase = ocaml-samplerate
 	depends = ocaml
 	depends = libsamplerate
 	options = !strip
-	source = https://github.com/savonet/ocaml-samplerate/archive/v0.1.5.tar.gz
+	source = ocaml-samplerate-0.1.5.tar.gz::https://github.com/savonet/ocaml-samplerate/archive/v0.1.5.tar.gz
 	sha256sums = 2c5cdfc490770ae77d383a6ccb3cee153b8303aab41da42882b175a0850f49a3
 
 pkgname = ocaml-samplerate
