@@ -11,7 +11,7 @@ pkgbase = ocaml-xmlplaylist
 	depends = ocaml
 	depends = ocaml-xmlm
 	options = !strip
-	source = https://github.com/savonet/ocaml-xmlplaylist/archive/v0.1.5.tar.gz
+	source = ocaml-xmlplaylist-0.1.5.tar.gz::https://github.com/savonet/ocaml-xmlplaylist/archive/v0.1.5.tar.gz
 	sha256sums = 07c26aefbb36a0fd6295e40b2f41a900442ec24614a834e84cb8163c4bd54d46
 
 pkgname = ocaml-xmlplaylist
