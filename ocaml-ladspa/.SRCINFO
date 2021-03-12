@@ -11,7 +11,7 @@ pkgbase = ocaml-ladspa
 	makedepends = ocaml-findlib
 	depends = ocaml
 	options = !strip
-	source = https://github.com/savonet/ocaml-ladspa/archive/v0.2.0.tar.gz
+	source = ocaml-ladspa-0.2.0.tar.gz::https://github.com/savonet/ocaml-ladspa/archive/v0.2.0.tar.gz
 	sha256sums = a2cdb620d118100d399ff7e14534909acc207224c519605f317f1542db9b61c5
 
 pkgname = ocaml-ladspa
