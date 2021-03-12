@@ -11,7 +11,7 @@ license=('LGPL2.1')
 depends=('ocaml' 'libogg')
 makedepends=('dune' 'ocaml-findlib')
 options=('!strip')
-source=("${url}/archive/v${pkgver}.tar.gz")
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
