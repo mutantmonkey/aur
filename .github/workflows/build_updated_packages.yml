@@ -5,13 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-    - name: Build latest runc to work around actions/virtual-environments#2698
-      run: |
-        sudo apt-get install libseccomp-dev
-        git clone https://github.com/opencontainers/runc
-        cd runc
-        make
-        sudo make install
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
