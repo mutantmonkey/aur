@@ -12,7 +12,7 @@ license=('GPL2')
 depends=('ocaml' 'opus' 'ocaml-ogg')
 makedepends=('dune' 'ocaml-findlib')
 options=('!strip')
-source=("${url}/archive/v${pkgver}.tar.gz")
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"

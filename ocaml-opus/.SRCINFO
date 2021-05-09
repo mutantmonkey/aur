@@ -12,7 +12,7 @@ pkgbase = ocaml-opus
 	depends = opus
 	depends = ocaml-ogg
 	options = !strip
-	source = https://github.com/savonet/ocaml-opus/archive/v0.2.0.tar.gz
+	source = ocaml-opus-0.2.0.tar.gz::https://github.com/savonet/ocaml-opus/archive/v0.2.0.tar.gz
 	sha256sums = 5d70a87816062d5c9fe56888df11beebafd6342de7cbe68bcbbd9c00ec84b9ab
 
 pkgname = ocaml-opus
