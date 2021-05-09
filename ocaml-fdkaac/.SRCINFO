@@ -11,7 +11,7 @@ pkgbase = ocaml-fdkaac
 	depends = ocaml
 	depends = libfdk-aac
 	options = !strip
-	source = https://github.com/savonet/ocaml-fdkaac/archive/0.3.2.tar.gz
+	source = ocaml-fdkaac-0.3.2.tar.gz::https://github.com/savonet/ocaml-fdkaac/archive/0.3.2.tar.gz
 	sha256sums = 0de28749e1435839ead013c385c6b963b88b57770e362e067139c2fd67a52e5f
 
 pkgname = ocaml-fdkaac
