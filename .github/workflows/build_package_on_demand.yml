@@ -13,7 +13,6 @@ jobs:
         path: buildsrc
     - name: Prepare build environment
       run: |
-        sudo apt install signify-openbsd
         sudo chown -R 1000 buildsrc
         sudo chown -R $(id -u) buildsrc/.git
         sudo install -d -o 1000 -g users repo
@@ -25,13 +24,6 @@ jobs:
       with:
         packages: ${{ github.event.client_payload.pkgname }}
         nodeps: ${{ github.event.client_payload.nodeps }}
-    - name: Sign packages with signify
-      env:
-        SIGNIFY_SECRET_KEY: ${{ secrets.SIGNIFY_SECRET_KEY }}
-        SIGNIFY_PASSWORD: ${{ secrets.SIGNIFY_PASSWORD }}
-      run: |
-        sudo -u 1000 ${{ github.workspace }}/buildsrc/.github/scripts/sign_packages.sh
-      working-directory: ./repo
     - name: Replace forbidden colon character in package filenames
       run: |
         for f in $(find . -iname '*:*'); do
