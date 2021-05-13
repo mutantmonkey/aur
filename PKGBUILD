@@ -6,7 +6,7 @@
 pkgname=teensyduino
 pkgver=1.53
 arduinover=1.8.13
-pkgrel=1
+pkgrel=2
 pkgdesc="Arduino SDK with Teensyduino"
 arch=('x86_64')
 url="http://www.pjrc.com/teensy/teensyduino.html"
@@ -21,7 +21,7 @@ install="teensyduino.install"
 source=('arduino.xml'
         'teensy-loader.desktop'
         "git+https://github.com/PaulStoffregen/teensy_loader_cli.git#commit=e98b5065cdb9f04aa4dde3f2e6e6e6f12dd97592"
-        "http://www.pjrc.com/teensy/49-teensy.rules"
+        "https://www.pjrc.com/teensy/00-teensy.rules"
         'LICENSE'
         "http://downloads.arduino.cc/arduino-${arduinover}-linux64.tar.xz"
         "TeensyduinoInstall_${pkgver//./}_x86_64::http://www.pjrc.com/teensy/td_${pkgver//./}/TeensyduinoInstall.linux64")
@@ -29,7 +29,7 @@ source=('arduino.xml'
 sha256sums=('473b82156505e9bd903e4d8484e8d183f2e3bf3c1f7e29940b815929ae597b68'
             '837a865ab3bf81163c95a8a5898f9d5f0de7740a4207949bc331409cbb40faba'
             'SKIP'
-            '7c17bb6dcef244fbf8bc9bd85a7eb812eebe60f6a6a3d47bceddde84c77c5914'
+            '7678442fb9f98289f93ff4938c221f0d582d19ec750823d66721abc926165810'
             '25980feb5927b8bea8b8e999f5002e110825b1bc3d546fa902c2db5c824d33f3'
             '1b20d0ec850a2a63488009518725f058668bb6cb48c321f82dcf47dc4299b4ad'
             '2e6cd99a757bc80593ea3de006de4cc934bcb0a6ec74cad8ec327f0289d40f0b')
@@ -81,7 +81,7 @@ package() {
   install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/teensyduino/"
 
   # install teensy loader files
-  install -m644 "${srcdir}/49-teensy.rules" "${pkgdir}/usr/lib/udev/rules.d"
+  install -m644 "${srcdir}/00-teensy.rules" "${pkgdir}/usr/lib/udev/rules.d"
   ln -s /usr/share/arduino/hardware/tools/teensy "${pkgdir}/usr/bin/teensy-loader"
   install -m644 "${srcdir}/teensy-loader.desktop" "${pkgdir}/usr/share/applications/"
 
