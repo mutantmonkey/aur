@@ -24,6 +24,11 @@ jobs:
       with:
         packages: ${{ github.event.client_payload.pkgname }}
         nodeps: ${{ github.event.client_payload.nodeps }}
+    - name: Sign packages
+      uses: mutantmonkey/geschenkerbauer/actions/sign-packages@ce3346af3ff4467796507a41f676817d4faeaf37
+      with:
+        signify_secret_key: ${{ secrets.SIGNIFY_SECRET_KEY }}
+        signify_password: ${{ secrets.SIGNIFY_PASSWORD }}
     - name: Replace forbidden colon character in package filenames
       run: |
         for f in $(find . -iname '*:*'); do
