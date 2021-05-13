@@ -25,7 +25,7 @@ jobs:
         packages: ${{ github.event.client_payload.pkgname }}
         nodeps: ${{ github.event.client_payload.nodeps }}
     - name: Sign packages
-      uses: mutantmonkey/geschenkerbauer/actions/sign-packages@d48ab975ec8ce7ce5fc0365f1a6636e89dd5686f
+      uses: mutantmonkey/geschenkerbauer/actions/sign-packages@24a8b164950ab304c297c7f3f213c062387df194
       with:
         signify_secret_key: ${{ secrets.SIGNIFY_SECRET_KEY }}
         signify_password: ${{ secrets.SIGNIFY_PASSWORD }}
