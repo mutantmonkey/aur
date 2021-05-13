@@ -27,7 +27,7 @@ jobs:
       with:
         packages: ${{ steps.get-packages.outputs.packages }}
     - name: Sign packages
-      uses: mutantmonkey/geschenkerbauer/actions/sign-packages@24a8b164950ab304c297c7f3f213c062387df194
+      uses: mutantmonkey/geschenkerbauer/actions/sign-packages@5bdaf7b91a53ef41e293df6344ef3b00e4ec4750
       with:
         signify_secret_key: ${{ secrets.SIGNIFY_SECRET_KEY }}
         signify_password: ${{ secrets.SIGNIFY_PASSWORD }}
