@@ -20,7 +20,7 @@ jobs:
       run: |
         echo "::set-output name=packages::"$(git --git-dir=buildsrc/.git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | tr '\n' ' ')
     - name: Use geschenkerbauer to build packages
-      uses: mutantmonkey/geschenkerbauer/action@bb664372aad0a42ab6b4e7edcbb20be0ea2a4105
+      uses: mutantmonkey/geschenkerbauer/action@a159e787eadd0c035c9e58c0adacc21c05fd0aeb
       env:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
