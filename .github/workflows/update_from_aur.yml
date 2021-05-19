@@ -19,10 +19,10 @@ jobs:
         git config --local user.email 67266+mutantmonkey@users.noreply.github.com
 
         if [ -d "${pkgbase}" ]; then
-          git subtree split -P "${pkgbase}" --rejoin
-          git subtree pull -P "${pkgbase}" https://aur.archlinux.org/"${pkgbase}".git master -m "Merge subtree '${pkgbase}'"
+          git subtree split -q -P "${pkgbase}" --rejoin
+          git subtree pull -q -P "${pkgbase}" https://aur.archlinux.org/"${pkgbase}".git master -m "Merge subtree '${pkgbase}'"
         else
-          git subtree add -P "${pkgbase}" https://aur.archlinux.org/"${pkgbase}".git master
+          git subtree add -q -P "${pkgbase}" https://aur.archlinux.org/"${pkgbase}".git master
         fi
     - name: Push changes
       run: git push
