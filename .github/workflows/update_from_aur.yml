@@ -1,0 +1,28 @@
+name: Update package from AUR
+on:
+  repository_dispatch:
+    types: [update-from-aur]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Pull subtree from AUR
+      env:
+        pkgbase: ${{ github.event.client_payload.pkgbase }}
+      run: |
+        git config --local user.name mutantmonkey
+        git config --local user.email 67266+mutantmonkey@users.noreply.github.com
+
+        if [ -d "${pkgbase}" ]; then
+          git subtree split -P "${pkgbase}" --rejoin
+          git subtree pull -P "${pkgbase}" https://aur.archlinux.org/"${pkgbase}".git master -m "Merge subtree '${pkgbase}'"
+        else
+          git subtree add -P "${pkgbase}" https://aur.archlinux.org/"${pkgbase}".git master
+        fi
+    - name: Push changes
+      run: git push
