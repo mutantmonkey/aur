@@ -1,7 +1,7 @@
 pkgbase = uuid
 	pkgdesc = OSSP Universally Unique Identifier
 	pkgver = 1.6.2
-	pkgrel = 20
+	pkgrel = 21
 	url = http://www.ossp.org/pkg/lib/uuid
 	arch = i686
 	arch = x86_64
@@ -20,4 +20,3 @@ pkgbase = uuid
 	sha512sums = 36d0ea6088c12a5e382c3098f11214b202e96f91e4efd5cac567d5a81e836f78eeb654f051c576a211ec2dd5337b1f0a20d4246e84a0842fce22ae5fa96e5be9
 
 pkgname = uuid
-
