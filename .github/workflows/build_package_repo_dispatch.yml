@@ -1,4 +1,4 @@
-name: Build package
+name: Build package dispatch
 on:
   repository_dispatch:
     types: [build-package]
