@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       pkgbase:
-        description: "Package base name on the AUR"
+        description: "Package base name"
         required: true
   repository_dispatch:
     types: [update-from-aur]
