@@ -1,5 +1,10 @@
-name: Build package dispatch
+name: Build package
 on:
+  workflow_dispatch:
+    inputs:
+      pkgname:
+        description: "Package to build"
+        required: true
   repository_dispatch:
     types: [build-package]
 
@@ -16,7 +21,15 @@ jobs:
         sudo chown -R 1000 buildsrc
         sudo chown -R $(id -u) buildsrc/.git
         sudo install -d -o 1000 -g users repo
-    - name: Use geschenkerbauer to build packages
+    - name: Use geschenkerbauer to build packages (workflow dispatch)
+      uses: mutantmonkey/geschenkerbauer/action@a159e787eadd0c035c9e58c0adacc21c05fd0aeb
+      env:
+        GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
+        PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
+      with:
+        packages: ${{ github.event.inputs.pkgname }}
+      if: ${{ github.event_name == 'workflow_dispatch' }}
+    - name: Use geschenkerbauer to build packages (repository dispatch)
       uses: mutantmonkey/geschenkerbauer/action@a159e787eadd0c035c9e58c0adacc21c05fd0aeb
       env:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
@@ -24,6 +37,7 @@ jobs:
       with:
         packages: ${{ github.event.client_payload.pkgname }}
         nodeps: ${{ github.event.client_payload.nodeps }}
+      if: ${{ github.event_name != 'workflow_dispatch' }}
     - name: Sign packages
       uses: mutantmonkey/geschenkerbauer/actions/sign-packages@5bdaf7b91a53ef41e293df6344ef3b00e4ec4750
       with:
