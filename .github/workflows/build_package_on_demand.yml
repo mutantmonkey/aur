@@ -7,6 +7,8 @@ on:
         required: true
   repository_dispatch:
     types: [build-package]
+permissions:
+  contents: read
 
 jobs:
   build:
