@@ -1,5 +1,9 @@
 name: Build updated packages
-on: push
+on:
+  push:
+    paths-ignore:
+      - '.github/workflows/**'
+      - 'keyring.asc'
 
 jobs:
   build:
