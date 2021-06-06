@@ -16,13 +16,17 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Configure git user
+      run: |
+        git config --local user.name mutantmonkey
+        git config --local user.email 67266+mutantmonkey@users.noreply.github.com
     - name: Update package from the AUR (workflow dispatch)
-      uses: mutantmonkey/geschenkerbauer/actions/aur-update@eff395b734c0ec4b0f0690a03687230f7e68061e
+      uses: mutantmonkey/geschenkerbauer/actions/aur-update@e91351eef31903d652f4375689c09be0900bfe7f
       with:
         pkgbase: ${{ github.event.inputs.pkgbase }}
       if: ${{ github.event_name == 'workflow_dispatch' }}
     - name: Update package from the AUR (repository dispatch)
-      uses: mutantmonkey/geschenkerbauer/actions/aur-update@eff395b734c0ec4b0f0690a03687230f7e68061e
+      uses: mutantmonkey/geschenkerbauer/actions/aur-update@e91351eef31903d652f4375689c09be0900bfe7f
       with:
         pkgbase: ${{ github.event.client_payload.pkgbase }}
       if: ${{ github.event_name != 'workflow_dispatch' }}
