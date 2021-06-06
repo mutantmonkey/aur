@@ -20,11 +20,11 @@ jobs:
       uses: mutantmonkey/geschenkerbauer/actions/aur-update@9294f2a9879566ccb9f2f048acfae39ff2825cbf
       with:
         pkgbase: ${{ github.event.inputs.pkgbase }}
-      if: ${{ github.event_name == "workflow_dispatch" }}
+      if: ${{ github.event_name == 'workflow_dispatch' }}
     - name: Update package from the AUR
       uses: mutantmonkey/geschenkerbauer/actions/aur-update@9294f2a9879566ccb9f2f048acfae39ff2825cbf
       with:
         pkgbase: ${{ github.event.client_payload.pkgbase }}
-      if: ${{ github.event_name != "workflow_dispatch" }}
+      if: ${{ github.event_name != 'workflow_dispatch' }}
     - name: Push changes
       run: git push
