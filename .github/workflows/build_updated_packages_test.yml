@@ -19,22 +19,9 @@ jobs:
       id: get-packages
       run: |
         echo "::set-output name=packages::[\""$(git diff --name-only 3a130634faeba63e473d17e9eb2d94123e362dd3 HEAD | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | head -c -1 | sed -z 's/\n/","/g')"\"]"
-    - name: Print out the packages JSON
-      env:
-        packages: "${{ steps.get-packages.outputs.packages }}"
-      run: |
-        echo "${packages}"
-  print:
-    name: Print out expected packages to build (debug)
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Print out the packages JSON
-      env:
-        packages: ${{ needs.evaluate.outputs.packages }}
-      run: |
-        echo "${packages}"
   build:
     name: Build
+    needs: evaluate
     runs-on: ubuntu-20.04
     strategy:
       matrix:
