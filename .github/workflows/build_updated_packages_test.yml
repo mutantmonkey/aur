@@ -9,7 +9,7 @@ jobs:
     name: Evaluate changed packages
     runs-on: ubuntu-20.04
     outputs:
-      matrix: ${{ steps.get-packages.outputs.matrix }}
+      packages: ${{ steps.get-packages.outputs.packages }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -18,16 +18,16 @@ jobs:
     - name: Figure out which packages have changed since the last push
       id: get-packages
       run: |
-        echo "::set-output name=matrix::{\"packages\":[\""$(git diff --name-only 3a130634faeba63e473d17e9eb2d94123e362dd3 HEAD | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | head -c -1 | sed -z 's/\n/","/g')"\"]}"
-    - name: Print out the matrix JSON
+        echo "::set-output name=packages::[\""$(git diff --name-only 3a130634faeba63e473d17e9eb2d94123e362dd3 HEAD | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | head -c -1 | sed -z 's/\n/\",\"/g')"\"]"
+    - name: Print out the packages JSON
       run: |
-        echo "${{ steps.get-packages.outputs.matrix }}"
+        echo "${{ steps.get-packages.outputs.packages }}"
   build:
     name: Build
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        pkgname: ${{ fromJSON(needs.evaluate.outputs.matrix).packages }}
+        pkgname: ${{ fromJSON(needs.evaluate.outputs.packages) }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
