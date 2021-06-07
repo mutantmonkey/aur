@@ -24,6 +24,15 @@ jobs:
         packages: "${{ steps.get-packages.outputs.packages }}"
       run: |
         echo "${packages}"
+  print:
+    name: Print out expected packages to build (debug)
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Print out the packages JSON
+      env:
+        packages: ${{ needs.evaluate.outputs.packages }}
+      run: |
+        echo "${packages}"
   build:
     name: Build
     runs-on: ubuntu-20.04
