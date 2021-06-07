@@ -6,7 +6,7 @@ on:
         description: "Package to build"
         required: true
       nodeps:
-        description: "If value is 1, disable dependency checks/installation"
+        description: "Skip dependency checks (use 1 to disable dependency checks)"
         required: false
   repository_dispatch:
     types: [build-package]
