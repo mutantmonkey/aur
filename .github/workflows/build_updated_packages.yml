@@ -24,6 +24,7 @@ jobs:
         echo "::set-output name=packages::[\""$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | head -c -1 | sed -z 's/\n/","/g')"\"]"
   build:
     name: Build
+    needs: evaluate
     runs-on: ubuntu-20.04
     strategy:
       matrix:
