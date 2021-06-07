@@ -1,0 +1,60 @@
+name: Build updated packages test
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    name: Evaluate changed packages
+    runs-on: ubuntu-20.04
+    outputs:
+      matrix: ${{ steps.get-packages.outputs.matrix }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Figure out which packages have changed since the last push
+      id: get-packages
+      run: |
+        echo "::set-output name=matrix::{\"packages\":[\""$(git diff --name-only 3a130634faeba63e473d17e9eb2d94123e362dd3 HEAD | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | head -c -1 | sed -z 's/\n/","/g')"\"]}"
+  build:
+    name: Build
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        pkgname: ${{ fromJSON(needs.evaluate.outputs.matrix).packages }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        path: buildsrc
+    - name: Prepare build environment
+      run: |
+        sudo chown -R 1000 buildsrc
+        sudo chown -R $(id -u) buildsrc/.git
+        sudo install -d -o 1000 -g users repo
+    - name: Use geschenkerbauer to build packages
+      uses: mutantmonkey/geschenkerbauer/action@a159e787eadd0c035c9e58c0adacc21c05fd0aeb
+      env:
+        GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
+        PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
+      with:
+        packages: ${{ matrix.pkgname }}
+    - name: Sign packages
+      uses: mutantmonkey/geschenkerbauer/actions/sign-packages@5bdaf7b91a53ef41e293df6344ef3b00e4ec4750
+      with:
+        signify_secret_key: ${{ secrets.SIGNIFY_SECRET_KEY }}
+        signify_password: ${{ secrets.SIGNIFY_PASSWORD }}
+    - name: Replace forbidden colon character in package filenames
+      run: |
+        for f in $(find . -iname '*:*'); do
+          sudo mv "$f" "${f/:/__3A__}"
+        done || exit 0
+      working-directory: ./repo
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: build-output-${{ matrix.pkgname }}
+        path: repo
