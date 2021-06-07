@@ -12,4 +12,3 @@ pkgbase = mutantmonkey-keyring
 	sha256sums = 1a3da81c89ac5b90231c7e6176d9c612f24f21e01c5faf7c754c603f0a1cbd4b
 
 pkgname = mutantmonkey-keyring
-
