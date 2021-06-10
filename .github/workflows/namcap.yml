@@ -1,0 +1,19 @@
+name: Check PKGBUILDs using namcap
+on:
+  push:
+    paths-ignore:
+      - '.github/workflows/**'
+      - 'keyring.asc'
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check packages
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Check all PKGBUILDs using namcap
+      uses: mutantmonkey/geschenkerbauer/actions/namcap@7e94f428235430d07869696f7a501c6f1c2883a9
