@@ -8,6 +8,8 @@ on:
   repository_dispatch:
     types: [update-from-aur]
 
+concurrency: update-from-aur-${{ github.ref }}
+
 jobs:
   update:
     runs-on: ubuntu-20.04
