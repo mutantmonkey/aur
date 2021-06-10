@@ -1,0 +1,23 @@
+pkgbase = ocaml-gd4o
+	pkgdesc = OCaml interface to the GD graphics library
+	pkgver = 1.0a5
+	pkgrel = 4
+	url = http://matt.gushee.net/software/gd4o/
+	arch = i686
+	arch = x86_64
+	license = LGPL
+	makedepends = ocaml-findlib
+	depends = gd
+	depends = libjpeg-turbo
+	provides = ocaml-gd
+	options = !strip
+	options = staticlibs
+	source = https://sourceforge.net/projects/gd4o/files/gd4o/1.0%20Alpha%205/gd4o-1.0a5.tar.gz
+	source = add_fpic_to_cflags.patch
+	source = support_custom_cflags.patch
+	sha256sums = fa10b60a785e6734b6ac1b5a762f496b925502cfc848381cae7dfb75fe547eed
+	sha256sums = ea73c715461e1e4dcf8a45164bf596f0916026c5eaedf8b8ee097e63dff60f72
+	sha256sums = 8d677285f9db15cbc8a4ff5c4813da7e9bfea3118bb1c62789c9164eb5cfa4eb
+
+pkgname = ocaml-gd4o
+
