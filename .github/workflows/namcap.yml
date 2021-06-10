@@ -10,10 +10,10 @@ permissions:
 
 jobs:
   check:
-    name: Check packages
+    name: Check
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Check all PKGBUILDs using namcap
-      uses: mutantmonkey/geschenkerbauer/actions/namcap@1c201fccb42467bfb8b647028613ce1894eee50d
+      uses: mutantmonkey/geschenkerbauer/actions/namcap@cf1fb3e99a268989dd7d476e379466d444591d3a
