@@ -16,4 +16,4 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Check all PKGBUILDs using namcap
-      uses: mutantmonkey/geschenkerbauer/actions/namcap@a3b3c6630bcb1ba20d3418f7650dfd611cb10caf
+      uses: mutantmonkey/geschenkerbauer/actions/namcap@2d364a6fbaa43d02554388a2df0b60863a5a61b4
