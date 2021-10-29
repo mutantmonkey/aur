@@ -10,6 +10,7 @@ pkgbase = hyperion.ng-git
 	arch = armv7h
 	arch = aarch64
 	license = MIT
+	makedepends = git
 	makedepends = cmake
 	depends = libusb
 	depends = libcec
