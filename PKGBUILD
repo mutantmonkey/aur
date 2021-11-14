@@ -8,7 +8,7 @@ arch=('x86_64')
 url="https://github.com/solokeys/solo2-cli"
 license=(Apache MIT)
 # we only need `libudev.so`, during build we also need `pkgconfig/udev/.pc`
-depends=(systemd-libs)
+depends=(systemd-libs pcsclite)
 # note we do not need Arch `hidapi` package here, it's a git submodule of Rust hidapi
 makedepends=(cargo git systemd)
 conflicts=(solo2-cli-git)
