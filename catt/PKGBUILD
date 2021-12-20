@@ -17,7 +17,7 @@ depends=(
   'python-netifaces'
   'python-pychromecast>=7.5.0'
   'python-requests'
-  'youtube-dl>=2020.06.06')
+  'yt-dlp')
 makedepends=('python-setuptools')
 source=("${pkgname}"-"${pkgver}".tar.gz::${url}/archive/v"${pkgver}".tar.gz)
 sha256sums=('f4f863f5784c65d4ed0db01be82985c77d0f3527bc5b8cc7696bee00516ac02d')
