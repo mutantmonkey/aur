@@ -12,7 +12,7 @@ pkgbase = catt
 	depends = python-netifaces
 	depends = python-pychromecast>=7.5.0
 	depends = python-requests
-	depends = youtube-dl>=2020.06.06
+	depends = yt-dlp
 	source = catt-0.12.5.tar.gz::https://github.com/skorokithakis/catt/archive/v0.12.5.tar.gz
 	sha256sums = f4f863f5784c65d4ed0db01be82985c77d0f3527bc5b8cc7696bee00516ac02d
 
