@@ -59,7 +59,7 @@ jobs:
         done || exit 0
       working-directory: ./repo
     - name: Upload artifacts
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v3
       with:
         name: build-output-${{ matrix.pkgname }}
         path: repo
