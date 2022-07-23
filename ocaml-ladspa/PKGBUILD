@@ -2,7 +2,7 @@
 # Contributor: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-ladspa
-pkgver=0.2.0
+pkgver=0.2.2
 pkgrel=1
 pkgdesc="OCaml bindings for LADSPA plugins"
 arch=('i686' 'x86_64')
@@ -28,4 +28,4 @@ package() {
   mv "${pkgdir}/usr/doc" "${pkgdir}/usr/share/"
 }
 
-sha256sums=('a2cdb620d118100d399ff7e14534909acc207224c519605f317f1542db9b61c5')
+sha256sums=('da089b3617a6219f69a7c5c4dbe87e6ad2cb1e290008f51c70d2ecfabc4c7e7a')
