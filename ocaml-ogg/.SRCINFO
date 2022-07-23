@@ -1,6 +1,6 @@
 pkgbase = ocaml-ogg
 	pkgdesc = OCaml binding to libogg
-	pkgver = 0.7.0
+	pkgver = 0.7.2
 	pkgrel = 1
 	url = https://github.com/savonet/ocaml-ogg
 	arch = i686
@@ -11,8 +11,7 @@ pkgbase = ocaml-ogg
 	depends = ocaml
 	depends = libogg
 	options = !strip
-	source = ocaml-ogg-0.7.0.tar.gz::https://github.com/savonet/ocaml-ogg/archive/v0.7.0.tar.gz
-	sha256sums = 2f21b52d6237704c98fff618af3a9faf2adfbf2cbcff0aa08297dc6f101b2fa2
+	source = ocaml-ogg-0.7.2.tar.gz::https://github.com/savonet/ocaml-ogg/archive/v0.7.2.tar.gz
+	sha256sums = b4915d9dd31186a38404b2ba6da0ad7bc8eaf4e2c94f0468454386dce9e74892
 
 pkgname = ocaml-ogg
-
