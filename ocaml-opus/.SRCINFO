@@ -1,6 +1,6 @@
 pkgbase = ocaml-opus
 	pkgdesc = OCaml bindings for Opus audio codec
-	pkgver = 0.2.0
+	pkgver = 0.2.2
 	pkgrel = 1
 	url = https://github.com/savonet/ocaml-opus
 	arch = i686
@@ -12,8 +12,7 @@ pkgbase = ocaml-opus
 	depends = opus
 	depends = ocaml-ogg
 	options = !strip
-	source = ocaml-opus-0.2.0.tar.gz::https://github.com/savonet/ocaml-opus/archive/v0.2.0.tar.gz
-	sha256sums = 5d70a87816062d5c9fe56888df11beebafd6342de7cbe68bcbbd9c00ec84b9ab
+	source = ocaml-opus-0.2.2.tar.gz::https://github.com/savonet/ocaml-opus/archive/v0.2.2.tar.gz
+	sha256sums = dd7174c3be3d58bb5d9a7c145c3c1dfed857508806c721d1f0149d9feb97d273
 
 pkgname = ocaml-opus
-
