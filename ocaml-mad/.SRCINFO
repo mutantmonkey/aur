@@ -1,6 +1,6 @@
 pkgbase = ocaml-mad
 	pkgdesc = OCaml bindings to the MAD mp3 decoder
-	pkgver = 0.5.0
+	pkgver = 0.5.2
 	pkgrel = 1
 	url = https://github.com/savonet/ocaml-mad
 	arch = i686
@@ -11,8 +11,7 @@ pkgbase = ocaml-mad
 	depends = ocaml
 	depends = libmad
 	options = !strip
-	source = ocaml-mad-0.5.0.tar.gz::https://github.com/savonet/ocaml-mad/archive/v0.5.0.tar.gz
-	sha256sums = 33aebe924a8c10b69ae8304f632eb23d65c10b370d7c97d60eb0649ce8fbae91
+	source = ocaml-mad-0.5.2.tar.gz::https://github.com/savonet/ocaml-mad/archive/v0.5.2.tar.gz
+	sha256sums = eb32be151453cfeeadc1d8ca0f767300161ef51222c02770733dd9508629f7b1
 
 pkgname = ocaml-mad
-
