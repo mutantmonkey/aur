@@ -3,8 +3,10 @@
 pkgname=tauon-music-box
 _pkgname=tauonmb
 _gitname=TauonMusicBox
-pkgver=6.8.0
+pkgver=7.3.2
 pkgrel=1
+_kissfftver=131.1.0
+_miniaudiocommit=4d813cfe23c28db165cce6785419fee9d2399766
 pkgdesc="A modern streamlined music player"
 arch=('any')
 url="https://tauonmusicbox.rocks"
@@ -14,7 +16,6 @@ depends=('python-pillow'
          'python-pylast'
          'python-pysdl2' # AUR
          'python-send2trash'
-         'python-pylyrics' # AUR
          'python-musicbrainzngs'
          'python-mutagen'
          'python-isounidecode' # AUR
@@ -25,21 +26,22 @@ depends=('python-pillow'
          'python-requests'
          'python-dbus'
          'python-natsort'
-         'python-pulsectl' # AUR
+         'python-websocket-client'
+         'libnotify'
          'ffmpeg'
          'flac'
-         'gst-plugins-good'
-         'gst-plugins-bad'
          'noto-fonts-extra'
          'noto-fonts'
          'sdl2_image'
          'xdg-utils'
          'mpg123'
-         'libpulse'
          'opusfile'
+         'wavpack'
          'libvorbis'
          'libappindicator-gtk3'
          'libopenmpt' # AUR
+         'libsamplerate'
+         'python-httpx' # Workaround for https://bugs.archlinux.org/task/74611
          )
          
 optdepends=('noto-fonts-cjk: Matching font for CJK characters'
@@ -47,15 +49,20 @@ optdepends=('noto-fonts-cjk: Matching font for CJK characters'
             'unrar: RAR archive extraction support'
             'python-plexapi: Plex streaming'
             'python-pypresence: Discord status support'
-            'python-tekore: Spotify playback control'
+            'python-pychromecast: Chromecast stream support' 
             'picard: Recommended tag editor'
-            'gst-plugins-ugly: For GStreamer WMA support'
+            'python-jxlpy: JPEG XL image support' # AUR
             )
             
-source=("$pkgname-$pkgver.tar.gz::https://github.com/Taiko2k/TauonMusicBox/archive/v$pkgver.tar.gz")
+source=("$pkgname-$pkgver.tar.gz::https://github.com/Taiko2k/TauonMusicBox/archive/v$pkgver.tar.gz"
+	"kissfft.tar.gz::https://github.com/mborgerding/kissfft/archive/refs/tags/$_kissfftver.tar.gz"
+	"miniaudio.tar.gz::https://github.com/mackron/miniaudio/archive/4d813cf.tar.gz"
+	)
 
 
 build() {
+    mv kissfft-$_kissfftver/* $_gitname-$pkgver/src/phazor/kissfft/
+    mv miniaudio-$_miniaudiocommit/* $_gitname-$pkgver/src/phazor/miniaudio/
     cd "$_gitname-$pkgver"
     python compile-translations.py
     bash compile-phazor.sh
@@ -64,13 +71,11 @@ build() {
 package() {
     cd "$_gitname-$pkgver"
     install -Dm755 tauon.py -t "$pkgdir/opt/$pkgname"
-    install -d "$pkgdir/usr/bin"
-    ln -s "/opt/$pkgname/tauon.py" "$pkgdir/usr/bin/$_pkgname"
- 
     install -Dm644 input.txt -t "$pkgdir/opt/$pkgname"
+    
     cp -r  assets templates theme t_modules lib "$pkgdir/opt/$pkgname"
  
-    for t in de es fr_FR id ja_JP nb_NO pt pt_BR pt_PT ru sv zh_CN; do
+    for t in de es fr_FR hu id ja_JP nb_NO pt pt_BR pt_PT ru sv zh_CN tr; do
         install -Dm644 locale/${t}/LC_MESSAGES/*.mo -t "$pkgdir/usr/share/locale/${t}/LC_MESSAGES"
     done
  
@@ -81,4 +86,6 @@ package() {
     install -Dm755 "extra/tauonmb.sh" "$pkgdir/usr/bin/tauon"
 }
 
-md5sums=('69f27dd9b972b386b96796dafaeffd90')
+md5sums=('a40904aedbce703508cdd71316d40c28'
+         '981ad3e496fbd8edb99704fc0e2aa939'
+         '709b15aed941a14d6e921bd87caff9d3')
