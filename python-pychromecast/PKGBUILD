@@ -7,25 +7,25 @@
 
 pkgname=python-pychromecast
 _name=PyChromecast
-pkgver=10.2.3
+pkgver=12.1.4
 pkgrel=1
 pkgdesc='Library for Python 3 to communicate with the Google Chromecast'
 arch=('any')
 url="https://github.com/home-assistant-libs/pychromecast"
 license=('MIT')
 depends=('python-protobuf' 'python-zeroconf' 'python-casttube')
-makedepends=('python-setuptools')
-source=("https://pypi.org/packages/source/${_name:0:1}/$_name/$_name-$pkgver.tar.gz")
-sha256sums=('ddb86c5acdc13e8bdadd2b7f5738fda36b32c1750548f7b629ca8d178f05e0da')
+makedepends=('python-build' 'python-installer' 'python-setuptools' 'python-wheel')
+source=("https://files.pythonhosted.org/packages/source/${_name::1}/$_name/$_name-$pkgver.tar.gz")
+sha256sums=('9e57dc985a4a05db5bdcd5da219cbf6ced25548ca093f8d74bc107b3c554ec00')
 
 build() {
   cd "$_name-$pkgver"
-  python setup.py build
+  python -m build --wheel --no-isolation
 }
 
 package() {
   cd "$_name-$pkgver"
-  python setup.py install --root="$pkgdir" --optimize=1 --skip-build
+  python -m installer --destdir="$pkgdir" dist/*.whl
 
-  install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname"
+  install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"
 }
