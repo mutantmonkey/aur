@@ -15,7 +15,7 @@ jobs:
       packages: ${{ steps.get-packages.outputs.packages }}
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
     - name: Figure out which packages have changed since the last push
@@ -32,7 +32,7 @@ jobs:
       fail-fast: false
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         path: buildsrc
     - name: Prepare build environment

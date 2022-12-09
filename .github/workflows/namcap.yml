@@ -14,6 +14,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Check all PKGBUILDs using namcap
       uses: mutantmonkey/geschenkerbauer/actions/namcap@2d364a6fbaa43d02554388a2df0b60863a5a61b4
