@@ -10,7 +10,7 @@ permissions:
 jobs:
   evaluate:
     name: Evaluate changed packages
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     outputs:
       packages: ${{ steps.get-packages.outputs.packages }}
     steps:
@@ -25,7 +25,7 @@ jobs:
   build:
     name: Build
     needs: evaluate
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         pkgname: ${{ fromJSON(needs.evaluate.outputs.packages) }}
