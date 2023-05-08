@@ -3,10 +3,10 @@
 pkgname=tauon-music-box
 _pkgname=tauonmb
 _gitname=TauonMusicBox
-pkgver=7.5.0
+pkgver=7.6.4
 pkgrel=1
 _kissfftver=131.1.0
-_miniaudiocommit=1778a5e839514f35f41d31449f3573e3adffc51a
+_miniaudiocommit=9a7663496fc06f7a9439c752fd7666ca93328c20
 pkgdesc="A modern streamlined music player"
 arch=('any')
 url="https://tauonmusicbox.rocks"
@@ -39,11 +39,13 @@ depends=('python-pillow'
          'wavpack'
          'libvorbis'
          'libappindicator-gtk3'
-         'libopenmpt' # AUR
+         'libopenmpt'
          'libsamplerate'
          'python-httpx' # Workaround for https://bugs.archlinux.org/task/74611
          )
-         
+
+makedepends=('pkg-config')
+
 optdepends=('noto-fonts-cjk: Matching font for CJK characters'
             'picard: Recommended tag editor'
             'p7zip: 7z archive extraction support'
@@ -57,14 +59,17 @@ optdepends=('noto-fonts-cjk: Matching font for CJK characters'
             )
             
 source=("$pkgname-$pkgver.tar.gz::https://github.com/Taiko2k/TauonMusicBox/archive/v$pkgver.tar.gz"
-	"kissfft.tar.gz::https://github.com/mborgerding/kissfft/archive/refs/tags/$_kissfftver.tar.gz"
-	"miniaudio.tar.gz::https://github.com/mackron/miniaudio/archive/$_miniaudiocommit.tar.gz"
+	"kissfft-$_kissfftver.tar.gz::https://github.com/mborgerding/kissfft/archive/refs/tags/$_kissfftver.tar.gz"
+	"miniaudio-$_miniaudiocommit.tar.gz::https://github.com/mackron/miniaudio/archive/$_miniaudiocommit.tar.gz"
 	)
 
+prepare(){
+    cp -r kissfft-$_kissfftver/* $_gitname-$pkgver/src/phazor/kissfft/
+    cp -r miniaudio-$_miniaudiocommit/* $_gitname-$pkgver/src/phazor/miniaudio/
+}
 
 build() {
-    mv kissfft-$_kissfftver/* $_gitname-$pkgver/src/phazor/kissfft/
-    mv miniaudio-$_miniaudiocommit/* $_gitname-$pkgver/src/phazor/miniaudio/
+
     cd "$_gitname-$pkgver"
     python compile-translations.py
     bash compile-phazor.sh
@@ -88,6 +93,6 @@ package() {
     install -Dm755 "extra/tauonmb.sh" "$pkgdir/usr/bin/tauon"
 }
 
-md5sums=('abb4f5e10a5f2dbdf4e76f68fb97bf9d'
+md5sums=('17923bad92d22d9a844eb7289a0dd8bd'
          '981ad3e496fbd8edb99704fc0e2aa939'
-         '5739102b8a42d944b1d5cb6e2c95b44c')
+         'a4e1f50feeb398f03d3d5fd0e99d86b0')
