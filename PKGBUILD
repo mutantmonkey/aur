@@ -2,7 +2,7 @@
 pkgname=lektor
 _pkgname=Lektor
 pkgver=3.2.0
-pkgrel=4
+pkgrel=5
 pkgdesc="A static content management system."
 arch=(any)
 url="https://www.getlektor.com"
