@@ -8,7 +8,7 @@
 pkgname=python-pychromecast
 _name=PyChromecast
 pkgver=13.0.7
-pkgrel=1
+pkgrel=2
 pkgdesc='Library for Python 3 to communicate with the Google Chromecast'
 arch=('any')
 url="https://github.com/home-assistant-libs/pychromecast"
