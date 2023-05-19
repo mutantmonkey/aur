@@ -2,7 +2,7 @@
 
 pkgname=python-mpv-jsonipc
 pkgver=1.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Python API to MPV using JSON IPC"
 arch=('any')
 url='https://github.com/iwalton3/python-mpv-jsonipc'
