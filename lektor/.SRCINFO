@@ -1,7 +1,7 @@
 pkgbase = lektor
 	pkgdesc = A static content management system.
 	pkgver = 3.2.0
-	pkgrel = 4
+	pkgrel = 5
 	url = https://www.getlektor.com
 	arch = any
 	license = BSD
