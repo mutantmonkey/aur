@@ -2,7 +2,7 @@
 
 pkgname=python-musicpd
 pkgver=0.8.0
-pkgrel=1
+pkgrel=2
 pkgdesc="An MPD (Music Player Daemon) client library written in pure Python."
 arch=('any')
 url="https://pypi.python.org/pypi/python-musicpd"
