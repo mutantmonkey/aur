@@ -3,7 +3,7 @@
 
 pkgname=plex-mpv-shim
 pkgver=1.11.0
-pkgrel=1
+pkgrel=2
 pkgdesc='Cast media from Plex Mobile and Web apps to MPV'
 arch=('any')
 url=https://github.com/iwalton3/plex-mpv-shim
