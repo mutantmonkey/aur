@@ -13,7 +13,6 @@ pkgbase = python-pulsectl
 	depends = python
 	depends = libpulse
 	conflicts = python-pulse-control
-	replaces = python-pulse-control
 	source = https://files.pythonhosted.org/packages/source/p/pulsectl/pulsectl-23.5.2.tar.gz
 	sha256sums = e911d398eaf0539cf3c63b4217357b51a3d1b7e4a50607d1591cf2b49f5d2c6a
 
