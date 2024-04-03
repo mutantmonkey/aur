@@ -1,7 +1,7 @@
 # Maintainer: Mark Wagie <mark dot wagie at proton dot me>
 pkgname=r-quick-share
-pkgver=0.4.1
-pkgrel=2
+pkgver=0.5.0
+pkgrel=1
 pkgdesc="Rust implementation of NearbyShare/QuickShare from Android for Linux."
 arch=('x86_64')
 url="https://github.com/Martichou/rquickshare"
@@ -9,7 +9,7 @@ license=('GPL-3.0-or-later')
 depends=('gtk3' 'libayatana-appindicator' 'webkit2gtk')
 makedepends=('cargo' 'pnpm' 'protobuf')
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('799cde545de923bf0a1aaaeda0b8e9ba2477daf43102aa1914427a4c83d10d06')
+sha256sums=('c7f5f35a5318613e889ff8deab64168cb007975a562acff82d9da3d055e92b77')
 
 prepare() {
   cd rquickshare-$pkgver
@@ -43,6 +43,8 @@ build() {
 
 package() {
   cd rquickshare-$pkgver
+  _bundledir="frontend/src-tauri/target/release/bundle/deb/${pkgname}_${pkgver}_amd64"
+
   install -Dm755 "frontend/src-tauri/target/release/$pkgname" -t "$pkgdir/usr/bin/"
 
   for i in 32x32 128x128 128x128@2x; do
@@ -52,6 +54,6 @@ package() {
   install -Dm644 frontend/src-tauri/icons/icon.png \
     "$pkgdir/usr/share/icons/hicolor/512x512/apps/$pkgname.png"
 
-  install -Dm644 "frontend/src-tauri/target/release/bundle/deb/${pkgname}_${pkgver}_amd64/data/usr/share/applications/$pkgname.desktop" -t \
+  install -Dm644 "${_bundledir}/data/usr/share/applications/$pkgname.desktop" -t \
     "$pkgdir/usr/share/applications/"
 }
