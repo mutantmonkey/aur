@@ -1,7 +1,7 @@
 # Maintainer: nl6720 <nl6720@archlinux.org>
 
 pkgname='shim-signed'
-pkgver='15.8+ubuntu+1.57'
+pkgver='15.8+ubuntu+1.58'
 pkgrel='1'
 pkgdesc='Initial UEFI bootloader that handles chaining to a trusted full bootloader under secure boot environments (prebuilt x64 and AA64 binaries from Ubuntu)'
 url='https://packages.ubuntu.com/noble/shim-signed'
@@ -12,17 +12,17 @@ install="${pkgname}.install"
 source=("http://archive.ubuntu.com/ubuntu/pool/main/s/shim-signed/shim-signed_${pkgver##*+ubuntu+}+${pkgver%%+ubuntu*}-0ubuntu1_amd64.deb"
         "http://ports.ubuntu.com/pool/main/s/shim-signed/shim-signed_${pkgver##*+ubuntu+}+${pkgver%%+ubuntu*}-0ubuntu1_arm64.deb")
 noextract=("shim-signed_${pkgver##*+ubuntu+}+${pkgver%%+ubuntu*}-0ubuntu1_arm64.deb")
-sha256sums=('532a97f7376ac8e5d7bedb8b2d4283769251266d19a78e3e12ec44f53a1dab6a'
-            '5f942542c21c41ffa14d22b890a6f51ccbfa0b3231f8a475265f90cb6e1cb924')
-sha512sums=('de1c60b442d7484aa210c308ca422fe0d93439b50aeba192d2bbec7ec4d92779355d6ca838bb3d221fad8c4ea343dae37c13606200daf6f8f1436b120a4e9690'
-            'ed0c856460c5a2aef8d9c4214ee9f2ba0c4926c4efec8add7171c0adada68f6c87f43461d67f8ca8747e9eaa037b2b90810d8daebecbc1c3a67bea34f781ea3e')
+sha256sums=('ba9b5d80e5d886c30664f2bebfb5c2fcce3b9b40f16fc46cba49c19a91c8059c'
+            '58b0f8a0f43bdff2122af8f52b05a5eb73b1964079e36e3eed8d06b4d5164917')
+sha512sums=('b14146826a0b754934ae2b71e1975faa5929654542399015c3c32e9d9d74c678294d481a7946471bfe38b6c6e6f303f50bae72fc30de8494933083da626ac4de'
+            '5aef2178a0d2446179be64b22619e230a2322b7122f2733a2577ca622e28670f8c39651a09c6408064c64b45eca32c04822fcbac9905b03ba617ce6913182728')
 
 prepare() {
 	local debfile
 
 	cd "$srcdir"
 	bsdtar -xf data.tar.xz
-	for debfile in ${noextract[@]}; do
+	for debfile in "${noextract[@]}"; do
 		bsdtar -xOf "$debfile" data.tar.xz | bsdtar -x usr/lib/shim/
 	done
 }
