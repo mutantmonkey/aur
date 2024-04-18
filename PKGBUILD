@@ -3,7 +3,7 @@
 _pkgbase="piper-voices"
 pkgname="$_pkgbase-common"
 pkgver=1.0.0
-pkgrel=4
+pkgrel=5
 pkgdesc="Voices for Piper text to speech system (common files)"
 url="https://huggingface.co/rhasspy/$_pkgbase"
 license=("MIT")
