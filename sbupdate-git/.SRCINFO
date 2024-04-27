@@ -1,15 +1,14 @@
 pkgbase = sbupdate-git
 	pkgdesc = Generate and sign kernel images for UEFI Secure Boot
-	pkgver = 0.r113.4e6d106
-	pkgrel = 1
+	pkgver = 0.r133.1bd9722
+	pkgrel = 2
 	url = https://github.com/andreyv/sbupdate
 	install = sbupdate.install
 	arch = any
 	license = GPL3
 	makedepends = git
 	depends = bash>=4.4
-	depends = systemd
-	depends = binutils
+	depends = systemd-ukify>=254
 	depends = sbsigntools
 	provides = sbupdate
 	conflicts = sbupdate
@@ -19,4 +18,3 @@ pkgbase = sbupdate-git
 	sha256sums = SKIP
 
 pkgname = sbupdate-git
-
