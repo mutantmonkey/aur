@@ -1,15 +1,19 @@
 pkgbase = shim-signed
-	pkgdesc = Initial UEFI bootloader that handles chaining to a trusted full bootloader under secure boot environments (prebuilt X64 and IA32 EFI binaries from Fedora)
-	pkgver = 15.6+fedora+2
+	pkgdesc = Initial UEFI bootloader that handles chaining to a trusted full bootloader under secure boot environments (prebuilt x64 and AA64 binaries from Ubuntu)
+	pkgver = 15.8+ubuntu+1.58
 	pkgrel = 1
-	url = https://koji.fedoraproject.org/koji/packageinfo?packageID=14502
+	url = https://packages.ubuntu.com/noble/shim-signed
 	install = shim-signed.install
 	arch = any
-	license = BSD
+	license = BSD-2-Clause
+	noextract = shim-signed_1.58+15.8-0ubuntu1_arm64.deb
 	options = !strip
-	source = https://kojipkgs.fedoraproject.org/packages/shim/15.6/2/x86_64/shim-x64-15.6-2.x86_64.rpm
-	source = https://kojipkgs.fedoraproject.org/packages/shim/15.6/2/x86_64/shim-ia32-15.6-2.x86_64.rpm
-	sha512sums = 971978bddee95a6a134ef05c4d88cf5df41926e631de863b74ef772307f3e106c82c8f6889c18280d47187986abd774d8671c5be4b85b1b0bb3d1858b65d02cf
-	sha512sums = 045325802474f53c6e86eff1166f1a966268c9ad706fac4c08966f211dbc32fba21ed3a07c46445ec579ac1e2819a1313ff54d6169737806954962945c61bdc2
+	options = !debug
+	source = http://archive.ubuntu.com/ubuntu/pool/main/s/shim-signed/shim-signed_1.58+15.8-0ubuntu1_amd64.deb
+	source = http://ports.ubuntu.com/pool/main/s/shim-signed/shim-signed_1.58+15.8-0ubuntu1_arm64.deb
+	sha256sums = ba9b5d80e5d886c30664f2bebfb5c2fcce3b9b40f16fc46cba49c19a91c8059c
+	sha256sums = 58b0f8a0f43bdff2122af8f52b05a5eb73b1964079e36e3eed8d06b4d5164917
+	sha512sums = b14146826a0b754934ae2b71e1975faa5929654542399015c3c32e9d9d74c678294d481a7946471bfe38b6c6e6f303f50bae72fc30de8494933083da626ac4de
+	sha512sums = 5aef2178a0d2446179be64b22619e230a2322b7122f2733a2577ca622e28670f8c39651a09c6408064c64b45eca32c04822fcbac9905b03ba617ce6913182728
 
 pkgname = shim-signed
