@@ -3,10 +3,10 @@
 pkgname=tauon-music-box
 _pkgname=tauonmb
 _gitname=TauonMusicBox
-pkgver=7.6.6
+pkgver=7.7.2
 pkgrel=1
 _kissfftver=131.1.0
-_miniaudiocommit=9a7663496fc06f7a9439c752fd7666ca93328c20
+_miniaudiocommit=4a5b74bef029b3592c54b6048650ee5f972c1a48
 pkgdesc="A modern music player"
 arch=('any')
 url="https://tauonmusicbox.rocks"
@@ -41,6 +41,7 @@ depends=('python-pillow'
          'libappindicator-gtk3'
          'libopenmpt'
          'libsamplerate'
+         'opencc'
          )
 
 makedepends=('pkg-config')
@@ -81,7 +82,7 @@ package() {
     
     cp -r  assets templates theme t_modules lib "$pkgdir/opt/$pkgname"
  
-    for t in cs de es fr_FR hu id ja_JP nb_NO pl pt pt_BR pt_PT ru sv tr zh_CN; do
+    for t in cs de es fr_FR fi hu id ja_JP nb_NO pl pt pt_BR pt_PT ru sv tr zh_CN; do
         install -Dm644 locale/${t}/LC_MESSAGES/*.mo -t "$pkgdir/usr/share/locale/${t}/LC_MESSAGES"
     done
  
@@ -92,6 +93,6 @@ package() {
     install -Dm755 "extra/tauonmb.sh" "$pkgdir/usr/bin/tauon"
 }
 
-md5sums=('01075b82db9c7e11c297fbe2c8145a3f'
+md5sums=('be7761c5ddf944db72e2cf864c27de5b'
          '981ad3e496fbd8edb99704fc0e2aa939'
-         'a4e1f50feeb398f03d3d5fd0e99d86b0')
+         '01b821de48cdba3838239b6cbd5e13e5')
