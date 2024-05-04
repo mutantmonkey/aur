@@ -1,26 +1,19 @@
-# Maintainer: Trevor Mosey <trevor dot mosey at gmail dot com>
+# Maintainer: Atte Lautanala <atte@lautana.la>
+# Contributor: Trevor Mosey <trevor dot mosey at gmail dot com>
 
 pkgname=flyctl
-pkgver="0.1.27"
+pkgver="0.2.48"
 pkgrel="1"
 pkgdesc="Command line tools for fly.io services"
-arch=("any")
+arch=("x86_64")
 url="https://github.com/superfly/flyctl"
 license=("Apache")
-makedepends=(git go)
-provides=("flyctl")
-conflicts=("flyctl")
-_commit=192d65e95e4dedb0f3422c4f70d1b1bcfaae8005        #refs/tags/v0.1.27^{}
-source=("git+$url#commit=$_commit")
-sha256sums=('SKIP')
-
-pkgver() {
-  cd $pkgname
-  git describe --tags | sed 's/^v//;s/-/+/g'
-}
+makedepends=(go)
+source=("$url/archive/v$pkgver/$pkgname-$pkgver.tar.gz")
+b2sums=('a0363f8d8dc070e95377301b0b4aa1a9811821e06a5d1b4bad3ba02861d6901052e0dcedbbfedbdb392947853599465b360808b4b2e32dbc3d27e04f96dbd210')
 
 build() {
-  cd $pkgname
+  cd "$pkgname-$pkgver"
   export CGO_LDFLAGS="${LDFLAGS}"
   export CGO_CFLAGS="${CFLAGS}"
   export CGO_CPPFLAGS="${CPPFLAGS}"
@@ -30,14 +23,12 @@ build() {
 }
 
 check() {
-  make -C $pkgname test
+  make -C "$pkgname-$pkgver" test
 }
 
 package() {
+  cd "$pkgname-$pkgver"
   mkdir -p "$pkgdir/usr/bin"
   ln -s "/usr/bin/flyctl" "$pkgdir/usr/bin/fly"
-  install -m755 "$srcdir/flyctl/bin/flyctl" "$pkgdir/usr/bin"
+  install -m755 "bin/flyctl" "$pkgdir/usr/bin"
 }
-
-# getver: github.com/superfly/flyctl/releases
-# vim: ts=2 sw=2 et:
