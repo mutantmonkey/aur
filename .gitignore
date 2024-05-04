@@ -1,4 +1,3 @@
-flyctl/
-pkg/
-src/
-*.pkg.tar.xz
+/pkg/
+/src/
+/*.pkg.tar.*
