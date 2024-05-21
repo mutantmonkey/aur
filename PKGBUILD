@@ -16,7 +16,7 @@ optdepends=(
 )
 makedepends=(python-build python-installer python-setuptools python-wheel)
 source=("https://files.pythonhosted.org/packages/source/${_name::1}/$_name/$_name-$pkgver.tar.gz")
-sha256sums=('21733fe27cc75021e5a4d7d69de95e185adf9717b1f9b1e14aa27d277d5c10fd')
+sha256sums=('f364c0d816a5e364eeeda9761cf5c961bae8c946f080cf87fed7f38ab773b318')
 
 build() {
     cd "$_name-$pkgver"
