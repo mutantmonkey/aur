@@ -58,7 +58,7 @@ optdepends=('noto-fonts-cjk: Matching font for CJK characters'
             'librespot: Spotify audio playback'      # AUR
             )
             
-source=("$gitname-$pkgver.tar.gz::https://github.com/Taiko2k/Tauon/archive/v$pkgver.tar.gz"
+source=("$_gitname-$pkgver.tar.gz::https://github.com/Taiko2k/Tauon/archive/v$pkgver.tar.gz"
 	"kissfft-$_kissfftver.tar.gz::https://github.com/mborgerding/kissfft/archive/refs/tags/$_kissfftver.tar.gz"
 	"miniaudio-$_miniaudiocommit.tar.gz::https://github.com/mackron/miniaudio/archive/$_miniaudiocommit.tar.gz"
 	)
