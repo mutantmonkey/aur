@@ -1,7 +1,7 @@
 # Maintainer: fossdd <fossdd@pwned.life>
 pkgname=lyrebird-proxy
 pkgver=0.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="pluggable transport proxy for Tor, implementing obfs4"
 url="https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/lyrebird"
 license=('BSD-3-Clause')
@@ -28,9 +28,9 @@ build() {
 }
 
 package() {
-  cd "$srcdir/$pkgname-$pkgver"
+  cd "$srcdir/lyrebird-lyrebird-$pkgver"
 
-  install -Dm0755 lyrepird "$pkgdir/usr/bin/lyrebird"
+  install -Dm0755 lyrebird "$pkgdir/usr/bin/lyrebird"
   install -Dm0644 "$srcdir/lyrebird-proxy.service" "$pkgdir/usr/lib/systemd/system/lyrebird-proxy.service"
 
   install -Dm0644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
