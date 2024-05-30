@@ -3,7 +3,7 @@
 pkgname=tauon-music-box
 _pkgname=tauonmb
 _gitname=Tauon
-pkgver=7.7.2
+pkgver=7.8.0
 pkgrel=1
 _kissfftver=131.1.0
 _miniaudiocommit=4a5b74bef029b3592c54b6048650ee5f972c1a48
@@ -42,6 +42,7 @@ depends=('python-pillow'
          'libopenmpt'
          'libsamplerate'
          'opencc'
+         'libgme'
          )
 
 makedepends=('pkg-config')
@@ -93,6 +94,6 @@ package() {
     install -Dm755 "extra/tauonmb.sh" "$pkgdir/usr/bin/tauon"
 }
 
-md5sums=('a87356699ae89908914b65cf9f453f0f'
+md5sums=('1e056ebbc649db767ff64e9275df60c1'
          '981ad3e496fbd8edb99704fc0e2aa939'
          '01b821de48cdba3838239b6cbd5e13e5')
