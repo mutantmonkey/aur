@@ -1,7 +1,7 @@
 pkgbase = waypipe
 	pkgdesc = A proxy for Wayland protocol applications; like ssh -X
 	pkgver = 0.9.1
-	pkgrel = 1
+	pkgrel = 2
 	url = https://gitlab.freedesktop.org/mstoeckl/waypipe
 	arch = i686
 	arch = x86_64
