@@ -49,11 +49,6 @@ jobs:
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
         packages: ${{ matrix.pkgname }}
-    - name: Sign packages
-      uses: mutantmonkey/geschenkerbauer/actions/sign-packages@5bdaf7b91a53ef41e293df6344ef3b00e4ec4750
-      with:
-        signify_secret_key: ${{ secrets.SIGNIFY_SECRET_KEY }}
-        signify_password: ${{ secrets.SIGNIFY_PASSWORD }}
     - name: Replace forbidden colon character in package filenames
       run: |
         for f in $(find . -iname '*:*'); do
