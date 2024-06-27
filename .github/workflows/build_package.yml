@@ -11,7 +11,9 @@ on:
   repository_dispatch:
     types: [build-package]
 permissions:
+  id-token: write
   contents: read
+  attestations: write
 
 jobs:
   build:
@@ -61,3 +63,7 @@ jobs:
       with:
         name: output
         path: repo
+    - name: Generate artifact attestation
+      uses: actions/attest-build-provenance@v1
+      with:
+        subject-path: 'repo/*'
