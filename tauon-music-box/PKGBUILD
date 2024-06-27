@@ -2,8 +2,8 @@
 
 pkgname=tauon-music-box
 _pkgname=tauonmb
-_gitname=TauonMusicBox
-pkgver=7.7.2
+_gitname=Tauon
+pkgver=7.8.0
 pkgrel=1
 _kissfftver=131.1.0
 _miniaudiocommit=4a5b74bef029b3592c54b6048650ee5f972c1a48
@@ -42,6 +42,7 @@ depends=('python-pillow'
          'libopenmpt'
          'libsamplerate'
          'opencc'
+         'libgme'
          )
 
 makedepends=('pkg-config')
@@ -58,7 +59,7 @@ optdepends=('noto-fonts-cjk: Matching font for CJK characters'
             'librespot: Spotify audio playback'      # AUR
             )
             
-source=("$pkgname-$pkgver.tar.gz::https://github.com/Taiko2k/TauonMusicBox/archive/v$pkgver.tar.gz"
+source=("$_gitname-$pkgver.tar.gz::https://github.com/Taiko2k/Tauon/archive/v$pkgver.tar.gz"
 	"kissfft-$_kissfftver.tar.gz::https://github.com/mborgerding/kissfft/archive/refs/tags/$_kissfftver.tar.gz"
 	"miniaudio-$_miniaudiocommit.tar.gz::https://github.com/mackron/miniaudio/archive/$_miniaudiocommit.tar.gz"
 	)
@@ -93,6 +94,6 @@ package() {
     install -Dm755 "extra/tauonmb.sh" "$pkgdir/usr/bin/tauon"
 }
 
-md5sums=('be7761c5ddf944db72e2cf864c27de5b'
+md5sums=('1e056ebbc649db767ff64e9275df60c1'
          '981ad3e496fbd8edb99704fc0e2aa939'
          '01b821de48cdba3838239b6cbd5e13e5')
