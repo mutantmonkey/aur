@@ -1,7 +1,7 @@
 pkgbase = python-inifile
 	pkgdesc = Ini file library for Python.
 	pkgver = 0.4.1
-	pkgrel = 4
+	pkgrel = 5
 	url = https://github.com/mitsuhiko/python-inifile
 	arch = any
 	license = BSD
