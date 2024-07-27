@@ -1,7 +1,7 @@
 pkgbase = python-xmp-toolkit
 	pkgdesc = A library for working with XMP metadata
 	pkgver = 2.0.1
-	pkgrel = 4
+	pkgrel = 5
 	url = http://python-xmp-toolkit.readthedocs.org/
 	arch = any
 	license = custom
