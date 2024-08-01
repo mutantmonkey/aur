@@ -8,8 +8,7 @@ arch=('any')
 url="https://pypi.python.org/pypi/python-musicpd"
 license=('GPL')
 depends=('python')
-makedepends=('make')
-makedepends=('python-setuptools')
+makedepends=('make' 'python-build' 'python-installer')
 source=("https://gitlab.com/kaliko/python-musicpd/-/archive/v0.9.0/python-musicpd-v0.9.0.tar.gz")
 md5sums=('e90f0f0d9caf5b60ca9ec219c35eec94')
 
