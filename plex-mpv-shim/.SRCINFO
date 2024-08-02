@@ -1,7 +1,7 @@
 pkgbase = plex-mpv-shim
 	pkgdesc = Cast media from Plex Mobile and Web apps to MPV
 	pkgver = 1.11.0
-	pkgrel = 2
+	pkgrel = 3
 	url = https://github.com/iwalton3/plex-mpv-shim
 	arch = any
 	license = MIT
