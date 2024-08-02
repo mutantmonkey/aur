@@ -32,6 +32,7 @@ jobs:
       matrix:
         pkgname: ${{ fromJSON(needs.evaluate.outputs.packages) }}
       fail-fast: false
+    if: ${{ needs.evaluate.outputs.packages != '[]' }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
