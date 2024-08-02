@@ -23,7 +23,7 @@ jobs:
     - name: Figure out which packages have changed since the last push
       id: get-packages
       run: |
-        echo "packages=[\""$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | xargs -I{} bash -c "test -d \"{}\" && echo \"{}\"" | head -c -1 | sed -z 's/\n/","/g')"\"]" >> $GITHUB_OUTPUT
+        echo "packages=["$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | xargs -I{} bash -c "test -d \"{}\" && echo \"\\\"{}\\\"\"" | head -c -1 | sed -z 's/\n/,/g')"]" >> $GITHUB_OUTPUT
   build:
     name: Build
     needs: evaluate
