@@ -30,7 +30,7 @@ jobs:
         sudo chown -R $(id -u) buildsrc/.git
         sudo install -d -o 1000 -g users repo
     - name: Use geschenkerbauer to build packages (workflow dispatch)
-      uses: mutantmonkey/geschenkerbauer/action@034c10d12db33425abc66b06b5258062358f62ea
+      uses: mutantmonkey/geschenkerbauer/action@1af0f9e072912fc86db0207a2547d3946eaf2532
       env:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
@@ -39,7 +39,7 @@ jobs:
         nodeps: ${{ github.event.inputs.nodeps }}
       if: ${{ github.event_name == 'workflow_dispatch' }}
     - name: Use geschenkerbauer to build packages (repository dispatch)
-      uses: mutantmonkey/geschenkerbauer/action@034c10d12db33425abc66b06b5258062358f62ea
+      uses: mutantmonkey/geschenkerbauer/action@1af0f9e072912fc86db0207a2547d3946eaf2532
       env:
         GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
