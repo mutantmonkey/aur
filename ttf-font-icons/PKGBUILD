@@ -12,6 +12,7 @@ options=("!strip")
 arch=('any')
 source=('icons.ttf')
 md5sums=('800c09709d456a127bc9160ec1ecddf6')
+sha256sums=('197add5e6e067e1e1f83cf4d071df2638e5f996ea4199549ba4021a8eb7b1cd6')
 
 package() {
   install -m 644 -D "$srcdir/icons.ttf" "$pkgdir/usr/share/fonts/TTF/icons.ttf"
