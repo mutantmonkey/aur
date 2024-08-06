@@ -1,7 +1,8 @@
 pkgbase = filtor
 	pkgdesc = A whitelisting proxy for the Tor control port.
-	pkgver = 27.9fdfa5b
+	pkgver = 1.0
 	pkgrel = 1
+	epoch = 1
 	url = https://github.com/mutantmonkey/filtor
 	install = filtor.install
 	arch = any
@@ -11,7 +12,7 @@ pkgbase = filtor
 	depends = tor
 	conflicts = tor-control-port-proxy
 	replaces = tor-control-port-proxy
-	source = git+https://github.com/mutantmonkey/filtor.git
-	sha256sums = SKIP
+	source = filtor-1.0.tar.gz::https://github.com/mutantmonkey/filtor/archive/refs/tags/v1.0.tar.gz
+	sha256sums = cdc333bf652c095178d93b5fde0adf7c4ba0b6cb0ed73c50e06eed88a5a402a3
 
 pkgname = filtor

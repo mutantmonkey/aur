@@ -1,7 +1,8 @@
 # Maintainer: mutantmonkey <aur@mutantmonkey.mx>
 pkgname=filtor
-pkgver=27.9fdfa5b
+pkgver=1.0
 pkgrel=1
+epoch=1
 pkgdesc="A whitelisting proxy for the Tor control port."
 arch=('any')
 url="https://github.com/mutantmonkey/filtor"
@@ -11,13 +12,8 @@ makedepends=('git')
 conflicts=('tor-control-port-proxy')
 replaces=('tor-control-port-proxy')
 install=${pkgname}.install
-source=('git+https://github.com/mutantmonkey/filtor.git')
-sha256sums=('SKIP')
-
-pkgver() {
-  cd "$srcdir/filtor"
-  echo $(git rev-list --count master).$(git rev-parse --short master)
-}
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/mutantmonkey/filtor/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('cdc333bf652c095178d93b5fde0adf7c4ba0b6cb0ed73c50e06eed88a5a402a3')
 
 package() {
   cd "$srcdir/filtor"
