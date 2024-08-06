@@ -2,7 +2,7 @@
 
 pkgname=ttf-font-icons
 pkgver=1.1
-pkgrel=3
+pkgrel=4
 pkgdesc="A non-overlapping mix of Ionicons and Awesome iconic fonts"
 url="http://kageurufu.net/icons.pdf"
 # Alternative URL: https://drive.google.com/file/d/0B3iQeXAmzOoLaERrZ1BQX0FreDg/view?usp=sharing
