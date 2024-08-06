@@ -16,7 +16,7 @@ source=("${pkgname}-${pkgver}.tar.gz::https://github.com/mutantmonkey/filtor/arc
 sha256sums=('cdc333bf652c095178d93b5fde0adf7c4ba0b6cb0ed73c50e06eed88a5a402a3')
 
 package() {
-  cd "$srcdir/filtor"
+  cd "${srcdir}/${pkgname}-${pkgver}"
   install -Dm755 filtor \
     "${pkgdir}/usr/bin/filtor"
   install -Dm644 filtor.service \
