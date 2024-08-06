@@ -28,7 +28,7 @@ check() {
 
 package() {
   cd "$pkgname-$pkgver"
-  mkdir -p "$pkgdir/usr/bin"
+
+  install -Dm755 "bin/flyctl" "$pkgdir/usr/bin/flyctl"
   ln -s "/usr/bin/flyctl" "$pkgdir/usr/bin/fly"
-  install -m755 "bin/flyctl" "$pkgdir/usr/bin"
 }
