@@ -1,7 +1,7 @@
 # Maintainer: mutantmonkey <packages@mutantmonkey.mx>
 
 pkgname=mutantmonkey-keyring
-pkgver=20221018
+pkgver=20240816
 pkgrel=1
 pkgdesc="mutantmonkey PGP keyring"
 arch=('any')
