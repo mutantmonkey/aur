@@ -18,12 +18,12 @@ source=("https://files.pythonhosted.org/packages/source/L/$_pkgname/$pkgname-$pk
 sha256sums=('a856e5f94f77f8c960f6c3f21675338ac32e205bf035582063b17ea137035b03')
 
 build() {
-  cd "$srcdir/$_pkgname-$pkgver"
+  cd "$srcdir/$pkgname-$pkgver"
   python -m build --wheel --no-isolation
 }
 
 package() {
-  cd "$srcdir/$_pkgname-$pkgver"
+  cd "$srcdir/$pkgname-$pkgver"
   python -m installer --destdir="$pkgdir" dist/*.whl
 
   # license
