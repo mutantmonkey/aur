@@ -3,7 +3,7 @@
 
 pkgname=vobsub2srt-git
 pkgver=1.0.7.gf3205f5
-pkgrel=1
+pkgrel=2
 pkgdesc="Convert IDX/SUB subtitles into SRT text subtitles. (GIT version)"
 arch=('x86_64')
 url='https://github.com/ruediger/VobSub2SRT'
@@ -15,7 +15,6 @@ makedepends=('cmake'
              )
 source=('vobsub2srt::git+https://github.com/ecdye/VobSub2SRT.git')
 sha256sums=('SKIP')
-options=('debug')
 
 pkgver() {
   cd vobsub2srt
