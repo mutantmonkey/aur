@@ -2,7 +2,7 @@
 
 pkgname=firectl
 pkgver=0.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc='A command-line tool to run Firecracker microVMs'
 arch=('x86_64')
 url='https://github.com/firecracker-microvm/firectl'
@@ -12,7 +12,7 @@ makedepends=('git' 'go')
 options=('!lto')
 _commit='7614c6674c633babb058f25d1e8b8c62bf888307'
 source=("$pkgname::git+$url#commit=$_commit")
-b2sums=('SKIP')
+b2sums=('036cb4e8c081f54b18d6d45080907a4846e5b3b600c5216b27a77e535abad393b0529f0203e60de59b06b7538b1f0b8ea5f139b094d3c99d168022c545f865dd')
 
 pkgver() {
   cd "$pkgname"
