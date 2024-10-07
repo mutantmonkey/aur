@@ -7,7 +7,7 @@
 
 pkgname=python-pychromecast
 _name=${pkgname#python-}
-pkgver=14.0.2
+pkgver=14.0.3
 pkgrel=1
 pkgdesc="Library for Python 3 to communicate with the Google Chromecast"
 arch=('any')
@@ -25,7 +25,7 @@ makedepends=(
   'python-wheel'
 )
 source=("$_name-$pkgver.tar.gz::$url/archive/refs/tags/$pkgver.tar.gz")
-sha256sums=('a263395d5a25b524c2afc9f7cc9eb3d8c2a838056e63e818ef15bc9b7b4feadf')
+sha256sums=('e94529102d5d631c85eddd2aa0c1a9b9cd8d5cf773a98ec8804b6e03eaa6071a')
 
 prepare() {
   cd "$_name-$pkgver"
