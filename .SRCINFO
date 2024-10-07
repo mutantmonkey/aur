@@ -1,14 +1,13 @@
 pkgbase = python-filetype
-	pkgdesc = Small and dependency free Python package to infer file type and MIME type checking the magic numbers signature of a file or buffer.
-	pkgver = 1.0.7
-	pkgrel = 1
-	url = https://pypi.org/project/filetype/
+	pkgdesc = Infer file type and MIME type of any file/buffer
+	pkgver = 1.2.0
+	pkgrel = 3
+	url = https://github.com/h2non/filetype.py
 	arch = any
-	license = GPL
+	license = MIT
 	makedepends = python-setuptools
 	depends = python
-	source = https://files.pythonhosted.org/packages/source/f/filetype/filetype-1.0.7.tar.gz
-	sha256sums = da393ece8d98b47edf2dd5a85a2c8733e44b769e32c71af4cd96ed8d38d96aa7
+	source = https://github.com/h2non/filetype.py/archive/v1.2.0/python-filetype-1.2.0.tar.gz
+	sha512sums = e6116dd5505c01803c29016a8e85ce3f126c998f882eb1cfa8ff67990f560fee486d06b27dc64dbd74490f5d0f0327a9af0074e9cf1e16d3d55e71eeb2575c75
 
 pkgname = python-filetype
-

@@ -1,28 +1,31 @@
-# Maintainer:  JP-Ellis <josh@jpellis.me>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: Felix Yan <felixonmars@archlinux.org>
+# Contributor: JP-Ellis <josh@jpellis.me>
+
 pkgname=python-filetype
-_name=${pkgname#python-}
-pkgver=1.0.7
-pkgrel=1
-pkgdesc="Small and dependency free Python package to infer file type and MIME type checking the magic numbers signature of a file or buffer."
+pkgver=1.2.0
+pkgrel=3
+pkgdesc="Infer file type and MIME type of any file/buffer"
+url="https://github.com/h2non/filetype.py"
+license=('MIT')
 arch=('any')
-url="https://pypi.org/project/filetype/"
-license=('GPL')
 depends=('python')
 makedepends=('python-setuptools')
-optdepends=()
-source=("https://files.pythonhosted.org/packages/source/${_name::1}/${_name}/${_name}-${pkgver}.tar.gz")
-sha256sums=('da393ece8d98b47edf2dd5a85a2c8733e44b769e32c71af4cd96ed8d38d96aa7')
-noextract=()
+source=("https://github.com/h2non/filetype.py/archive/v$pkgver/$pkgname-$pkgver.tar.gz")
+sha512sums=('e6116dd5505c01803c29016a8e85ce3f126c998f882eb1cfa8ff67990f560fee486d06b27dc64dbd74490f5d0f0327a9af0074e9cf1e16d3d55e71eeb2575c75')
 
 build() {
-  cd "${srcdir}/${_name}-${pkgver}"
+  cd filetype.py-$pkgver
   python setup.py build
-  touch Changelog.rst
+}
+
+check() {
+  cd filetype.py-$pkgver
+  python -m unittest discover
 }
 
 package() {
-  cd "${srcdir}/${_name}-${pkgver}"
-  python setup.py install --root="$pkgdir/" --optimize=1 --skip-build
+  cd filetype.py-$pkgver
+  python setup.py install --root="$pkgdir" --optimize=1
+  install -Dm644 LICENSE -t "$pkgdir"/usr/share/licenses/$pkgname/
 }
-
-# vim:set ts=2 sw=2 et:
