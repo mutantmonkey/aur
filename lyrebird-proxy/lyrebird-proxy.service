@@ -3,7 +3,7 @@ Description=pluggable transport proxy for Tor, implementing obfs4
 After=network.target nss-lookup.target
 
 [Service]
-ExecStart=/usr/bin/lyrebird-proxy
+ExecStart=/usr/bin/lyrebird
 
 Restart=on-failure
 
