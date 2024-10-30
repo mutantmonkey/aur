@@ -3,7 +3,7 @@
 
 pkgname=flyctl
 pkgver="0.3.31"
-pkgrel=2
+pkgrel=3
 pkgdesc="Command line tools for fly.io services"
 arch=("x86_64")
 url="https://github.com/superfly/flyctl"
