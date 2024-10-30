@@ -25,7 +25,8 @@ build() {
   go build \
     -o bin/flyctl \
     -ldflags="-s -w -X 'github.com/superfly/flyctl/internal/buildinfo.buildDate=${now_iso8601}' -X 'github.com/superfly/flyctl/internal/buildinfo.buildVersion=${pkgver}'" \
-    -tags production
+    -tags production \
+    .
 }
 
 check() {
