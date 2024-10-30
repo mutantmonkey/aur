@@ -3,7 +3,7 @@
 
 pkgname=flyctl
 pkgver="0.3.31"
-pkgrel=1
+pkgrel=2
 pkgdesc="Command line tools for fly.io services"
 arch=("x86_64")
 url="https://github.com/superfly/flyctl"
@@ -13,13 +13,19 @@ source=("$url/archive/v$pkgver/$pkgname-$pkgver.tar.gz")
 b2sums=('eaa0bc01555c5ce009f6f8d456e55105a426aba918b4e8f6c9eb7ccff8f6cc1669e4f13e3739eb16782c2b58620413782371144b72026633202e95783ad78b83')
 
 build() {
+  now_iso8601=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
   cd "$pkgname-$pkgver"
   export CGO_LDFLAGS="${LDFLAGS}"
   export CGO_CFLAGS="${CFLAGS}"
   export CGO_CPPFLAGS="${CPPFLAGS}"
   export CGO_CXXFLAGS="${CXXFLAGS}"
   export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
-  make VERSION=$pkgver build
+  export CGO_ENABLED=0
+  go build \
+    -o bin/flyctl \
+    -ldflags="-s -w -X 'github.com/superfly/flyctl/internal/buildinfo.buildDate=${now_iso8601}' -X 'github.com/superfly/flyctl/internal/buildinfo.buildVersion=${pkgver}'" \
+    -tags production
 }
 
 check() {
