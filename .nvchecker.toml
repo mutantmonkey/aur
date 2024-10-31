@@ -1,0 +1,3 @@
+[ocrmypdf]
+source = "pypi"
+pypi = "ocrmypdf"
