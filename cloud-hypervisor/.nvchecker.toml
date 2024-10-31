@@ -1,0 +1,4 @@
+[cloud-hypervisor]
+source = "git"
+git = "https://github.com/cloud-hypervisor/cloud-hypervisor.git"
+prefix = "v"
