@@ -1,0 +1,4 @@
+[dnscontrol]
+source = "git"
+git = "https://github.com/stackexchange/dnscontrol.git"
+prefix = "v"
