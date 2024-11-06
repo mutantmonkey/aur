@@ -3,7 +3,7 @@
 
 pkgname=flyctl
 pkgver=0.3.33
-pkgrel=2
+pkgrel=3
 pkgdesc="Command line tools for fly.io services"
 arch=("x86_64")
 url="https://github.com/superfly/flyctl"
@@ -13,7 +13,7 @@ source=("${pkgname}-${pkgver}::git+https://github.com/superfly/flyctl.git#tag=v$
 b2sums=('83e0e53b651ba63d0100ef570021002ca3ebfe4b72bdb98344ca08fb5930370251a4df0a85633dff46cbcab0bda4c3c60e852f87cdf359a49b268b383a785c5d')
 
 build() {
-  now_iso8601=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+  BUILD_DATE="$(date --utc --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y-%m-%dT%H:%M:%SZ)"
 
   cd "$pkgname-$pkgver"
   export CGO_LDFLAGS="${LDFLAGS}"
@@ -24,7 +24,7 @@ build() {
   export CGO_ENABLED=0
   go build \
     -o bin/flyctl \
-    -ldflags="-s -w -X 'github.com/superfly/flyctl/internal/buildinfo.buildDate=${now_iso8601}' -X 'github.com/superfly/flyctl/internal/buildinfo.buildVersion=${pkgver}' -X github.com/superfly/flyctl/internal/buildinfo.commit=$(git rev-parse --short --verify --quiet HEAD)" \
+    -ldflags="-s -w -X 'github.com/superfly/flyctl/internal/buildinfo.buildDate=${BUILD_DATE}' -X 'github.com/superfly/flyctl/internal/buildinfo.buildVersion=${pkgver}' -X github.com/superfly/flyctl/internal/buildinfo.commit=$(git rev-parse --short --verify --quiet HEAD)" \
     -tags production \
     .
 }
