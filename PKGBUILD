@@ -2,8 +2,8 @@
 # Contributor: Markus Schaaf <markuschaaf@gmail.com>
 # Contributor: Stephan Eisvogel <eisvogel at embinet dot de>
 pkgname=python-xmp-toolkit
-pkgver=2.0.1
-pkgrel=5
+pkgver=2.0.2
+pkgrel=1
 pkgdesc='A library for working with XMP metadata'
 arch=(any)
 url='http://python-xmp-toolkit.readthedocs.org/'
@@ -12,8 +12,8 @@ depends=('python>=3.5'
          'exempi>=2.2.0'
          'python-pytz')
 makedepends=('python-setuptools')
-source=('https://files.pythonhosted.org/packages/5b/0b/4f95bc448e4e30eb0e831df0972c9a4b3efa8f9f76879558e9123215a7b7/python-xmp-toolkit-2.0.1.tar.gz')
-sha256sums=('f8d912946ff9fd46ed5c7c355aa5d4ea193328b3f200909ef32d9a28a1419a38')
+source=("https://files.pythonhosted.org/packages/source/p/python-xmp-toolkit/python-xmp-toolkit-${pkgver}.tar.gz")
+b2sums=('123b07624999bf0bde4872aed319681e3ec020ad45796ed07d44aa953cf79537bfc0489634bd2ff767f17f36d1e6ddb5852322a07e0a8f911f90c82be38054f2')
  
 build() {
         cd "$srcdir/python-xmp-toolkit-${pkgver}"
