@@ -2,29 +2,25 @@
 # Contributor: Trevor Mosey <trevor dot mosey at gmail dot com>
 
 pkgname=flyctl
-pkgver=0.3.33
-pkgrel=3
+pkgver=0.3.34
+pkgrel=1
 pkgdesc="Command line tools for fly.io services"
 arch=("x86_64")
 url="https://github.com/superfly/flyctl"
 license=("Apache-2.0")
 makedepends=('git' 'go')
 source=("${pkgname}-${pkgver}::git+https://github.com/superfly/flyctl.git#tag=v${pkgver}")
-b2sums=('83e0e53b651ba63d0100ef570021002ca3ebfe4b72bdb98344ca08fb5930370251a4df0a85633dff46cbcab0bda4c3c60e852f87cdf359a49b268b383a785c5d')
+b2sums=('5413074c6a0717543e3bbfb8d9bc7242b17cd586e3e9aea6bb9176dbbac3ce78d2f1dc6ae4ea263e9c59ad552e7eab5ef2246cdd665cf955cd26bff423c13839')
 
 build() {
   BUILD_DATE="$(date --utc --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y-%m-%dT%H:%M:%SZ)"
 
   cd "$pkgname-$pkgver"
-  export CGO_LDFLAGS="${LDFLAGS}"
-  export CGO_CFLAGS="${CFLAGS}"
-  export CGO_CPPFLAGS="${CPPFLAGS}"
-  export CGO_CXXFLAGS="${CXXFLAGS}"
   export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
   export CGO_ENABLED=0
   go build \
     -o bin/flyctl \
-    -ldflags="-s -w -X 'github.com/superfly/flyctl/internal/buildinfo.buildDate=${BUILD_DATE}' -X 'github.com/superfly/flyctl/internal/buildinfo.buildVersion=${pkgver}' -X github.com/superfly/flyctl/internal/buildinfo.commit=$(git rev-parse --short --verify --quiet HEAD)" \
+    -ldflags="-s -w -X github.com/superfly/flyctl/internal/buildinfo.buildDate=${BUILD_DATE} -X github.com/superfly/flyctl/internal/buildinfo.buildVersion=${pkgver} -X github.com/superfly/flyctl/internal/buildinfo.commit=$(git rev-parse --short --verify --quiet HEAD)" \
     -tags production \
     .
 }
