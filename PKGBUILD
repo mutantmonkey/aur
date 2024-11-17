@@ -7,6 +7,7 @@ arch=('x86_64' 'aarch64' 'armv7h')
 url="https://github.com/rhasspy/piper"
 license=('MIT')
 provides=('piper-tts')
+conflicts=('piper-tts')
 depends=(gcc-libs glibc)
 source_x86_64=("$url/releases/download/${_pkgver}/piper_linux_x86_64.tar.gz")
 source_aarch64=("$url/releases/download/${_pkgver}/piper_linux_aarch64.tar.gz")
