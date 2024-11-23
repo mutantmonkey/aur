@@ -4,10 +4,10 @@
 pkgname=zfs-auto-snapshot-git
 pkgdesc="Implementation of a snapshotting service for ZFS"
 pkgver=1.2.4.r31.92db087
-pkgrel=2
+pkgrel=3
 arch=('any')
 url="https://github.com/zfsonlinux/zfs-auto-snapshot"
-license=('GPL2')
+license=('GPL-2.0-or-later')
 depends=('systemd' 'zfs')
 makedepends=('git')
 provides=("${pkgname%-git}")
