@@ -1,11 +1,11 @@
 pkgbase = mutantmonkey-keyring
 	pkgdesc = mutantmonkey PGP keyring
-	pkgver = 20240816
+	pkgver = 20241123
 	pkgrel = 1
 	url = https://mutantmonkey.in/
 	install = mutantmonkey-keyring.install
 	arch = any
-	license = GPL
+	license = GPL-3.0-or-later
 	source = mutantmonkey.gpg
 	source = mutantmonkey-trusted
 	sha256sums = a9d823637fd4d192436a1ffc3db8b89feeefa409310dd0eb6c096ad0e760755a

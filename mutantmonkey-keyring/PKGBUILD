@@ -1,12 +1,12 @@
 # Maintainer: mutantmonkey <packages@mutantmonkey.mx>
 
 pkgname=mutantmonkey-keyring
-pkgver=20240816
+pkgver=20241123
 pkgrel=1
 pkgdesc="mutantmonkey PGP keyring"
 arch=('any')
 url="https://mutantmonkey.in/"
-license=('GPL')
+license=('GPL-3.0-or-later')
 install="${pkgname}.install"
 source=('mutantmonkey.gpg'
         'mutantmonkey-trusted')
