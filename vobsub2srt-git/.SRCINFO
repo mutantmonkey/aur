@@ -1,10 +1,10 @@
 pkgbase = vobsub2srt-git
 	pkgdesc = Convert IDX/SUB subtitles into SRT text subtitles. (GIT version)
 	pkgver = 1.0.7.gf3205f5
-	pkgrel = 2
+	pkgrel = 3
 	url = https://github.com/ruediger/VobSub2SRT
 	arch = x86_64
-	license = GPL
+	license = GPL-3.0-or-later
 	makedepends = cmake
 	makedepends = git
 	depends = tesseract
