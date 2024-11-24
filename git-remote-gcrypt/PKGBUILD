@@ -1,10 +1,10 @@
 pkgname='git-remote-gcrypt'
 pkgver='1.5'
-pkgrel=1
+pkgrel=2
 pkgdesc='A git remote helper for GPG-encrypted remotes.'
 arch=(any)
 url='https://spwhitton.name/tech/code/git-remote-gcrypt/'
-license=(GPL)
+license=('GPL-2.0-or-later')
 makedepends=(git python-docutils)
 depends=(git gnupg bash)
 optdepends=('rsync: rsync backend support'

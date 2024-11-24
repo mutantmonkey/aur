@@ -1,10 +1,10 @@
 pkgbase = git-remote-gcrypt
 	pkgdesc = A git remote helper for GPG-encrypted remotes.
 	pkgver = 1.5
-	pkgrel = 1
+	pkgrel = 2
 	url = https://spwhitton.name/tech/code/git-remote-gcrypt/
 	arch = any
-	license = GPL
+	license = GPL-2.0-or-later
 	makedepends = git
 	makedepends = python-docutils
 	depends = git
