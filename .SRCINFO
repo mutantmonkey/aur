@@ -1,10 +1,10 @@
 pkgbase = python-exifread
 	pkgdesc = Python library to extract EXIF data from tiff and jpeg files
 	pkgver = 3.0.0
-	pkgrel = 4
+	pkgrel = 5
 	url = https://github.com/ianare/exif-py
 	arch = any
-	license = BSD
+	license = BSD-3-Clause
 	makedepends = python-setuptools
 	depends = python
 	source = https://files.pythonhosted.org/packages/source/E/ExifRead/ExifRead-3.0.0.tar.gz
