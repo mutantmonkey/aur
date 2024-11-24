@@ -1,10 +1,10 @@
 pkgbase = python-mistune1
 	pkgdesc = A fast yet powerful Python Markdown parser with renderers and plugins
 	pkgver = 0.8.4
-	pkgrel = 4
+	pkgrel = 5
 	url = https://github.com/lepture/mistune
 	arch = any
-	license = BSD
+	license = BSD-3-Clause
 	checkdepends = python-pytest
 	makedepends = python-setuptools
 	depends = python

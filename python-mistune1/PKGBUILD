@@ -3,11 +3,11 @@
 _name=mistune
 pkgname=python-mistune1
 pkgver=0.8.4
-pkgrel=4
+pkgrel=5
 pkgdesc="A fast yet powerful Python Markdown parser with renderers and plugins"
 arch=('any')
 url="https://github.com/lepture/mistune"
-license=('BSD')
+license=('BSD-3-Clause')
 depends=('python')
 makedepends=('python-setuptools')
 checkdepends=('python-pytest')
