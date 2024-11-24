@@ -8,11 +8,11 @@
 
 pkgname="catt"
 pkgver=0.12.12
-pkgrel=1
+pkgrel=2
 pkgdesc='Cast All The Things - Send videos from many, many online sources to your Chromecast.'
 arch=('any')
 url="https://github.com/skorokithakis/catt"
-license=('BSD')
+license=('BSD-2-Clause')
 depends=(
     'python-click'
     'python-ifaddr'
