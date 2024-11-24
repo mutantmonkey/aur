@@ -2,11 +2,11 @@
 
 pkgname=ymuse
 pkgver=0.22
-pkgrel=1
+pkgrel=2
 pkgdesc="Easy, functional, and snappy client for Music Player Daemon"
 arch=("x86_64" "aarch64")
 url="https://yktoo.com/en/software/ymuse/"
-license=("Apache")
+license=("Apache-2.0")
 depends=("gtk3")
 optdepends=("mpd")
 makedepends=("go")

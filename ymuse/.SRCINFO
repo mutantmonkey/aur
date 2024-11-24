@@ -1,11 +1,11 @@
 pkgbase = ymuse
 	pkgdesc = Easy, functional, and snappy client for Music Player Daemon
 	pkgver = 0.22
-	pkgrel = 1
+	pkgrel = 2
 	url = https://yktoo.com/en/software/ymuse/
 	arch = x86_64
 	arch = aarch64
-	license = Apache
+	license = Apache-2.0
 	makedepends = go
 	depends = gtk3
 	optdepends = mpd
