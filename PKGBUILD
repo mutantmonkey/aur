@@ -2,7 +2,7 @@
 
 pkgname='shim-signed'
 pkgver='15.8+ubuntu+1.58'
-pkgrel='1'
+pkgrel='2'
 pkgdesc='Initial UEFI bootloader that handles chaining to a trusted full bootloader under secure boot environments (prebuilt x64 and AA64 binaries from Ubuntu)'
 url='https://packages.ubuntu.com/noble/shim-signed'
 arch=('any')
