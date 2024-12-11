@@ -1,0 +1,6 @@
+[shim-signed]
+source = "aur"
+aur = "shim-signed"
+#source = "ubuntupkg"
+#ubuntupkg = "shim-signed"
+#suite = "noble"
