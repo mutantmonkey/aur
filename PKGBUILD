@@ -1,7 +1,7 @@
 # Maintainer: Дамјан Георгиевски <gdamjan@gmail.com>
 # Maintainer: zer0def <zer0def@github>
 pkgname=cloud-hypervisor
-pkgver=43.0
+pkgver=44.0
 pkgrel=1
 pkgdesc="A Virtual Machine Monitor for modern Cloud workloads"
 url="https://github.com/cloud-hypervisor/cloud-hypervisor"
@@ -12,7 +12,7 @@ optdepends=(
   'qemu-headless: for /usr/lib/qemu/virtiofsd'
 )
 makedepends=('rust')
-source=("https://github.com/cloud-hypervisor/cloud-hypervisor/archive/v${pkgver}.tar.gz")
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/cloud-hypervisor/cloud-hypervisor/archive/v${pkgver}.tar.gz")
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
@@ -29,5 +29,5 @@ package() {
   #  "${srcdir}/${pkgname}-${pkgver}/target/release/vhost_user_net"
 }
 
-sha512sums=('e173533da4fed733590dd7d2b2c807551a3052a6c0bc474c592480886a4d7b70a2c2c278a1e88ef82dffcfdd505b8a3540a16798a84f01ddf6f47380f5e95b41')
-b2sums=('ae254ef3226945bf609bb6301aac83e1c0a828f9ffa514e683fc42571ddbd870fcaaf8e4b31e82d16318e34cd46d5406c3ecbf973f0bf45ae7445297070f0692')
+sha512sums=('b7ff0ed9b96dbf8066d73ab14ae01488a63bca117ff2866edc8d4cae09888cbdd895dca03267fdd3ac37b19239329e39c7b395ee9a13b458e1b05f98dc81d496')
+b2sums=('a91791f966d5b5612ed9b9547747ef99d7286c97e88ac543097cc761e64e5afdc35cbdf13a505b5f35c4f85aba88a2a33efe39e844eef2be52cd016de80ecf97')
