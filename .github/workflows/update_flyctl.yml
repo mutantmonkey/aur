@@ -11,10 +11,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Configure git user
-      run: |
-        git config --local user.name mutantmonkey
-        git config --local user.email 67266+mutantmonkey@users.noreply.github.com
     - uses: chainguard-dev/actions/setup-gitsign@58b5d1b6769b7e88dfa5c85bbc81a5a02eaca5bc
     - uses: mutantmonkey/geschenkerbauer/actions/pkgctl-update@aab4322b17f6799867088bfdd8f1163bf57dcd5a
       with:
