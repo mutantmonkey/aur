@@ -16,8 +16,9 @@ jobs:
         git config --local user.name mutantmonkey
         git config --local user.email 67266+mutantmonkey@users.noreply.github.com
     - uses: chainguard-dev/actions/setup-gitsign@58b5d1b6769b7e88dfa5c85bbc81a5a02eaca5bc
-    - uses: mutantmonkey/geschenkerbauer/actions/pkgctl-update@8621cfd842121ed40235217dae5a6d323c544e8c
-      working-directory: flyctl
+    - uses: mutantmonkey/geschenkerbauer/actions/pkgctl-update@6e1744afb938ef0e336c1d051ca489aab5e748ba
+      with:
+        pkgbase: flyctl
     - name: Create Git commit
       run: |
         git add flyctl
