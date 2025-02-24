@@ -12,6 +12,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
     - uses: chainguard-dev/actions/setup-gitsign@58b5d1b6769b7e88dfa5c85bbc81a5a02eaca5bc
+    - name: Change ownership of flyctl directory
+      run: |
+        sudo chown -R 1000 flyctl
     - uses: mutantmonkey/geschenkerbauer/actions/pkgctl-update@e2e3d319a21c7ec1840cb61f66343941e26db008
       with:
         pkgbase: flyctl
