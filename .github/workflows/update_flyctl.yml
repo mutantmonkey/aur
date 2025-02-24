@@ -1,0 +1,31 @@
+name: Update flyctl
+on:
+  workflow_dispatch:
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Configure git user
+      run: |
+        git config --local user.name mutantmonkey
+        git config --local user.email 67266+mutantmonkey@users.noreply.github.com
+    - uses: chainguard-dev/actions/setup-gitsign@58b5d1b6769b7e88dfa5c85bbc81a5a02eaca5bc
+    - name: Run pkgctl update
+      uses: docker://ghcr.io/archlinux/archlinux:base-devel@sha256:d4d292c2614c0577ba9ba3240631fd3004eb8fddb83a743ff72bea9c4a96f985
+      run: |
+        pacman -Sy --noconfirm devtools
+        pkgctl version upgrade .
+        makepkg --printsrcinfo > .SRCINFO
+      working-directory: flyctl
+    - name: Create Git commit
+      run: |
+        git add flyctl
+        git commit -m "Update to latest version of flyctl"
+    - name: Push changes
+      run: git push
