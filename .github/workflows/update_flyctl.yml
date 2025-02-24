@@ -16,12 +16,7 @@ jobs:
         git config --local user.name mutantmonkey
         git config --local user.email 67266+mutantmonkey@users.noreply.github.com
     - uses: chainguard-dev/actions/setup-gitsign@58b5d1b6769b7e88dfa5c85bbc81a5a02eaca5bc
-    - name: Run pkgctl update
-      uses: docker://ghcr.io/archlinux/archlinux:base-devel@sha256:d4d292c2614c0577ba9ba3240631fd3004eb8fddb83a743ff72bea9c4a96f985
-      run: |
-        pacman -Sy --noconfirm devtools
-        pkgctl version upgrade .
-        makepkg --printsrcinfo > .SRCINFO
+    - uses: mutantmonkey/geschenkerbauer/actions/pkgctl-update@8621cfd842121ed40235217dae5a6d323c544e8c
       working-directory: flyctl
     - name: Create Git commit
       run: |
