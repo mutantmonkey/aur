@@ -3,4 +3,4 @@
 !.nvchecker.toml
 !.SRCINFO
 !PKGBUILD
-!curl-firefox
+!*.curlrc
