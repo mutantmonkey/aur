@@ -26,8 +26,9 @@ source=(
 sha256sums=('aa3fe95f5e6970447a2244a88af0f83b92a88d49aa4a0553f0709916b4597d20')
 validpgpkeys=('4ABA2F66DBD5A95894910E0673D770CDA59047B9') # HPLIP (HP Linux Imaging and Printing) <hplip@hp.com>
 
-# Thanks to https://bbs.archlinux.org/viewtopic.php?pid=2170899#p2170899
-DLAGENTS=('https::/usr/bin/curl --config ua.curlrc -qgb "" -fLC - --retry 3 --retry-delay 3 -o %o %u')
+# Thank you @Toolybird for the solution
+_user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+DLAGENTS=("https::/usr/bin/curl --user-agetn ${_user_agent// /\\ } -qgb '' -fLC - --retry 3 --retry-delay 3 -o %o %u")
 
 prepare() {
   sh "hplip-$pkgver-plugin.run" --target "$srcdir/hplip-$pkgver-plugin" --noexec
