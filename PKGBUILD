@@ -28,7 +28,7 @@ validpgpkeys=('4ABA2F66DBD5A95894910E0673D770CDA59047B9') # HPLIP (HP Linux Imag
 
 # Thank you @Toolybird for the solution
 _user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-DLAGENTS=("https::/usr/bin/curl --user-agetn ${_user_agent// /\\ } -qgb '' -fLC - --retry 3 --retry-delay 3 -o %o %u")
+DLAGENTS=("https::/usr/bin/curl --user-agent ${_user_agent// /\\ } -qgb '' -fLC - --retry 3 --retry-delay 3 -o %o %u")
 
 prepare() {
   sh "hplip-$pkgver-plugin.run" --target "$srcdir/hplip-$pkgver-plugin" --noexec
