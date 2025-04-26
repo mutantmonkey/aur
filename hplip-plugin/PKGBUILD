@@ -4,7 +4,7 @@
 # Contributor: Ivan Shapovalov <intelfx@intelfx.name>
 
 pkgname=hplip-plugin
-pkgver=3.24.4
+pkgver=3.25.2
 pkgrel=1
 pkgdesc="Binary plugin for HPs hplip printer driver library"
 arch=(x86_64 aarch64 armv6h armv7h i686)
@@ -21,14 +21,14 @@ depends=(
 )
 backup=(var/lib/hp/hplip.state)
 source=(
-  "https://developers.hp.com/sites/default/files/hplip-$pkgver-plugin.run"
-  "https://developers.hp.com/sites/default/files/hplip-$pkgver-plugin.run.asc"
+  "$pkgname-$pkgver.zip::https://developers.hp.com/system/files/2025-03/hplip-$pkgver-plugin_run.zip"
 )
-sha256sums=(
-  '1f3c6bdd25661a8a2e18153655d6f06f028c1d9c308d69c8ecfd7767a2d0c5aa'
-  'SKIP'
-)
+sha256sums=('aa3fe95f5e6970447a2244a88af0f83b92a88d49aa4a0553f0709916b4597d20')
 validpgpkeys=('4ABA2F66DBD5A95894910E0673D770CDA59047B9') # HPLIP (HP Linux Imaging and Printing) <hplip@hp.com>
+
+# Thank you @Toolybird for the solution
+_user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+DLAGENTS=("https::/usr/bin/curl --user-agent ${_user_agent// /\\ } -qgb '' -fLC - --retry 3 --retry-delay 3 -o %o %u")
 
 prepare() {
   sh "hplip-$pkgver-plugin.run" --target "$srcdir/hplip-$pkgver-plugin" --noexec
