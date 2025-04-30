@@ -4,9 +4,9 @@
 # Contributor: David McInnis <davidm@eagles.ewu.edu>
 
 pkgname=python-exifread
-_name="ExifRead"
-pkgver=3.0.0
-pkgrel=5
+_name="exifread"
+pkgver=3.2.0
+pkgrel=1
 pkgdesc="Python library to extract EXIF data from tiff and jpeg files"
 arch=('any')
 url="https://github.com/ianare/exif-py"
@@ -14,8 +14,8 @@ license=('BSD-3-Clause')
 depends=('python')
 makedepends=('python-setuptools')
 source=("https://files.pythonhosted.org/packages/source/${_name::1}/$_name/$_name-$pkgver.tar.gz")
-sha1sums=('1558d678b959b9c374c6d932700762d3d261a831')
-sha256sums=('0ac5a364169dbdf2bd62f94f5c073970ab6694a3166177f5e448b10c943e2ca4')
+sha1sums=('0ab0d1ba0edb75e702bc7700bdc94c93609e6eb0')
+sha256sums=('9bc3e34b2a25754a445aadd94c9af911928ef95de8c7a91f85219a8b4202c23d')
 
 build() {
   cd "$_name-$pkgver"
