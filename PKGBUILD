@@ -1,7 +1,7 @@
 # Maintainer: Дамјан Георгиевски <gdamjan@gmail.com>
 # Maintainer: zer0def <zer0def@github>
 pkgname=cloud-hypervisor
-pkgver=44.0
+pkgver=45.0
 pkgrel=1
 pkgdesc="A Virtual Machine Monitor for modern Cloud workloads"
 url="https://github.com/cloud-hypervisor/cloud-hypervisor"
@@ -29,5 +29,5 @@ package() {
   #  "${srcdir}/${pkgname}-${pkgver}/target/release/vhost_user_net"
 }
 
-sha512sums=('b7ff0ed9b96dbf8066d73ab14ae01488a63bca117ff2866edc8d4cae09888cbdd895dca03267fdd3ac37b19239329e39c7b395ee9a13b458e1b05f98dc81d496')
-b2sums=('a91791f966d5b5612ed9b9547747ef99d7286c97e88ac543097cc761e64e5afdc35cbdf13a505b5f35c4f85aba88a2a33efe39e844eef2be52cd016de80ecf97')
+sha512sums=('313fa38d440d212c1934013d938fb0cf78ffb62e63ebb4787e4e196843b15ce63b7ac45477f789dba19f87be5c4de4030a7edc362833594c3e8b35f81494fa09')
+b2sums=('4930999f72fb5b1007670ac0c3f31359e9af806673d080a344760f8785a4761af474fa7a0a65caabad34a1dc69cd93b8b8a1276cf68c8b2e512d342e7905fe78')
