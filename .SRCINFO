@@ -1,0 +1,16 @@
+pkgbase = packet
+	pkgdesc = A Quick Share client for Linux
+	pkgver = 0.1.1
+	pkgrel = 1
+	url = https://github.com/nozwock/packet
+	arch = x86_64
+	license = GPL-3.0-or-later
+	makedepends = blueprint-compiler
+	makedepends = cargo
+	makedepends = meson
+	makedepends = protobuf
+	depends = libadwaita
+	source = packet-0.1.1.tar.gz::https://github.com/nozwock/packet/archive/refs/tags/0.1.1.tar.gz
+	sha256sums = 426e861e73fc6ccece76a9d333a4942c8192138f468f3bdf0411cf88296732d1
+
+pkgname = packet
