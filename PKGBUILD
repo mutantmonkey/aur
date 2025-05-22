@@ -1,6 +1,6 @@
 # Maintainer: Mark Wagie <mark dot wagie at proton dot me>
 pkgname=packet
-pkgver=0.1.3
+pkgver=0.1.4
 pkgrel=1
 pkgdesc="A Quick Share client for Linux"
 arch=('x86_64')
@@ -14,7 +14,7 @@ makedepends=(
   'protobuf'
 )
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/$pkgver.tar.gz")
-sha256sums=('aa7f2ca16fb7fec47be0514c268a023bfc5fc3b193a1c63b600ced3a33cdb62a')
+sha256sums=('678ec4a2ad8933610551662864b5237d4b8f307c1530100238ab32c0cc83498d')
 
 prepare() {
   cd "$pkgname-$pkgver"
