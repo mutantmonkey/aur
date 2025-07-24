@@ -1,12 +1,14 @@
 pkgbase = cloud-hypervisor
 	pkgdesc = A Virtual Machine Monitor for modern Cloud workloads
 	pkgver = 47.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/cloud-hypervisor/cloud-hypervisor
 	arch = x86_64
 	arch = aarch64
-	license = Apache:2.0
+	license = Apache-2.0
 	makedepends = rust
+	depends = gcc-libs
+	depends = glibc
 	optdepends = virtiofsd: rust implementation of virtiofsd
 	optdepends = qemu-headless: for /usr/lib/qemu/virtiofsd
 	source = cloud-hypervisor-47.0.tar.gz::https://github.com/cloud-hypervisor/cloud-hypervisor/archive/v47.0.tar.gz

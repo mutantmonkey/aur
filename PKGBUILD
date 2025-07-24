@@ -2,11 +2,15 @@
 # Maintainer: zer0def <zer0def@github>
 pkgname=cloud-hypervisor
 pkgver=47.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A Virtual Machine Monitor for modern Cloud workloads"
 url="https://github.com/cloud-hypervisor/cloud-hypervisor"
 arch=('x86_64' 'aarch64')
-license=('Apache:2.0')
+license=('Apache-2.0')
+depends=(
+    gcc-libs
+    glibc
+)
 optdepends=(
   'virtiofsd: rust implementation of virtiofsd'
   'qemu-headless: for /usr/lib/qemu/virtiofsd'
