@@ -7,7 +7,7 @@
 # Contributor: yochananmarqos <aur commenter>
 
 pkgname="catt"
-pkgver=0.12.13
+pkgver=0.13.0
 pkgrel=1
 pkgdesc='Cast All The Things - Send videos from many, many online sources to your Chromecast.'
 arch=('any')
@@ -25,7 +25,7 @@ makedepends=(
   'python-setuptools'
 )
 source=("$pkgname-$pkgver.tar.gz"::"$url/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('e7129a4f85442d1ecc0b145a1fb6a5b60c210e46dfabc961e83757972338ee55')
+sha256sums=('30e5b024f92321a9deaa3e10285f3721fdb2931629cc8e399db238b17b6a0b35')
 
 build() {
   cd "$pkgname-$pkgver"
