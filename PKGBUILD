@@ -4,38 +4,35 @@
 # Contributor: Ivan Shapovalov <intelfx@intelfx.name>
 
 pkgname=hplip-plugin
-pkgver=3.25.2
+pkgver=3.25.6
 pkgrel=1
 pkgdesc="Binary plugin for HPs hplip printer driver library"
 arch=(x86_64 aarch64 armv6h armv7h i686)
 url="https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html"
 license=(LicenseRef-HPLIP-LICENSE)
-depends=(
-  # While hplip-plugin requires the version of hplip to match exactly,
-  # specifying such a requirement breaks the ability to upgrade hplip.
-  "hplip>=1:$pkgver"
-  gcc-libs
-  glibc
-  libusb-compat
-  sane
-)
 backup=(var/lib/hp/hplip.state)
-source=(
-  "$pkgname-$pkgver.zip::https://developers.hp.com/system/files/2025-03/hplip-$pkgver-plugin_run.zip"
-)
-sha256sums=('aa3fe95f5e6970447a2244a88af0f83b92a88d49aa4a0553f0709916b4597d20')
-validpgpkeys=('4ABA2F66DBD5A95894910E0673D770CDA59047B9') # HPLIP (HP Linux Imaging and Printing) <hplip@hp.com>
+# https://developers.hp.com/hp-linux-imaging-and-printing/plugins
+_date=2025-08
+source=("$pkgname-$pkgver.run::https://developers.hp.com/sites/default/files/$_date/hplip-$pkgver-plugin.run"
+        "$pkgname-$pkgver.run.asc::https://developers.hp.com/sites/default/files/$_date/hplip-$pkgver-plugin.run.asc")
+sha256sums=('0cd770036532a2d706c0f449ee1e3ef9b4de7b6cea5aaf2e76fe2da3f97f6ffc'
+            'SKIP')
+validpgpkeys=('82FFA7C6AA7411D934BDE173AC69536A2CF3A243') # HPLIP (HP Linux Imaging and Printing) <hplip@hp.com>
 
 # Thank you @Toolybird for the solution
 _user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 DLAGENTS=("https::/usr/bin/curl --user-agent ${_user_agent// /\\ } -qgb '' -fLC - --retry 3 --retry-delay 3 -o %o %u")
 
 prepare() {
-  sh "hplip-$pkgver-plugin.run" --target "$srcdir/hplip-$pkgver-plugin" --noexec
+  sh "$pkgname-$pkgver.run" --target "$srcdir/$pkgname-$pkgver" --noexec
 }
 
 package() {
-  cd "$srcdir/hplip-$pkgver-plugin"
+  # While hplip-plugin requires the version of hplip to match exactly,
+  # specifying such a requirement breaks the ability to upgrade hplip.
+  depends=(gcc-libs glibc sane libusb-compat "hplip>=$pkgver")
+
+  cd "$srcdir/$pkgname-$pkgver"
 
   case $CARCH in
   "i686")
