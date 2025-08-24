@@ -5,18 +5,24 @@
 
 pkgname=hplip-plugin
 pkgver=3.25.6
-pkgrel=1
+pkgrel=2
 pkgdesc="Binary plugin for HPs hplip printer driver library"
 arch=(x86_64 aarch64 armv6h armv7h i686)
 url="https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html"
 license=(LicenseRef-HPLIP-LICENSE)
 backup=(var/lib/hp/hplip.state)
+# While hplip-plugin requires the version of hplip to match exactly,
+# specifying such a requirement breaks the ability to upgrade hplip.
+depends=("hplip>=$pkgver")
+makedepends=(python)
 # https://developers.hp.com/hp-linux-imaging-and-printing/plugins
 _date=2025-08
 source=("$pkgname-$pkgver.run::https://developers.hp.com/sites/default/files/$_date/hplip-$pkgver-plugin.run"
-        "$pkgname-$pkgver.run.asc::https://developers.hp.com/sites/default/files/$_date/hplip-$pkgver-plugin.run.asc")
+        "$pkgname-$pkgver.run.asc::https://developers.hp.com/sites/default/files/$_date/hplip-$pkgver-plugin.run.asc"
+        "scan-plugin-spec.py")
 sha256sums=('0cd770036532a2d706c0f449ee1e3ef9b4de7b6cea5aaf2e76fe2da3f97f6ffc'
-            'SKIP')
+            'SKIP'
+            'f26c07771bd32c1edd871836a1a0425a770bf205bb2625cc01b1a00caf57feae')
 validpgpkeys=('82FFA7C6AA7411D934BDE173AC69536A2CF3A243') # HPLIP (HP Linux Imaging and Printing) <hplip@hp.com>
 
 # Thank you @Toolybird for the solution
@@ -28,51 +34,34 @@ prepare() {
 }
 
 package() {
-  # While hplip-plugin requires the version of hplip to match exactly,
-  # specifying such a requirement breaks the ability to upgrade hplip.
-  depends=(gcc-libs glibc sane libusb-compat "hplip>=$pkgver")
+  depends+=(gcc-libs glibc sane libusb-compat)
 
   cd "$srcdir/$pkgname-$pkgver"
 
-  case $CARCH in
-  "i686")
-    _arch='x86_32'
-    ;;
-  "x86_64")
-    _arch='x86_64'
-    ;;
-  "armv6h" | "armv7h")
-    _arch='arm32'
-    ;;
-  "aarch64")
-    _arch='arm64'
-    ;;
-  esac
+  local line
+  while read -r line
+  do
+    local -a splitted
+    readarray -d, -n3 -t splitted <<< "$line"
+    splitted[-1]="${splitted[-1]%$'\n'}"
+    install -Dvm644 "${splitted[0]}" "$pkgdir/${splitted[1]}"
+    if [[ "${splitted[0]}" == "license.txt" ]]
+    then
+      mkdir -p "$pkgdir/usr/share/licenses/$pkgname"
+      ln -srfv "$pkgdir${splitted[1]}" "$pkgdir/usr/share/licenses/$pkgname/license.txt"
+    elif [[ -n "${splitted[2]}" ]]
+    then
+      mkdir -p "$pkgdir$(dirname "${splitted[2]}")"
+      ln -srfv "$pkgdir${splitted[1]}" "$pkgdir${splitted[2]}"
+    fi
+  done < <(CARCH="$CARCH" python "$srcdir/scan-plugin-spec.py" | sort -u)
 
-  install -Dm644 -t "$pkgdir/usr/share/hplip" plugin.spec
-  install -Dm644 -t "$pkgdir/usr/share/hplip/data/firmware" hp_laserjet_*.fw.gz
-  install -Dm755 -t "$pkgdir/usr/share/hplip/fax/plugins" fax_marvell-"$_arch".so
-  install -Dm755 -t "$pkgdir/usr/share/hplip/prnt/plugins" hbpl1-"$_arch".so
-  install -Dm755 -t "$pkgdir/usr/share/hplip/prnt/plugins" lj-"$_arch".so
-  install -Dm755 -t "$pkgdir/usr/share/hplip/scan/plugins" bb_*-"$_arch".so
-
-  install -Dm644 -t "$pkgdir/usr/share/licenses/$pkgname" license.txt
-
-  # Create hplip.state used by hplip-tools
-  cat << EOF > hplip.state
+  install -Dm644 /dev/stdin "$pkgdir/var/lib/hp/hplip.state" << EOF
 [plugin]
 installed = 1
 eula = 1
 version = $pkgver
 EOF
-  install -Dm644 -t "$pkgdir/var/lib/hp" hplip.state
-
-  # Create symlinks
-  find "$pkgdir/usr/share/hplip" -type f -name "*.so" | while read -r f; do
-    lib_dir="${f%/*}"
-    lib_name="${f##*/}"
-    ln -vsf "$lib_name" "$lib_dir/${lib_name%%-*}.so"
-  done
 }
 
 # Note: to check the install, perform: hp-diagnose_plugin
