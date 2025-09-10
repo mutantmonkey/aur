@@ -1,4 +1,7 @@
 *
+!keys/
+!keys/pgp/
+!keys/pgp/*.asc
 !.gitignore
 !.nvchecker.toml
 !.SRCINFO
