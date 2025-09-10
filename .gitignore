@@ -4,12 +4,15 @@
 *.zip
 
 # signed sources
-**/*.asc
-**/*.sig
+*/*.asc
+*/*.sig
+!*/keys/pgp/*.asc
 
 # subfolders, e.g. source or built package trees, vcs
 */**/
 !/.github/**
+!*/keys/
+!*/keys/pgp/
 
 # backup files
 *~
