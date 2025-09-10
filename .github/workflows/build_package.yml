@@ -32,7 +32,6 @@ jobs:
     - name: Use geschenkerbauer to build packages (workflow dispatch)
       uses: mutantmonkey/geschenkerbauer/action@f5319d578744126c718b171983cb6f78bd7c8834
       env:
-        GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
         packages: ${{ github.event.inputs.pkgname }}
@@ -41,7 +40,6 @@ jobs:
     - name: Use geschenkerbauer to build packages (repository dispatch)
       uses: mutantmonkey/geschenkerbauer/action@f5319d578744126c718b171983cb6f78bd7c8834
       env:
-        GNUPG_PUBKEYRING: ${{ github.workspace }}/buildsrc/keyring.asc
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
         packages: ${{ github.event.client_payload.pkgname }}
