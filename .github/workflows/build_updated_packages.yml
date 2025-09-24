@@ -43,7 +43,7 @@ jobs:
         sudo chown -R 1000 buildsrc
         sudo chown -R $(id -u) buildsrc/.git
         sudo install -d -o 1000 -g users repo
-        echo "SOURCE_DATE_EPOCH=$(git log -1 -i --pretty='format:%ct')" >> "$GITHUB_ENV"
+        echo "SOURCE_DATE_EPOCH=$(git -C buildsrc log -1 -i --pretty='format:%ct')" >> "$GITHUB_ENV"
     - name: Use geschenkerbauer to build packages
       uses: mutantmonkey/geschenkerbauer/action@518a352cabdd6fc80d9d5ce2df522a0500b27666
       env:
