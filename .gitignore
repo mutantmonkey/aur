@@ -6,4 +6,4 @@
 !.nvchecker.toml
 !.SRCINFO
 !PKGBUILD
-!*.curlrc
+!scan-plugin-spec.py
