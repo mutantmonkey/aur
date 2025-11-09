@@ -1,7 +1,7 @@
 # Maintainer: Дамјан Георгиевски <gdamjan@gmail.com>
 # Maintainer: zer0def <zer0def@github>
 pkgname=cloud-hypervisor
-pkgver=48.0
+pkgver=49.0
 pkgrel=1
 pkgdesc="A Virtual Machine Monitor for modern Cloud workloads"
 url="https://github.com/cloud-hypervisor/cloud-hypervisor"
@@ -19,7 +19,7 @@ source=("${pkgname}-${pkgver}.tar.gz::https://github.com/cloud-hypervisor/cloud-
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
-  cargo build --release --locked
+  cargo build --release --locked --features fw_cfg
 }
 
 package() {
@@ -32,5 +32,5 @@ package() {
   #  "${srcdir}/${pkgname}-${pkgver}/target/release/vhost_user_net"
 }
 
-sha512sums=('3228cd974de9d5aadcda385d1f4d7580b5aeb55c49d8eec6d13734894a8ac8038d768eaa9f867b1df6768d2bfa392d48e1abb5a69121703ba20281c946b01c16')
-b2sums=('d2f7a9d938f6e1717934c12ff8b7127f03e71641999193fde5a11fb249da9e10b09f6620b287c046b308de93865f96989fa88a16ae0a5fe00294b3586fc6e8ce')
+sha512sums=('82ed95bc05f8c4f38ddc4485c00226c7929c81fb4cb391961d7a16a74a29e3cc072077a9991ce55d7d54c7f14cb64ce06865005da3dc916fb8c3e2cb5318989a')
+b2sums=('69775d964911a4d97488d85e209ae681d043d2b197ddb31880045c359ce2e6029066d44583774db7aaa57243bc3011a8cdd0071ed70288cd310a88100f47203f')
