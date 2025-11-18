@@ -4,8 +4,8 @@
 # Contributor: Ivan Shapovalov <intelfx@intelfx.name>
 
 pkgname=hplip-plugin
-pkgver=3.25.6
-pkgrel=2
+pkgver=3.25.8
+pkgrel=1
 pkgdesc="Binary plugin for HPs hplip printer driver library"
 arch=(x86_64 aarch64 armv6h armv7h i686)
 url="https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html"
@@ -16,13 +16,13 @@ backup=(var/lib/hp/hplip.state)
 depends=("hplip>=$pkgver")
 makedepends=(python)
 # https://developers.hp.com/hp-linux-imaging-and-printing/plugins
-_date=2025-08
+_date=2025-11
 source=("$pkgname-$pkgver.run::https://developers.hp.com/sites/default/files/$_date/hplip-$pkgver-plugin.run"
         "$pkgname-$pkgver.run.asc::https://developers.hp.com/sites/default/files/$_date/hplip-$pkgver-plugin.run.asc"
         "scan-plugin-spec.py")
-sha256sums=('0cd770036532a2d706c0f449ee1e3ef9b4de7b6cea5aaf2e76fe2da3f97f6ffc'
+sha256sums=('69151006c59a4dbdd5469df5eb97c253b5fcfeafe297360850c5a03c1ce68f95'
             'SKIP'
-            'f26c07771bd32c1edd871836a1a0425a770bf205bb2625cc01b1a00caf57feae')
+            'c6da101f46546f2145ecc0bf9b7bbb3fb5ecb40e799274e62a7e9bc435924d25')
 validpgpkeys=('82FFA7C6AA7411D934BDE173AC69536A2CF3A243') # HPLIP (HP Linux Imaging and Printing) <hplip@hp.com>
 
 # Thank you @Toolybird for the solution
