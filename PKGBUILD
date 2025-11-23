@@ -5,7 +5,7 @@
 
 pkgname=hplip-plugin
 pkgver=3.25.8
-pkgrel=1
+pkgrel=2
 pkgdesc="Binary plugin for HPs hplip printer driver library"
 arch=(x86_64 aarch64 armv6h armv7h i686)
 url="https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html"
@@ -48,11 +48,11 @@ package() {
     if [[ "${splitted[0]}" == "license.txt" ]]
     then
       mkdir -p "$pkgdir/usr/share/licenses/$pkgname"
-      ln -srfv "$pkgdir${splitted[1]}" "$pkgdir/usr/share/licenses/$pkgname/license.txt"
+      ln -srfv "$pkgdir/${splitted[1]}" "$pkgdir/usr/share/licenses/$pkgname/license.txt"
     elif [[ -n "${splitted[2]}" ]]
     then
-      mkdir -p "$pkgdir$(dirname "${splitted[2]}")"
-      ln -srfv "$pkgdir${splitted[1]}" "$pkgdir${splitted[2]}"
+      mkdir -p "$pkgdir/$(dirname "${splitted[2]}")"
+      ln -srfv "$pkgdir/${splitted[1]}" "$pkgdir/${splitted[2]}"
     fi
   done < <(CARCH="$CARCH" python "$srcdir/scan-plugin-spec.py" | sort -u)
 
