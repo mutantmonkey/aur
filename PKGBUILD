@@ -1,13 +1,13 @@
 pkgname=piper-tts
 _pkgname=piper1-gpl
 pkgver=1.3.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Fast and local neural text-to-speech engine"
 arch=('x86_64')
 url="https://github.com/OHF-Voice/piper1-gpl"
 license=('GPL-3.0-or-later')
 provides=('piper-tts')
-conflicts=('piper-tts')
+conflicts=('piper-tts' 'piper')
 depends=(glibc python-numpy python-onnxruntime)
 optdepends=(
 	'python-flask: http server'
