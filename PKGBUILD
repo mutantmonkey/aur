@@ -1,7 +1,7 @@
 # Maintainer: Дамјан Георгиевски <gdamjan@gmail.com>
 # Maintainer: zer0def <zer0def@github>
 pkgname=cloud-hypervisor
-pkgver=48.0
+pkgver=50.0
 pkgrel=1
 pkgdesc="A Virtual Machine Monitor for modern Cloud workloads"
 url="https://github.com/cloud-hypervisor/cloud-hypervisor"
@@ -15,11 +15,18 @@ optdepends=(
   'virtiofsd: rust implementation of virtiofsd'
 )
 makedepends=('rust')
+options=('!lto' '!debug')
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/cloud-hypervisor/cloud-hypervisor/archive/v${pkgver}.tar.gz")
+
+prepare() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    cargo fetch --locked
+}
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
-  cargo build --release --locked
+
+  cargo build --release --locked --features fw_cfg
 }
 
 package() {
@@ -32,5 +39,5 @@ package() {
   #  "${srcdir}/${pkgname}-${pkgver}/target/release/vhost_user_net"
 }
 
-sha512sums=('3228cd974de9d5aadcda385d1f4d7580b5aeb55c49d8eec6d13734894a8ac8038d768eaa9f867b1df6768d2bfa392d48e1abb5a69121703ba20281c946b01c16')
-b2sums=('d2f7a9d938f6e1717934c12ff8b7127f03e71641999193fde5a11fb249da9e10b09f6620b287c046b308de93865f96989fa88a16ae0a5fe00294b3586fc6e8ce')
+sha512sums=('42798fb2bcf5c60859b863d83281dbbb7d6e742f6e1df4417c8b658703b8e6fc5191134f301f65c1159f5889b35b24578491ad7a970f2334585f76e6a6660e3c')
+b2sums=('83a15824d674f92418b89e24553790732b7122d978b6f8c46e80bffeed0ac332788b01096eb0e4a9c92a802f75c4f06e65df4e547e2cf910ea4b14c7b91c20d1')
