@@ -33,7 +33,7 @@ match environ["CARCH"]:
 
 hplip = ConfigParser()
 hplip.read_string(HPLIP_CONF.read_text())
-hplip_conf_dirs_home = hplip["dirs"]["home"]
+hplip_conf_dirs_home = hplip["dirs"]["home"].removeprefix("/")
 
 
 def _eval(i: str, product: str) -> Path:
