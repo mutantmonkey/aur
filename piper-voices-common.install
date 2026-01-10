@@ -1,5 +1,26 @@
-post_install(){
- cat <<INFO
+# Define the lines to be added or removed
+SPEECHD_CONF=/etc/speech-dispatcher/speechd.conf
+DEFAULT_MODULE='DefaultModule piper-tts-generic'
+ADD_MODULE='AddModule "piper-tts-generic"        "sd_generic"   "piper-tts-generic.conf"'
+
+deactivate_setting() {
+  if grep "^$1" $SPEECHD_CONF; then
+    while IFS= read -r LINE;do
+      sed -i "s/$LINE/# $LINE/" $SPEECHD_CONF
+    done <<<"$(cat $SPEECHD_CONF | grep "^$1 ")"
+  fi
+}
+
+add_line_after() {
+  if ! grep "$2" $SPEECHD_CONF; then
+    local line_number=$(cat $SPEECHD_CONF | grep -n "$1" | cut -d: -f1)
+    line_number=$(( $line_number + 1 ))
+    sed -i ${line_number}i"$2" $SPEECHD_CONF
+  fi
+}
+
+print_info() {
+  cat <<INFO
  
 # ################################################################ PIPER-TTS
 
@@ -33,3 +54,34 @@ You should now be able to run
 
 INFO
 }
+
+post_install() {
+  echo "Running post-installation script..."
+  # Check if the speechd.conf file exists
+  if [ -f $SPEECHD_CONF ]; then
+    # Add the lines only if they do not already exist
+    if ! grep -Fxq "$ADD_MODULE" $SPEECHD_CONF; then
+      add_line_after "AddModule \"pico\"" "$ADD_MODULE"
+    fi
+    if ! grep -Fxq "$DEFAULT_MODULE" $SPEECHD_CONF; then
+      deactivate_setting "DefaultModule"
+      add_line_after "# DefaultModule" "$DEFAULT_MODULE"
+    fi
+  fi
+  print_info
+}
+
+post_remove() {
+  # Check if the speechd.conf file exists
+  if [ -f $SPEECHD_CONF ]; then
+    # Remove the lines if they exist
+    sed -i "/^$DEFAULT_MODULE$/d" $SPEECHD_CONF
+    sed -i "/^$ADD_MODULE$/d" $SPEECHD_CONF
+  fi
+}
+
+post_upgrade() {
+  post_remove
+  post_install
+}
+
