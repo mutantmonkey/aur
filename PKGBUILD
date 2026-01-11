@@ -3,7 +3,7 @@
 
 pkgbase=apparmor.d
 pkgname=(apparmor.d apparmor.d.enforced)
-pkgver=0.4901
+pkgver=0.4902
 pkgrel=1
 pkgdesc="Full set of apparmor profiles"
 arch=('x86_64' 'armv6h' 'armv7h' 'aarch64')
@@ -13,7 +13,7 @@ depends=('apparmor>=4.1.3')
 makedepends=('go' 'git' 'just')
 source=("https://github.com/roddhjav/$pkgbase/releases/download/v$pkgver/$pkgbase-$pkgver.tar.gz"
         "https://github.com/roddhjav/$pkgbase/releases/download/v$pkgver/$pkgbase-$pkgver.tar.gz.asc")
-sha512sums=('9fafde5a3e23552a194193dead5ca0d1ceae2400a49b8a1952155f135fe0c775e03675afbdb9ae145de46b5d9605d6808878c88f2f4c347cc7794bbc01cbf3a3'
+sha512sums=('2d6c7f1191281979fa26609b26b5063037be6e7fb86c089a92d831cf358542bf7e159f15307613c478318a6cb75d1d555fc140389aa1a09747f26cd8b2ed2144'
             'SKIP')
 
 # The public key is found at https://pujol.io/keys
