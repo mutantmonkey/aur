@@ -2,3 +2,4 @@
 source = "git"
 git = "https://github.com/stackexchange/dnscontrol.git"
 prefix = "v"
+ignored = "v4.33.0-beta1"
