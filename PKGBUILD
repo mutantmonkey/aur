@@ -1,28 +1,29 @@
-# Maintainer: Fredrick Brennan <copypaste@kittens.ph>
+# Maintainer: mh4ckwascut <mh4ckt3mh4ckt1c4s@archlinux.org>
+# Contributor: Fredrick Brennan <copypaste@kittens.ph>
 # Contributor: Markus Schaaf <markuschaaf@gmail.com>
 # Contributor: Stephan Eisvogel <eisvogel at embinet dot de>
 pkgname=python-xmp-toolkit
-pkgver=2.0.1
-pkgrel=3
+_name=python_xmp_toolkit
+pkgver=2.1.0
+pkgrel=1
 pkgdesc='A library for working with XMP metadata'
 arch=(any)
 url='http://python-xmp-toolkit.readthedocs.org/'
-license=(custom)
-depends=('python>=3.5'
+license=(LicenseRef-custom)
+depends=('python>=3.7'
          'exempi>=2.2.0'
          'python-pytz')
-makedepends=('python-setuptools')
-source=('https://files.pythonhosted.org/packages/5b/0b/4f95bc448e4e30eb0e831df0972c9a4b3efa8f9f76879558e9123215a7b7/python-xmp-toolkit-2.0.1.tar.gz')
-sha256sums=('f8d912946ff9fd46ed5c7c355aa5d4ea193328b3f200909ef32d9a28a1419a38')
+makedepends=(python-build python-installer python-wheel python-flit-core)
+source=("https://files.pythonhosted.org/packages/source/${_name::1}/${_name}/${_name}-${pkgver}.tar.gz")
+sha256sums=('ca0aa2c60d418dd2558767db59953ab5954fb5b87dc0b50cecd60566b0b4e2da')
  
 build() {
-        cd "$srcdir/python-xmp-toolkit-${pkgver}"
-        /usr/bin/python setup.py build
+        cd "${_name}-${pkgver}"
+	python -m build --wheel --no-isolation
 }
  
 package() {
-        cd "$srcdir/python-xmp-toolkit-${pkgver}"
-        install -d "$pkgdir/usr/share/licenses/$pkgname"
-        install -t "$pkgdir/usr/share/licenses/$pkgname" LICENSE
-        /usr/bin/python setup.py install --root="$pkgdir" --prefix=/usr --optimize=1
+        cd "${_name}-${pkgver}"
+	python -m installer --destdir="$pkgdir" dist/*.whl
+	install -Dm644 -t "$pkgdir/usr/share/licenses/$pkgname" LICENSE
 }
