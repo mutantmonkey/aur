@@ -5,19 +5,19 @@
 # Contributor: Daniel Reuter <daniel.robin.reuter@googlemail.com>
 
 pkgname=ocrmypdf
-pkgver=17.4.0
+pkgver=17.4.1
 pkgrel=1
 pkgdesc="A tool to add an OCR text layer to scanned PDF files, allowing them to be searched"
 url="https://github.com/ocrmypdf/OCRmyPDF"
 arch=('any')
 license=('MPL-2.0')
 # NOTICE: The number of dependencies we rely on is *very high*. If the program does not run after an upgrade, make sure all your deps are upgraded, especially AUR deps!
-depends=('python>=3.9' 'img2pdf' 'python-pillow' 'tesseract' 'ghostscript' 'unpaper' 'pngquant' 'python-pikepdf>=10.0.0' 'python-reportlab' 'python-pdfminer' 'python-tqdm' 'python-pluggy' 'python-rich' 'python-importlib_resources' 'python-packaging' 'python-deprecation')
+depends=('python>=3.9' 'img2pdf' 'python-pillow' 'tesseract' 'ghostscript' 'unpaper' 'pngquant' 'python-pikepdf>=10.0.0' 'python-reportlab' 'python-pdfminer' 'python-tqdm' 'python-pluggy' 'python-rich' 'python-importlib_resources' 'python-packaging' 'python-deprecation' 'python-pydantic' 'python-uharfbuzz' 'python-fpdf2')
 
 makedepends=('python-hatch-vcs' 'python-build' 'python-installer' 'python-wheel')
 optdepends=('jbig2enc: Better compression algorithm; results in smaller PDF files')
 source=("https://files.pythonhosted.org/packages/source/${pkgname::1}/$pkgname/$pkgname-$pkgver.tar.gz")
-sha256sums=('4bbc53249f3981599565f670c5de774d6440832eede87c515e6608880fa02a34')
+sha256sums=('f4013df8ce5e6a6670e942999de304f2f0d671a8131bc7e6a1779c071041a587')
 install="${pkgname}.install"
 
 build() {
