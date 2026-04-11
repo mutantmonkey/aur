@@ -10,6 +10,12 @@ else
  RATE=22050
 fi
 
-printf %s "$DATA" | piper-tts --model "$VOICES_PATH/$VOICE.onnx" --output-raw | aplay -r "$RATE" -f S16_LE -t raw -
+if which pw-play >/dev/null; then
+ PLAY_APPS="pw-play --rate $RATE --channel-map LE -"
+else
+ PLAY_APPS="aplay -r $RATE -f S16_LE -t raw -"
+fi
+
+printf %s "$DATA" | piper-tts --model "$VOICES_PATH/$VOICE.onnx" -f - | $PLAY_APPS
 
 wait
