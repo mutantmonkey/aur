@@ -1,9 +1,0 @@
-*
-!keys/
-!keys/pgp/
-!keys/pgp/*.asc
-!.gitignore
-!.nvchecker.toml
-!.SRCINFO
-!PKGBUILD
-!scan-plugin-spec.py
