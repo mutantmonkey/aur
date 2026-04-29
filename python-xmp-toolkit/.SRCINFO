@@ -1,15 +1,18 @@
 pkgbase = python-xmp-toolkit
 	pkgdesc = A library for working with XMP metadata
-	pkgver = 2.0.2
+	pkgver = 2.1.0
 	pkgrel = 1
 	url = http://python-xmp-toolkit.readthedocs.org/
 	arch = any
-	license = custom
-	makedepends = python-setuptools
-	depends = python>=3.5
+	license = LicenseRef-custom
+	makedepends = python-build
+	makedepends = python-installer
+	makedepends = python-wheel
+	makedepends = python-flit-core
+	depends = python>=3.7
 	depends = exempi>=2.2.0
 	depends = python-pytz
-	source = https://files.pythonhosted.org/packages/source/p/python-xmp-toolkit/python-xmp-toolkit-2.0.2.tar.gz
-	b2sums = 123b07624999bf0bde4872aed319681e3ec020ad45796ed07d44aa953cf79537bfc0489634bd2ff767f17f36d1e6ddb5852322a07e0a8f911f90c82be38054f2
+	source = https://files.pythonhosted.org/packages/source/p/python_xmp_toolkit/python_xmp_toolkit-2.1.0.tar.gz
+	sha256sums = ca0aa2c60d418dd2558767db59953ab5954fb5b87dc0b50cecd60566b0b4e2da
 
 pkgname = python-xmp-toolkit
