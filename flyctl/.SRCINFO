@@ -1,13 +1,13 @@
 pkgbase = flyctl
 	pkgdesc = Command line tools for fly.io services
-	pkgver = 0.4.59
+	pkgver = 0.4.60
 	pkgrel = 1
 	url = https://github.com/superfly/flyctl
 	arch = x86_64
 	license = Apache-2.0
 	makedepends = git
 	makedepends = go
-	source = flyctl-0.4.59::git+https://github.com/superfly/flyctl.git#tag=v0.4.59
-	b2sums = b01862698ffa2a8eb855ca0f153e888e9ba8b4612c3b49b07b2e76a3fb5388356dbc0fe0a4167ea26d61c41e2d57c2af5b27173197ed55451be2ff865146d5b9
+	source = flyctl-0.4.60::git+https://github.com/superfly/flyctl.git#tag=v0.4.60
+	b2sums = 8c477d1451baaae2004046072fb377801be4b531c77c6a154462f39f28db428238aec39a0bcf6d8a24edf263ad13d3e4ab0d5e92eb2634bb886d7501b9c458c0
 
 pkgname = flyctl
