@@ -1,22 +1,22 @@
 # Maintainer: Дамјан Георгиевски <gdamjan@gmail.com>
 # Maintainer: zer0def <zer0def@github>
 pkgname=cloud-hypervisor
-pkgver=51.1
+pkgver=52.0
 pkgrel=1
 pkgdesc="A Virtual Machine Monitor for modern Cloud workloads"
 url="https://github.com/cloud-hypervisor/cloud-hypervisor"
 arch=('x86_64' 'aarch64')
 license=('Apache-2.0')
 depends=(
-    gcc-libs
     glibc
+    libgcc
 )
 optdepends=(
   'virtiofsd: rust implementation of virtiofsd'
 )
 makedepends=('rust')
 options=('!lto' '!debug')
-source=("${pkgname}-${pkgver}.tar.gz::https://github.com/cloud-hypervisor/cloud-hypervisor/archive/v${pkgver}.tar.gz")
+source=("https://github.com/cloud-hypervisor/cloud-hypervisor/archive/v${pkgver}/${pkgname}-${pkgver}.tar.gz")
 
 prepare() {
     cd "${srcdir}/${pkgname}-${pkgver}"
@@ -35,9 +35,8 @@ package() {
     "${srcdir}/${pkgname}-${pkgver}/target/release/cloud-hypervisor"
   #install -Dm755 -t "${pkgdir}/usr/lib/cloud-hypervisor" \
   #  "${srcdir}/${pkgname}-${pkgver}/target/release/vhost_user_blk" \
-  #  "${srcdir}/${pkgname}-${pkgver}/target/release/vhost_user_fs" \
   #  "${srcdir}/${pkgname}-${pkgver}/target/release/vhost_user_net"
 }
 
-sha512sums=('98086befc79d4152436aded2e5c120673340226fc8e6a33e8892e246f2f3565770cd612b28d91430e6148228a7f0b6dd90cd47d61686d1b4277bb2de6be87e80')
-b2sums=('34457fb9ed470df9068898b04943c07f827b03e3484a63483cdf17922cd1761b71ecd677fc94eed660161d648a57e7b2a98a18f7ed9794c51c35b09855775f68')
+sha512sums=('e2e5d928d764d920f023389367e3c5ba9309f7c67ceb82845a8105c0130095b3349aec0996b28f06673c0fbf9d6742c92136db22f7fef88d4d26ee02569792da')
+b2sums=('4ab79cea9b60696a67d75ddc9aa97ed6d2ac16f0da832bf0d733b204c6efc1c214c351888df32e1305c376a41260fde61172d6e40b019e3b5421cfd1d2e76543')
