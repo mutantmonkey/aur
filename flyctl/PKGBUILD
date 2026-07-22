@@ -2,7 +2,7 @@
 # Contributor: Trevor Mosey <trevor dot mosey at gmail dot com>
 
 pkgname=flyctl
-pkgver=0.4.67
+pkgver=0.4.73
 pkgrel=1
 pkgdesc="Command line tools for fly.io services"
 arch=("x86_64")
@@ -10,7 +10,7 @@ url="https://github.com/superfly/flyctl"
 license=("Apache-2.0")
 makedepends=('git' 'go')
 source=("${pkgname}-${pkgver}::git+https://github.com/superfly/flyctl.git#tag=v${pkgver}")
-b2sums=('a93552d9dabd5effe7709e32d436ddeb155928ab6e431c225c19126588f5d5e5ee4ad8e0ab08f4ec67d9b9a8a2c41bbd8888f816aff426d013eb03da66e65750')
+b2sums=('b15eb467379754e7df2b421ef6698c0ca04711689d0c44fc5ae468168d12da6cdc7b6dd75596b86b64c9ff21ab45fdf3eb1f2f0c23ae0c030f1a8bf3174cf920')
 
 build() {
   BUILD_DATE="$(date --utc --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y-%m-%dT%H:%M:%SZ)"
