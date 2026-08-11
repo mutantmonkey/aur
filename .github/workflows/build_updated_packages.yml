@@ -46,7 +46,7 @@ jobs:
         sudo install -d -o 1000 -g users repo
         echo "SOURCE_DATE_EPOCH=$(git -C buildsrc log -1 -i --pretty='format:%ct')" >> "$GITHUB_ENV"
     - name: Use geschenkerbauer to build packages
-      uses: mutantmonkey/geschenkerbauer/action@9a280bacb81c0f697fa11faa2c5755574f65a8a8 # main
+      uses: mutantmonkey/geschenkerbauer/action@5c3c524e0dbf78bd95b410afe299e7cfe5069a91 # main
       env:
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
