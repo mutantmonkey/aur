@@ -1,7 +1,7 @@
 # Maintainer: Michael Gerhaeuser <michael.gerhaeuser@gmail.com>
 pkgname=lektor
 _pkgname=Lektor
-pkgver=3.3.13
+pkgver=3.3.14
 pkgrel=1
 pkgdesc="A static content management system."
 arch=(any)
@@ -15,7 +15,7 @@ depends=(python python-pip
 makedepends=(python-build python-installer python-wheel python-setuptools-scm)
 options=(!emptydirs)
 source=("https://files.pythonhosted.org/packages/source/L/$_pkgname/$pkgname-$pkgver.tar.gz")
-sha256sums=('86b30f4ad7d6ceb8a8755591712f6737e30a8701fcc5a1d0ced4c99c6903e271')
+sha256sums=('b06157b3051bc4d5c245bfeefd63330dcb17ea0ef19bed8f8c0e2de9e319a1bb')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
