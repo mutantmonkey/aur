@@ -18,7 +18,7 @@ jobs:
       packages: ${{ steps.get-packages.outputs.packages }}
     steps:
     - name: Checkout repository
-      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         fetch-depth: 0
     - name: Figure out which packages have changed since the last push
@@ -36,7 +36,7 @@ jobs:
     if: ${{ needs.evaluate.outputs.packages != '[]' }}
     steps:
     - name: Checkout repository
-      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         path: buildsrc
     - name: Prepare build environment
