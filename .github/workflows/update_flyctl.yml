@@ -12,7 +12,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - uses: chainguard-dev/actions/setup-gitsign@0cda751b114eb55c388e88f7479292668165602a # v1.0.2
-    - uses: mutantmonkey/geschenkerbauer/actions/pkgctl-update@b4bb292ed4cca057d390ef5d3b9a7717fdb7971f
+    - uses: mutantmonkey/geschenkerbauer/actions/pkgctl-update@d6a287c3c83cd1553b2098294b6e6cd9b1330c82
       with:
         pkgbase: flyctl
     - name: Create Git commit
