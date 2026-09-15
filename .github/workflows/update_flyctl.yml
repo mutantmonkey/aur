@@ -15,7 +15,7 @@ jobs:
 #    - name: Change ownership of flyctl directory
 #      run: |
 #        sudo chown -R 1000 flyctl
-    - uses: mutantmonkey/geschenkerbauer/actions/pkgctl-update@b58ae2d590f4dd1d0f33ee69bdf9e9225bf361fd
+    - uses: mutantmonkey/geschenkerbauer/actions/pkgctl-update@8529464a654f80e154a5f7f90a4b69fc152be189
       with:
         pkgbase: flyctl
     - name: Create Git commit
