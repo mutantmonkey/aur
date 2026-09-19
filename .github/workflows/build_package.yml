@@ -25,8 +25,6 @@ jobs:
         path: buildsrc
     - name: Prepare build environment
       run: |
-        sudo chown -R 1000 buildsrc
-        sudo chown -R $(id -u) buildsrc/.git
         sudo install -d -o 1000 -g users repo
     - name: Use geschenkerbauer to build packages
       uses: mutantmonkey/geschenkerbauer/action@dc293d835e5dbe1d62e13c02443c7387f7da7728 # main

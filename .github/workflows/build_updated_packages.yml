@@ -41,8 +41,6 @@ jobs:
         path: buildsrc
     - name: Prepare build environment
       run: |
-        sudo chown -R 1000 buildsrc
-        sudo chown -R $(id -u) buildsrc/.git
         sudo install -d -o 1000 -g users repo
         echo "SOURCE_DATE_EPOCH=$(git -C buildsrc log -1 -i --pretty='format:%ct')" >> "$GITHUB_ENV"
     - name: Use geschenkerbauer to build packages
