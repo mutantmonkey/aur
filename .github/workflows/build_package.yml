@@ -29,8 +29,10 @@ jobs:
         sudo chown -R $(id -u) buildsrc/.git
         sudo install -d -o 1000 -g users repo
     - name: Use geschenkerbauer to build packages
-      uses: mutantmonkey/geschenkerbauer/action@6c0b38960e778b5c562cd2fbdf125ee104a05bfc # main
+      uses: mutantmonkey/geschenkerbauer/action@dc293d835e5dbe1d62e13c02443c7387f7da7728 # main
       env:
+        BUILDSRC: ${{ github.workspace }}/buildsrc
+        PKGDEST: ${{ github.workspace }}/repo
         PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
       with:
         packages: ${{ github.event.inputs.pkgname }}
