@@ -4,7 +4,7 @@
 
 pkgname=ttf-exljbris
 pkgver=1.1
-pkgrel=10
+pkgrel=11
 pkgdesc='A collection of free OpenType fonts by Jos Buivenga'
 arch=('any')
 license=('custom')

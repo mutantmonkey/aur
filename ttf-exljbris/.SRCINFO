@@ -1,7 +1,7 @@
 pkgbase = ttf-exljbris
 	pkgdesc = A collection of free OpenType fonts by Jos Buivenga
 	pkgver = 1.1
-	pkgrel = 10
+	pkgrel = 11
 	url = http://www.exljbris.com/
 	arch = any
 	license = custom
