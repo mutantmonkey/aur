@@ -1,68 +1,46 @@
 name: Build updated packages
+
 on:
   push:
     paths-ignore:
       - '.github/workflows/**'
       - 'keyring.asc'
-permissions:
-  id-token: write
-  contents: read
-  attestations: write
-  artifact-metadata: write
 
 jobs:
   evaluate:
     name: Evaluate changed packages
     runs-on: ubuntu-26.04
+    permissions:
+      contents: read
     outputs:
       packages: ${{ steps.get-packages.outputs.packages }}
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      with:
-        fetch-depth: 0
-    - name: Figure out which packages have changed since the last push
-      id: get-packages
-      run: |
-        echo "packages=["$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | xargs -I{} bash -c "test -d \"{}\" && echo \"\\\"{}\\\"\"" | head -c -1 | sed -z 's/\n/,/g')"]" >> $GITHUB_OUTPUT
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Figure out which packages have changed since the last push
+        id: get-packages
+        run: |
+          echo "packages=["$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -v '^\(\.git\|keyring.asc\)' | sed 's/\/.*$//g' | sort -u | xargs -I{} bash -c "test -d \"{}\" && echo \"\\\"{}\\\"\"" | head -c -1 | sed -z 's/\n/,/g')"]" >> $GITHUB_OUTPUT
+
   build:
     name: Build
     needs: evaluate
     runs-on: ubuntu-26.04
+    if: ${{ needs.evaluate.outputs.packages != '[]' }}
     strategy:
       matrix:
         pkgname: ${{ fromJSON(needs.evaluate.outputs.packages) }}
       fail-fast: false
-    if: ${{ needs.evaluate.outputs.packages != '[]' }}
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      with:
-        path: buildsrc
-    - name: Prepare build environment
-      run: |
-        sudo install -d -o 1000 -g users repo
-        echo "SOURCE_DATE_EPOCH=$(git -C buildsrc log -1 -i --pretty='format:%ct')" >> "$GITHUB_ENV"
-    - name: Use geschenkerbauer to build packages
-      uses: mutantmonkey/geschenkerbauer/action@dc293d835e5dbe1d62e13c02443c7387f7da7728 # main
-      env:
-        BUILDSRC: ${{ github.workspace }}/buildsrc
-        PKGDEST: ${{ github.workspace }}/repo
-        PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
-      with:
-        packages: ${{ matrix.pkgname }}
-    - name: Replace forbidden colon character in package filenames
-      run: |
-        for f in $(find . -iname '*:*'); do
-          sudo mv "$f" "${f/:/__3A__}"
-        done || exit 0
-      working-directory: ./repo
-    - name: Upload artifacts
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
-      with:
-        name: build-output-${{ matrix.pkgname }}
-        path: repo
-    - name: Generate artifact attestation
-      uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
-      with:
-        subject-path: 'repo/*'
+    uses: $/.github/workflows/build-package-reusable.yml
+    with:
+      pkgname: ${{ matrix.pkgname }}
+      artifact-name: build-output-${{ matrix.pkgname }}
+      set-source-date-epoch-from-git: true
+    permissions:
+      id-token: write
+      contents: read
+      attestations: write
+      artifact-metadata: write
