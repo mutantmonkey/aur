@@ -55,8 +55,8 @@ jobs:
           PKGDEST: ${{ github.workspace }}/repo
           PACKAGER: geschenkerbauer on github <archpkgs+github@mutantmonkey.mx>
         with:
-          packages: ${{ github.event.inputs.pkgname }}
-          nodeps: ${{ github.event.inputs.nodeps }}
+          packages: ${{ inputs.pkgname }}
+          nodeps: ${{ inputs.nodeps }}
 
       - name: Replace forbidden colon character in package filenames
         run: |
