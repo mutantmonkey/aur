@@ -28,7 +28,6 @@ jobs:
   build:
     name: Build
     needs: evaluate
-    runs-on: ubuntu-26.04
     if: ${{ needs.evaluate.outputs.packages != '[]' }}
     strategy:
       matrix:
