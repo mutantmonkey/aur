@@ -1,4 +1,5 @@
-# Maintainer: Nicolas Lorin <androw95220@gmail.com>
+# Maintainer: aarto <aarto@aur.archlinux.org>
+# Contributor: Nicolas Lorin <androw95220@gmail.com>
 # Contributor: Jan Misiak <fijam@archlinux.ux>
 
 pkgname=ttf-exljbris
@@ -33,4 +34,3 @@ package() {
 	install -m0644 -D $(find -type f -name "*.otf") ${pkgdir}/usr/share/fonts/OTF
 	install -m0644 -D exljbris-font-licence.txt ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
 }
-
