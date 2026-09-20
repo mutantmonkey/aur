@@ -49,7 +49,7 @@ jobs:
           echo "SOURCE_DATE_EPOCH=$(git -C buildsrc log -1 -i --pretty='format:%ct')" >> "$GITHUB_ENV"
 
       - name: Use geschenkerbauer to build packages
-        uses: mutantmonkey/geschenkerbauer/action@dc293d835e5dbe1d62e13c02443c7387f7da7728 # main
+        uses: mutantmonkey/geschenkerbauer/action@9d96625ca4b554adc466378f0fe5bf8e736a2f84 # main
         env:
           BUILDSRC: ${{ github.workspace }}/buildsrc
           PKGDEST: ${{ github.workspace }}/repo
