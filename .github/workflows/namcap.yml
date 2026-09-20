@@ -1,4 +1,5 @@
 name: Check PKGBUILDs using namcap
+
 on:
   push:
     paths-ignore:
