@@ -5,15 +5,17 @@ on:
       - '.github/workflows/**'
       - 'keyring.asc'
   workflow_dispatch:
-permissions:
-  contents: read
 
 jobs:
   check:
     name: Check
     runs-on: ubuntu-26.04
+    permissions:
+      contents: read
     steps:
     - name: Checkout repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: false
     - name: Check all PKGBUILDs using namcap
       uses: mutantmonkey/geschenkerbauer/actions/namcap@c00c7f432884cbd0aee710135261383886064588 # main
