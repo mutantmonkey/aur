@@ -33,6 +33,5 @@ done
 
 for kver in "${!versions[@]}"; do
 	kimage="/usr/lib/modules/$kver/vmlinuz"
-	echo >&2 +kernel-install "$@" "$kver" "$kimage"
 	kernel-install "$@" "$kver" "$kimage" || true
 done
